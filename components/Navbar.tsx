@@ -16,9 +16,7 @@ export const Navbar = () => {
   const toggleNav = () => {
     setNav(!nav)
   }
-  const closeNav = () => {
-    setNav(false)
-  }
+
 
 
   return (

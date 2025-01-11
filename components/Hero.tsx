@@ -20,7 +20,7 @@ export const Hero = () => {
       repeat: Infinity,
       repeatType: "mirror",
     });
-  }, []);
+  }, [color]);
 
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #000 50%, ${color})`;
   const border = useMotionTemplate`1px solid ${color}`
@@ -29,7 +29,7 @@ export const Hero = () => {
   return (
     <motion.section
       style={{ backgroundImage }}
-      className="relative grid min-h-screen place-content-center overflow-hidden px-4 py-24 text-gray-200"
+      className="relative grid min-h-screen place-content-center overflow-hidden px-4 py-24 text-gray-200" id="about"
     >
       <div className="z-10 flex flex-col items-center">
         <span className="mb-5 inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm">
@@ -54,28 +54,28 @@ export const Hero = () => {
         <p className="font-mono my-6 max-w-screen-2xl text-center"> Full Stack Developer based in Kolkata,India. With 2.5 years of experience and ongoing learning.</p>
 
         <a
-      href='https://resume-builder-test-new.masaischool.com/resume/public?resumeId=6734acff7ca4c4119e8ae00f'
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{ textDecoration: "none" }} 
-    >
-      <motion.button
-        style={{
-          border: "1px solid #61DAFB", 
-          boxShadow: "0px 4px 24px #61DAFB" 
-        }}
-        whileHover={{
-          scale: 1.015
-        }}
-        whileTap={{
-          scale: 0.985
-        }}
-        className="flex w-fit items-center gap-2 rounded-full px-4 py-2 bg-gray-800 text-white"
-      >
-        Download Resume
-        <FiArrowRight />
-      </motion.button>
-    </a>
+          href='https://resume-builder-test-new.masaischool.com/resume/public?resumeId=6734acff7ca4c4119e8ae00f'
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: "none" }}
+        >
+          <motion.button
+            style={{
+              border: "1px solid #61DAFB",
+              boxShadow: "0px 4px 24px #61DAFB"
+            }}
+            whileHover={{
+              scale: 1.015
+            }}
+            whileTap={{
+              scale: 0.985
+            }}
+            className="flex w-fit items-center gap-2 rounded-full px-4 py-2 bg-gray-800 text-white"
+          >
+            Download Resume
+            <FiArrowRight />
+          </motion.button>
+        </a>
       </div>
       <div className="bg-circle-container">
         <div className="bg-circle-background"></div>

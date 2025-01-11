@@ -24,7 +24,7 @@ function Footer() {
             <FaLinkedin size={24} />
           </a>
           <a
-            href="/"
+            href="#"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-white transition-colors"
           >
