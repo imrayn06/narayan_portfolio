@@ -32,7 +32,7 @@ export const Hero = () => {
       className="relative grid min-h-screen place-content-center overflow-hidden px-4 py-24 text-gray-200" id="about"
     >
       <div className="z-10 flex flex-col items-center">
-        <span className="mb-5 inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm">
+        <span className="mb-5 inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm font-mono">
           Open for work
         </span>
         <h1 className="text-white/40 md:text-7xl text-5xl font-black font-mono">Hi,I am</h1>
@@ -51,7 +51,7 @@ export const Hero = () => {
         </div>
 
 
-        <p className="font-mono my-6 max-w-screen-2xl text-center"> Full Stack Developer based in Kolkata,India. With 2.5 years of experience and ongoing learning.</p>
+        <p className="font-mono my-6 max-w-screen-2xl text-center text-2xl"> Full Stack Developer based in Kolkata,India. With 2.5 years of experience and ongoing learning.</p>
 
         <a
           href='https://resume-builder-test-new.masaischool.com/resume/public?resumeId=6734acff7ca4c4119e8ae00f'
@@ -70,7 +70,7 @@ export const Hero = () => {
             whileTap={{
               scale: 0.985
             }}
-            className="flex w-fit items-center gap-2 rounded-full px-4 py-2 bg-gray-800 text-white"
+            className="flex w-fit items-center gap-2 rounded-full px-4 py-2 bg-gray-800 text-white font-mono"
           >
             Download Resume
             <FiArrowRight />

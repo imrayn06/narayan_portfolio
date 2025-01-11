@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 function Footer() {
   return (
-    <footer className="bg-white/10 text-gray-300 py-6">
+    <footer className="bg-white/10 text-gray-300 py-6 font-mono">
       <div className="container mx-auto text-center">
         <p className="mb-4">© {new Date().getFullYear()} Narayan Shenehashis Dutta. All rights reserved.</p>
         <div className="flex justify-center gap-6">

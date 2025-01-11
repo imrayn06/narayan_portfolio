@@ -18,7 +18,7 @@ const stackItems = [
 
 function Stack() {
   return (
-    <section id='stack' className='py-16 glass '>
+    <section id='stack' className='py-16 glass font-mono '>
       <div className='max-w-[1200px] mx-auto px-4 text-center'>
         <h2 className='text-5xl text-gray-200 font-bold mb-10'>
           My Stack
