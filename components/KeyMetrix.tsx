@@ -7,27 +7,31 @@ import { motion, useInView } from 'framer-motion'
 const metrics = [
   {
     id: 1,
-    value: '2.5',
-    label: 'Years of Experience',
-    description: 'Blending testing expertise with a passion for full-stack development to grow as a developer.'
+    value: '3+',
+    label: 'Years of Technical Experience',
+    description:
+      'Experience as a Software Engineer and Test Engineer at Wipro and Q3 Technologies, working across development and QA.'
   },
   {
     id: 2,
-    value: '400+',
-    label: 'DSA Problems Solved',
-    description: 'Building a strong foundation in problem-solving through consistent practice.'
+    value: '1+',
+    label: 'Months in Digital Marketing',
+    description:
+      'Hands-on experience working on live projects involving SEO, content strategy, and business growth.'
   },
   {
     id: 3,
-    value: '1200+',
-    label: 'Hours of Coding',
-    description: 'Investing time in coding to enhance my skills and learn new technologies.'
+    value: '10+',
+    label: 'Digital Skills Acquired',
+    description:
+      'Trained in SEO, local SEO, keyword research, social media marketing, basic design, and analytics.'
   },
   {
     id: 4,
-    value: '6+',
-    label: 'Projects Completed',
-    description: 'Gaining hands-on experience by creating beginner-friendly yet challenging projects.'
+    value: '5+',
+    label: 'Live Projects & Campaigns',
+    description:
+      'Worked on real-world projects supporting brand visibility, engagement, and digital presence.'
   },
 ]
 
@@ -52,7 +56,7 @@ function KeyMetrix() {
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className='font-mono font-bold mb-12 text-6xl'
+        className='font-black font-bold mb-12 text-6xl'
       >
         KEY METRICS
       </motion.h2>

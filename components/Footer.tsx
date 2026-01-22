@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer className="bg-white/10 text-gray-300 py-6 font-mono">
       <div className="container mx-auto text-center">
-        <p className="mb-4">© {new Date().getFullYear()} Narayan Shenehashis Dutta. All rights reserved.</p>
+        <p className="mb-4">© {new Date().getFullYear()} Shenehashis Dutta. All rights reserved.</p>
         <div className="flex justify-center gap-6">
           <a
             href="https://github.com/imrayn06"
@@ -24,7 +24,7 @@ function Footer() {
             <FaLinkedin size={24} />
           </a>
           <a
-            href="#"
+            href="https://x.com/imsneh06?s=09"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-white transition-colors"
           >
