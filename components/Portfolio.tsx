@@ -255,8 +255,8 @@ export default function Portfolio() {
                       key={i}
                       onClick={() => setActiveImageIndex(i)}
                       className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === activeImageIndex
-                          ? "bg-white scale-125"
-                          : "bg-gray-600 hover:bg-gray-400"
+                        ? "bg-white scale-125"
+                        : "bg-gray-600 hover:bg-gray-400"
                         }`}
                       aria-label={`Go to image ${i + 1}`}
                     />
