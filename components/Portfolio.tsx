@@ -16,7 +16,7 @@ const projects = [
       "https://drive.google.com/uc?export=view&id=17oZDjhdY7WJaXLV1KuP0PTMY4BCTzhUC",
       "https://drive.google.com/uc?export=view&id=1G3yWh-G-oqXBi4IARKah2bHSmuRka2VP",
       "https://drive.google.com/uc?export=view&id=1wNAR9V74AEfMw81Rw4qPq4xxO9mXwYQY",
-    
+
     ],
     links: [
       {
@@ -32,8 +32,10 @@ const projects = [
     description:
       "Performed keyword research using Google Keyword Planner, Ubersuggest, and SEMrush. Optimized pages with on-page SEO including meta tags, headings, and internal linking.",
     images: [
-      "https://drive.google.com/uc?export=view&id=1cjD_wxk2Tq4A4ptDLuFBSWLqiz5yueie", 
-      "https://drive.google.com/uc?export=view&id=1QZ4sXzM99MYm2m26TJpMKW2kwS2uLRfh"
+      "https://drive.google.com/uc?export=view&id=1cjD_wxk2Tq4A4ptDLuFBSWLqiz5yueie",
+      "https://drive.google.com/uc?export=view&id=1QZ4sXzM99MYm2m26TJpMKW2kwS2uLRfh",
+      "https://drive.google.com/uc?export=view&id=145pVk4HvXDmUlrrH1IAniyGu8JncgIWO",
+      "https://drive.google.com/uc?export=view&id=1kAhzPPgNgqzl4Lm9Qkp_2Zl-vjnmHpFn"
     ],
     links: [
       {
@@ -54,7 +56,7 @@ const projects = [
 
     ],
     links: [
-       {
+      {
         label: "Drive Folder",
         url: "https://drive.google.com/drive/folders/1VN10hTldfpIONu0OwDeHbNUQZqKFIoY5?usp=sharing",
       },
@@ -90,7 +92,7 @@ const projects = [
       "https://drive.google.com/uc?export=view&id=1O9Sv3e--77a5HAKV8CrTWUmq0lTYwfsD"
     ],
     links: [
-       {
+      {
         label: "Drive Folder",
         url: "https://drive.google.com/drive/folders/1leJPGRlppqWZtq4bfWwEG6EsYH9ddS6X?usp=sharing",
       },
@@ -121,15 +123,24 @@ export default function Portfolio() {
 
   // Auto-slide carousel
   useEffect(() => {
-    if (selectedProject.images.length <= 1) return; // No need to slide if 1 image
+    if (selectedProject.images.length <= 1) return
     const interval = setInterval(() => {
-      setActiveImageIndex((prevIndex) =>
-        prevIndex === selectedProject.images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 2000); // Change slide every 4 seconds
+      setActiveImageIndex((prev) =>
+        prev === selectedProject.images.length - 1 ? 0 : prev + 1
+      )
+    }, 2500)
+    return () => clearInterval(interval)
+  }, [selectedProject])
 
-    return () => clearInterval(interval); // Cleanup on project change/unmount
-  }, [selectedProject]);
+  const handlePrev = () =>
+    setActiveImageIndex((prev) =>
+      prev === 0 ? selectedProject.images.length - 1 : prev - 1
+    )
+
+  const handleNext = () =>
+    setActiveImageIndex((prev) =>
+      prev === selectedProject.images.length - 1 ? 0 : prev + 1
+    )
 
   const backgroundImage = useMotionTemplate`
     radial-gradient(125% 125% at 50% 0%, #000 50%, ${color})
@@ -138,13 +149,14 @@ export default function Portfolio() {
   return (
     <motion.section
       id="portfolio"
-      className="py-32 text-white"
+      className="py-20 md:py-32 text-white"
       style={{ backgroundImage }}
     >
-      <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12">
-        {/* LEFT SIDE */}
-        <div>
-          <h2 className="text-6xl font-bold font-mono mb-10">
+      <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-8 lg:gap-12">
+
+        {/* LEFT SIDE – project list */}
+        <div className="order-2 lg:order-1">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-mono mb-8">
             Selected <span className="text-gray-400">Projects</span>
           </h2>
 
@@ -152,17 +164,17 @@ export default function Portfolio() {
             <div
               key={project.id}
               onClick={() => setSelectedProject(project)}
-              className="cursor-pointer mb-8 group"
+              className="cursor-pointer mb-6 group"
             >
-              <p className="text-gray-400 font-mono text-lg mb-2">
+              <p className="text-gray-400 font-mono text-sm md:text-base mb-1">
                 {project.date}
               </p>
 
               <h3
-                className={`text-3xl font-semibold font-mono transition-colors duration-300
+                className={`text-xl md:text-2xl lg:text-3xl font-semibold font-mono transition-colors duration-300
                   ${selectedProject.id === project.id
                     ? "text-gray-200"
-                    : "group-hover:text-gray-400"
+                    : "text-gray-500 group-hover:text-gray-300"
                   }`}
               >
                 {project.title}
@@ -170,14 +182,13 @@ export default function Portfolio() {
 
               {selectedProject.id === project.id && (
                 <>
-                  <div className="border-b-2 border-gray-600 my-4" />
-                  <p className="text-gray-300 text-xl font-mono">
+                  <div className="border-b-2 border-gray-600 my-3" />
+                  <p className="text-gray-300 text-base md:text-lg font-mono">
                     {project.description}
                   </p>
 
-                  {/* LINKS */}
                   {project.links.length > 0 && (
-                    <div className="flex flex-wrap gap-4 mt-6">
+                    <div className="flex flex-wrap gap-3 mt-4">
                       {project.links.map((link, index) => (
                         <a
                           key={index}
@@ -198,23 +209,63 @@ export default function Portfolio() {
           ))}
         </div>
 
-        {/* RIGHT SIDE */}
-        <div className="flex flex-col items-center justify-center lg:items-end">
+        {/* RIGHT SIDE – image carousel */}
+        <div className="order-1 lg:order-2 flex flex-col items-center justify-start lg:justify-center">
           {selectedProject.images.length > 0 ? (
-            <>
-              <Image
-                src={selectedProject.images[activeImageIndex]}
-                alt={selectedProject.title}
-                width={500}  // Max width
-                height={500} // Max height
-                className="rounded shadow-lg object-contain max-h-[500px] max-w-full"
-                priority
-              />
+            <div className="w-full">
+              {/* Image container – shows full image without cropping */}
+              <div className="relative w-full min-h-[300px] md:min-h-[400px] rounded-xl overflow-hidden shadow-2xl bg-gray-900 flex items-center justify-center">
+                <Image
+                  key={selectedProject.images[activeImageIndex]}
+                  src={selectedProject.images[activeImageIndex]}
+                  alt={selectedProject.title}
+                  width={800}
+                  height={600}
+                  className="object-contain w-full h-auto max-h-[70vh] transition-opacity duration-500"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
 
-             
-            </>
+                {/* Prev / Next buttons */}
+                {selectedProject.images.length > 1 && (
+                  <>
+                    <button
+                      onClick={handlePrev}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white rounded-full w-9 h-9 flex items-center justify-center text-lg transition"
+                      aria-label="Previous image"
+                    >
+                      ‹
+                    </button>
+                    <button
+                      onClick={handleNext}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white rounded-full w-9 h-9 flex items-center justify-center text-lg transition"
+                      aria-label="Next image"
+                    >
+                      ›
+                    </button>
+                  </>
+                )}
+              </div>
+
+              {/* Dot indicators */}
+              {selectedProject.images.length > 1 && (
+                <div className="flex justify-center gap-2 mt-3">
+                  {selectedProject.images.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveImageIndex(i)}
+                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === activeImageIndex
+                          ? "bg-white scale-125"
+                          : "bg-gray-600 hover:bg-gray-400"
+                        }`}
+                      aria-label={`Go to image ${i + 1}`}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
           ) : (
-            <div className="h-96 w-full bg-gray-800 rounded flex items-center justify-center text-gray-400 font-mono">
+            <div className="w-full aspect-[4/3] bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 font-mono">
               No preview available
             </div>
           )}

@@ -8,10 +8,11 @@ import { SiMongodb, SiExpress, SiCanva, SiGoogleanalytics, SiMailchimp } from 'r
 const stackItems = [
   {
     id: 1,
-    name: 'MERN Stack',
-    icon: FaReact,
-    color: '#00D8FF',
+    name: 'Social Media Management',
+    icon: FaInstagram, // or FaFacebook, depending on your focus
+    color: '#E1306C',
   },
+
   {
     id: 2,
     name: 'WordPress',
@@ -74,10 +75,11 @@ const stackItems = [
   },
   {
     id: 12,
-    name: 'Social Media Management',
-    icon: FaInstagram, // or FaFacebook, depending on your focus
-    color: '#E1306C',
+    name: 'MERN Stack',
+    icon: FaReact,
+    color: '#00D8FF',
   },
+
 ];
 
 
@@ -88,17 +90,17 @@ function Stack() {
         <h2 className='text-5xl text-gray-200 font-black mb-10'>
           My Stack
         </h2>
-        <div className='grid sm-grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 '>
-          {stackItems.map((item)=>(
+        <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-5 '>
+          {stackItems.map((item) => (
             <div key={item.id}
-            className='flex items-center justify-center flex-col rounded-xl px-2'>
-                <div className='mb-4 bg-white/10 p-6 rounded-xl'>
-                  {React.createElement(item.icon,{
-                    className:"w-32 h-32",
-                    style: {color: item.color}
-                  })}
-                </div>
-                <p className='text-gray-100 font-semibold'>{item.name}</p>
+              className='flex items-center justify-center flex-col rounded-xl px-1 md:px-2'>
+              <div className='mb-2 md:mb-4 bg-white/10 p-3 sm:p-4 md:p-6 rounded-xl'>
+                {React.createElement(item.icon, {
+                  className: "w-10 h-10 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-28 lg:h-28",
+                  style: { color: item.color }
+                })}
+              </div>
+              <p className='text-gray-100 font-semibold text-xs sm:text-sm md:text-base'>{item.name}</p>
             </div>
           ))}
         </div>
