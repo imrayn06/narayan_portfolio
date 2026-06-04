@@ -87,20 +87,20 @@ function Stack() {
   return (
     <section id='stack' className='py-16 glass font-black '>
       <div className='max-w-[1200px] mx-auto px-4 text-center'>
-        <h2 className='text-5xl text-gray-200 font-black mb-10'>
+        <h2 className='text-5xl text-slate-900 dark:text-gray-200 font-black mb-10'>
           My Stack
         </h2>
         <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-5 '>
           {stackItems.map((item) => (
             <div key={item.id}
               className='flex items-center justify-center flex-col rounded-xl px-1 md:px-2'>
-              <div className='mb-2 md:mb-4 bg-white/10 p-3 sm:p-4 md:p-6 rounded-xl'>
+              <div className='mb-2 md:mb-4 bg-slate-200/60 dark:bg-white/10 p-3 sm:p-4 md:p-6 rounded-xl'>
                 {React.createElement(item.icon, {
                   className: "w-10 h-10 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-28 lg:h-28",
                   style: { color: item.color }
                 })}
               </div>
-              <p className='text-gray-100 font-semibold text-xs sm:text-sm md:text-base'>{item.name}</p>
+              <p className='text-slate-900 dark:text-gray-100 font-semibold text-xs sm:text-sm md:text-base'>{item.name}</p>
             </div>
           ))}
         </div>

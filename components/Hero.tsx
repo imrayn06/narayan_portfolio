@@ -6,11 +6,13 @@ import { useEffect } from "react";
 import profilepic from "../assets/profilepic.png"
 import object from "../assets/obj1.png";
 import { FiArrowRight } from "react-icons/fi";
+import { useTheme } from "./ThemeContext";
 import "../app/globals.css"
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
 export const Hero = () => {
+  const { theme } = useTheme();
   const color = useMotionValue(COLORS_TOP[0]);
 
   useEffect(() => {
@@ -22,29 +24,24 @@ export const Hero = () => {
     });
   }, [color]);
 
-  const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #000 50%, ${color})`;
-  const border = useMotionTemplate`1px solid ${color}`
-  const boxShadow = useMotionTemplate`(0px 4px 24px solid ${color}`
-
   return (
     <motion.section
-      style={{ backgroundImage }}
-      className="relative grid min-h-screen place-content-center overflow-hidden px-4 py-24 text-gray-200"
+      className="relative grid min-h-screen place-content-center overflow-hidden px-4 py-24 text-slate-800 dark:text-gray-200 transition-colors duration-300"
       id="about"
     >
       <div className="z-10 flex flex-col items-center text-center space-y-5">
         {/* Status badge */}
-        <span className="inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm font-mono">
+        <span className="inline-flex items-center justify-center rounded-full border border-purple-300/70 bg-gradient-to-r from-purple-100 via-fuchsia-100 to-pink-100 px-4 py-2 text-sm font-semibold tracking-wide text-purple-800 shadow-[0_10px_30px_rgba(168,85,247,0.12)] dark:border-sky-500/60 dark:bg-gradient-to-r dark:from-slate-900 dark:via-slate-950 dark:to-indigo-950 dark:text-sky-300 dark:shadow-[0_10px_30px_rgba(59,130,246,0.18)]">
           Open for work
         </span>
 
         {/* Intro */}
-        <h1 className="text-white/40 md:text-7xl text-5xl font-black">
+        <h1 className="text-slate-800/40 dark:text-white/40 md:text-7xl text-5xl font-black">
           Hi, I am
         </h1>
 
         {/* Name */}
-        <h1 className="font-mono max-w-3xl bg-gradient-to-br from-white to-gray-200 bg-clip-text font-black leading-tight text-transparent md:text-7xl text-5xl">
+        <h1 className="font-mono max-w-3xl bg-gradient-to-br from-slate-900 to-slate-700 dark:from-white dark:to-gray-200 bg-clip-text font-black leading-tight text-transparent md:text-7xl text-5xl">
           Shenehashis Dutta
         </h1>
         <line></line>
@@ -55,12 +52,12 @@ export const Hero = () => {
           src={profilepic}
           alt="profile picture"
           width={250}
-          className="rounded-3xl mx-auto"
+          className="rounded-3xl mx-auto shadow-lg dark:shadow-none"
         />
         <line></line>
 
         {/* Welcome box */}
-        <div className="flex bg-white/10 shadow-xl p-3 rounded-3xl justify-center items-center space-x-2">
+        <div className="flex bg-slate-200/50 dark:bg-white/10 shadow-xl p-3 rounded-3xl justify-center items-center space-x-2 text-slate-800 dark:text-gray-200">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
@@ -73,18 +70,19 @@ export const Hero = () => {
               className="rounded-2xl mx-auto"
             />
           </motion.div>
-          <p className="">WELCOME TO MY PORTFOLIO</p>
+          <p className="font-semibold">WELCOME TO MY PORTFOLIO</p>
         </div>
         <line></line>
         {/* Description */}
-        <p className="w-full max-w-6xl mx-auto px-4 md:px-6 lg:px-8 text-center text-[20.5px] md:text-[22px] lg:text-[26px] leading-8 md:leading-9 lg:leading-10 text-neutral-300 font-mono font-medium gap-y-6 flex flex-col">
-
-          Versatile professional with nearly three years of experience in Software Engineering, Testing, and Quality Assurance, alongside experience in Digital Marketing and Social Media Management. Passionate about content creation, brand growth, and audience engagement, with hands-on experience in digital marketing initiatives at JRD Ayurveda and six months of experience as a Digital Marketing Executive and Social Media Manager at Mind and Matter. Skilled in content strategy, campaign coordination, social media management, analytics, and business growth initiatives.
-        </p>
+        <div className="w-full max-w-6xl mx-auto px-4 md:px-6 lg:px-8 text-center rounded-3xl bg-white/15 dark:bg-slate-900/25 backdrop-blur-xl shadow-lg shadow-slate-300/10 dark:shadow-black/30 ring-1 ring-white/10 dark:ring-white/10">
+          <p className="px-6 py-8 text-[20.5px] md:text-[22px] lg:text-[26px] leading-8 md:leading-9 lg:leading-10 text-slate-900 dark:text-neutral-100 font-mono font-medium gap-y-6 flex flex-col">
+            Versatile professional with nearly three years of experience in Software Engineering, Testing, and Quality Assurance, alongside experience in Digital Marketing and Social Media Management. Passionate about content creation, brand growth, and audience engagement, with hands-on experience in digital marketing initiatives at JRD Ayurveda and six months of experience as a Digital Marketing Executive and Social Media Manager at Mind and Matter. Skilled in content strategy, campaign coordination, social media management, analytics, and business growth initiatives.
+          </p>
+        </div>
         <line></line>
         {/* Resume button */}
         <a
-          href="https://drive.google.com/file/d/1cYAqEg3wsdv5ee5-5iA43fDo-Nq5-7W8/view?usp=sharing"
+          href="https://drive.google.com/file/d/1SIgneDnDqqFIYPjAzUY2wXyBdhGGrPp6/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           style={{ textDecoration: "none" }}
@@ -96,7 +94,7 @@ export const Hero = () => {
             }}
             whileHover={{ scale: 1.015 }}
             whileTap={{ scale: 0.985 }}
-            className="flex w-fit items-center gap-2 rounded-full px-4 py-2 bg-gray-800 text-white font-mono"
+            className="flex w-fit items-center gap-3 rounded-full px-7 py-3 text-lg tracking-wide font-semibold bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500 text-white shadow-[0_20px_50px_rgba(168,85,247,0.22)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(168,85,247,0.28)] dark:bg-gradient-to-r dark:from-sky-500 dark:via-blue-500 dark:to-indigo-600 dark:shadow-[0_20px_50px_rgba(59,130,246,0.24)] font-mono"
           >
             Download Resume
             <FiArrowRight />
@@ -110,6 +108,5 @@ export const Hero = () => {
         <div className="bg-circle"></div>
       </div>
     </motion.section>
-
   );
 };

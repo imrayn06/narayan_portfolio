@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import { useMotionTemplate, useMotionValue, motion, animate } from "motion/react"
+import { useTheme } from "./ThemeContext"
 
 const projects = [
   {
@@ -105,6 +106,7 @@ const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"]
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState(projects[0])
   const [activeImageIndex, setActiveImageIndex] = useState(0)
+  const { theme } = useTheme()
 
   const color = useMotionValue(COLORS_TOP[0])
 
@@ -143,21 +145,20 @@ export default function Portfolio() {
     )
 
   const backgroundImage = useMotionTemplate`
-    radial-gradient(125% 125% at 50% 0%, #000 50%, ${color})
+    radial-gradient(125% 125% at 50% 0%, ${theme === "dark" ? "#000" : "#fff"} 50%, ${color})
   `
 
   return (
     <motion.section
       id="portfolio"
-      className="py-20 md:py-32 text-white"
-      style={{ backgroundImage }}
+      className="py-20 md:py-32 text-slate-800 dark:text-white transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-8 lg:gap-12">
 
         {/* LEFT SIDE – project list */}
         <div className="order-2 lg:order-1">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-mono mb-8">
-            Selected <span className="text-gray-400">Projects</span>
+            Selected <span className="text-slate-500 dark:text-gray-400">Projects</span>
           </h2>
 
           {projects.map((project) => (
@@ -166,15 +167,15 @@ export default function Portfolio() {
               onClick={() => setSelectedProject(project)}
               className="cursor-pointer mb-6 group"
             >
-              <p className="text-gray-400 font-mono text-sm md:text-base mb-1">
+              <p className="text-slate-500 dark:text-gray-400 font-mono text-sm md:text-base mb-1">
                 {project.date}
               </p>
 
               <h3
                 className={`text-xl md:text-2xl lg:text-3xl font-semibold font-mono transition-colors duration-300
                   ${selectedProject.id === project.id
-                    ? "text-gray-200"
-                    : "text-gray-500 group-hover:text-gray-300"
+                    ? "text-slate-800 dark:text-gray-200"
+                    : "text-slate-400 dark:text-gray-500 hover:text-slate-600 dark:hover:text-gray-300"
                   }`}
               >
                 {project.title}
@@ -182,8 +183,8 @@ export default function Portfolio() {
 
               {selectedProject.id === project.id && (
                 <>
-                  <div className="border-b-2 border-gray-600 my-3" />
-                  <p className="text-gray-300 text-base md:text-lg font-mono">
+                  <div className="border-b-2 border-slate-300 dark:border-gray-600 my-3" />
+                  <p className="text-slate-600 dark:text-gray-300 text-base md:text-lg font-mono">
                     {project.description}
                   </p>
 
@@ -195,8 +196,8 @@ export default function Portfolio() {
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-4 py-2 border border-gray-400 rounded font-mono text-sm
-                                     hover:bg-white hover:text-black transition"
+                          className="px-4 py-2 border border-slate-400 dark:border-gray-400 rounded font-mono text-sm
+                                     hover:bg-slate-800 hover:text-white dark:hover:bg-white dark:hover:text-black transition"
                         >
                           {link.label}
                         </a>
@@ -214,7 +215,7 @@ export default function Portfolio() {
           {selectedProject.images.length > 0 ? (
             <div className="w-full">
               {/* Image container – shows full image without cropping */}
-              <div className="relative w-full min-h-[300px] md:min-h-[400px] rounded-xl overflow-hidden shadow-2xl bg-gray-900 flex items-center justify-center">
+              <div className="relative w-full min-h-[300px] md:min-h-[400px] rounded-xl overflow-hidden shadow-2xl bg-slate-200 dark:bg-gray-900 flex items-center justify-center transition-colors duration-300">
                 <Image
                   key={selectedProject.images[activeImageIndex]}
                   src={selectedProject.images[activeImageIndex]}
@@ -255,8 +256,8 @@ export default function Portfolio() {
                       key={i}
                       onClick={() => setActiveImageIndex(i)}
                       className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === activeImageIndex
-                        ? "bg-white scale-125"
-                        : "bg-gray-600 hover:bg-gray-400"
+                        ? "bg-slate-800 dark:bg-white scale-125"
+                        : "bg-slate-300 dark:bg-gray-600 hover:bg-slate-400 dark:hover:bg-gray-400"
                         }`}
                       aria-label={`Go to image ${i + 1}`}
                     />
@@ -265,7 +266,7 @@ export default function Portfolio() {
               )}
             </div>
           ) : (
-            <div className="w-full aspect-[4/3] bg-gray-800 rounded-xl flex items-center justify-center text-gray-400 font-mono">
+            <div className="w-full aspect-[4/3] bg-slate-200 dark:bg-gray-800 rounded-xl flex items-center justify-center text-slate-500 dark:text-gray-400 font-mono">
               No preview available
             </div>
           )}

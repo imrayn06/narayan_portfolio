@@ -49,7 +49,7 @@ function KeyMetrix() {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.8 }}
-      className='container mx-auto px-4 py-32 text-white'
+      className='container mx-auto px-4 py-32 text-slate-900 dark:text-white'
     >
       <motion.h2
 
@@ -93,7 +93,7 @@ function KeyMetrix() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
-              className='text-gray-400 font-mono mb-2'
+              className='text-slate-600 dark:text-gray-400 font-mono mb-2'
             >
               {metric.description}
             </motion.p>

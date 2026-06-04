@@ -2,6 +2,8 @@
 import Link from "next/link"
 import React, { useState } from "react"
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
+import { FiSun, FiMoon } from "react-icons/fi"
+import { useTheme } from "./ThemeContext"
 
 const navlinks = [
   { title: "About", path: "#about" },
@@ -12,46 +14,73 @@ const navlinks = [
 
 export const Navbar = () => {
   const [nav, setNav] = useState(false)
+  const { theme, toggleTheme } = useTheme()
 
   const toggleNav = () => {
     setNav(!nav)
   }
 
-
-
   return (
-    <div className="z-50 fixed justify-center w-full text-white font-bold">
-      <div className="border border-white/20 mt-8 backdrop-blur-3xl rounded-3xl hidden md:flex items-center justify-center p-2 max-w-[400px] mx-auto">
-
+    <div className="z-50 fixed justify-center w-full text-slate-800 dark:text-white font-bold">
+      {/* Desktop Navbar */}
+      <div className="border border-purple-200/70 dark:border-white/20 mt-8 bg-white/80 dark:bg-[#0a0a0a]/40 backdrop-blur-3xl rounded-3xl hidden md:flex items-center justify-between p-2 max-w-[500px] mx-auto px-6 shadow-lg shadow-purple-200/30 dark:shadow-none">
+        
         <ul className="flex flex-row p-2 space-x-8">
           {navlinks.map((link, index) => (
             <li key={index}>
-              <Link href={link.path} className="transform hover:text-white/50 transition-all duration-300 ease-in-out font-mono">
+              <Link href={link.path} className="transform hover:text-purple-700 dark:hover:text-white/50 transition-all duration-300 ease-in-out font-mono text-slate-900 dark:text-white">
                 {link.title}
               </Link>
             </li>
           ))}
         </ul>
 
-      </div>
-      <div onClick={toggleNav} className="md:hidden absolute top-5 right-3 border rounded z-50 text-white/70 border-white/70 p-2">
-        {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
+        {/* Theme Toggle Button */}
+        <button
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+          className="p-2 rounded-full hover:bg-purple-100 dark:hover:bg-white/10 transition-colors text-purple-700 dark:text-slate-200 flex items-center justify-center"
+        >
+          {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
+        </button>
+
       </div>
 
+      {/* Mobile Nav Button */}
+      <div 
+        onClick={toggleNav} 
+        className="md:hidden absolute top-5 right-3 border rounded-xl z-50 text-purple-700 dark:text-white/70 border-purple-200/70 dark:border-white/70 p-2 bg-white/90 dark:bg-black/50 backdrop-blur-md cursor-pointer flex items-center gap-2"
+      >
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleTheme();
+          }}
+          aria-label="Toggle theme"
+          className="p-1 rounded-full hover:bg-purple-100 dark:hover:bg-white/10 transition-colors text-purple-700 dark:text-slate-200"
+        >
+          {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
+        </button>
+        {nav ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
+      </div>
+
+      {/* Mobile Nav Menu */}
       <div
-        className={`fixed left-0 top-0 w-full h-full bg-black/90 transform transition-transform duration-300
+        className={`fixed left-0 top-0 w-full h-full bg-white dark:bg-black/95 transform transition-transform duration-300
     ${nav ? 'translate-x-0' : '-translate-x-full'}`}>
 
-        <ul className="flex flex-col items-center justify-center space-y-8 h-full">
-
+        <ul className="flex flex-col items-center justify-center space-y-8 h-full text-2xl">
           {navlinks.map((link, index) => (
             <li key={index}>
-              <Link href={link.path} className="transform hover:text-white/50 transition-all duration-300 ease-in-out">
+              <Link 
+                href={link.path} 
+                onClick={toggleNav}
+                className="transform hover:text-purple-600 dark:hover:text-white/50 transition-all duration-300 ease-in-out"
+              >
                 {link.title}
               </Link>
             </li>
           ))}
-
         </ul>
       </div >
 

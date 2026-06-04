@@ -2,9 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --background-hex: #fff8ff;
+  --foreground-hex: #0f172a;
+  --bg-color-1: rgba(236, 72, 153, 0.24);
+  --bg-color-2: rgba(139, 92, 246, 0.18);
+  --bg-color-3: rgba(59, 130, 246, 0.12);
+  --bg-color-4: rgba(248, 113, 213, 0.10);
+}
+
+.dark {
+  --background-hex: #070b1c;
+  --foreground-hex: #eef2ff;
+  --bg-color-1: rgba(88, 83, 208, 0.16);
+  --bg-color-2: rgba(59, 130, 246, 0.12);
+  --bg-color-3: rgba(168, 85, 247, 0.08);
+  --bg-color-4: rgba(15, 23, 42, 0.08);
+}
+
 body {
-  color: #ededed;
-  background: #0a0a0a;
+  color: var(--foreground-hex);
+  background-color: var(--background-hex);
+  background-image:
+    radial-gradient(circle at 20% 20%, var(--bg-color-1), transparent 28%),
+    radial-gradient(circle at 80% 15%, var(--bg-color-2), transparent 30%),
+    radial-gradient(circle at 50% 82%, var(--bg-color-3), transparent 26%),
+    radial-gradient(circle at 10% 85%, var(--bg-color-4), transparent 28%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 45% 45%, 40% 40%, 50% 50%, 35% 35%;
+  min-height: 100vh;
+  transition: background 0.5s ease, background-color 0.5s ease, color 0.3s ease;
+}
+
+@keyframes bgGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .bg-circle-container {
@@ -25,6 +65,11 @@ body {
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.26);
   z-index: -1;
+  transition: background-color 0.3s ease;
+}
+
+html:not(.dark) .bg-circle-background {
+  background-color: rgba(236, 72, 153, 0.16);
 }
 
 .bg-circle {
@@ -43,20 +88,42 @@ body {
               rgba(82, 78, 85, 0.1) 60%, 
               rgb(65, 63, 63) 100%);
   z-index: 0;
+  transition: background 0.3s ease;
+}
+
+html:not(.dark) .bg-circle {
+  background: radial-gradient(circle, 
+              rgba(218, 165, 255, 0.18) 0%,
+              rgba(191, 219, 254, 0.24) 12%,
+              rgba(192, 132, 252, 0.16) 30%,
+              rgba(249, 115, 22, 0.08) 52%,
+              rgba(248, 250, 252, 0.1) 100%);
 }
 
 .color {
   background-color: #766c77;
 }
 
-.glass{
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+.glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: 20px;
-  border:1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.12);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
+html:not(.dark) .glass {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(139, 92, 246, 0.26);
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.12);
+}
+
+html.dark .glass {
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
 html {
@@ -66,5 +133,47 @@ html {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+}
+
+.transport-vehicle {
+  left: -12%;
+}
+
+.animate-transport-right {
+  animation: transport-right 10s ease-in-out infinite;
+}
+
+.animate-transport-left {
+  animation: transport-left 10s ease-in-out infinite;
+}
+
+@keyframes transport-right {
+  0% {
+    transform: translateX(0) scaleX(-1);
+  }
+  50% {
+    transform: translateX(118vw) scaleX(-1);
+  }
+  50.1% {
+    transform: translateX(118vw) scaleX(1);
+  }
+  100% {
+    transform: translateX(0) scaleX(1);
+  }
+}
+
+@keyframes transport-left {
+  0% {
+    transform: translateX(118vw) scaleX(1);
+  }
+  50% {
+    transform: translateX(0) scaleX(1);
+  }
+  50.1% {
+    transform: translateX(0) scaleX(-1);
+  }
+  100% {
+    transform: translateX(118vw) scaleX(-1);
   }
 }
