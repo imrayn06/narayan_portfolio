@@ -10,28 +10,28 @@ const metrics = [
     value: '3+',
     label: 'Years of Technical Experience',
     description:
-      'Experience as a Software Engineer and Test Engineer at Wipro and Q3 Technologies, working across development and QA.'
+      'Experience as a Software Engineer and Test Engineer at Wipro and Q3 Technologies, working across development and Quality Assurance.'
   },
   {
     id: 2,
-    value: '1+',
+    value: '6+',
     label: 'Months in Digital Marketing',
     description:
-      'Hands-on experience working on live projects involving SEO, content strategy, and business growth.'
+      'Experience in digital marketing and content creation with exposure to strategy, brand growth, SEO, and analytics.'
   },
   {
     id: 3,
     value: '10+',
-    label: 'Digital Skills Acquired',
+    label: 'Skills Acquired',
     description:
-      'Trained in SEO, local SEO, keyword research, social media marketing, basic design, and analytics.'
+      'Trained & Skilled in Content creation, Copy Writing, Meta Optimization, SEO, Local SEO, Keyword Research, Social Media Marketing, Design, and Analytics.'
   },
   {
     id: 4,
-    value: '5+',
+    value: '10+',
     label: 'Live Projects & Campaigns',
     description:
-      'Worked on real-world projects supporting brand visibility, engagement, and digital presence.'
+      'Worked on executing strategies, campaigns and initiatives to support brand visibility, engagement, and digital presence.'
   },
 ]
 
