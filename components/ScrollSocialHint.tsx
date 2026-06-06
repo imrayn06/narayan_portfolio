@@ -6,6 +6,14 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function ScrollSocialHint() {
   const [visible, setVisible] = useState(false);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
   useEffect(() => {
     const onScroll = () => {
       const scrolled = window.scrollY + window.innerHeight;
@@ -68,7 +76,11 @@ export default function ScrollSocialHint() {
           >
             {/* Curve: from center-top (250,0) sweeps down-left to ~(80,125) */}
             <motion.path
-              d="M 250 0 C 240 30, 150 80, 80 122"
+              d={
+                isMobile
+                  ? "M 250 0 C 250 40, 250 85, 250 122" // straight down to bottom-center
+                  : "M 250 0 C 240 30, 150 80, 80 122" // existing desktop arrow
+              }
               stroke="#a78bfa"
               strokeWidth="2.5"
               strokeLinecap="round"
@@ -77,9 +89,13 @@ export default function ScrollSocialHint() {
               animate={{ pathLength: 1 }}
               transition={{ duration: 0.9, ease: "easeOut", delay: 0.25 }}
             />
-            {/* Arrowhead */}
+
             <motion.path
-              d="M 80 122 L 96 108 M 80 122 L 95 130"
+              d={
+                isMobile
+                  ? "M 250 122 L 240 110 M 250 122 L 260 110" // arrowhead at bottom-center
+                  : "M 80 122 L 96 108 M 80 122 L 95 130" // existing desktop arrowhead
+              }
               stroke="#a78bfa"
               strokeWidth="2.5"
               strokeLinecap="round"
