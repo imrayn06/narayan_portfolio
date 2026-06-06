@@ -218,7 +218,7 @@ export default function Portfolio() {
           {selectedProject.images.length > 0 ? (
             <div className="w-full">
               {/* Image container – shows full image without cropping */}
-              <div className="relative w-full min-h-[300px] md:min-h-[400px] rounded-xl overflow-hidden shadow-2xl bg-slate-200 dark:bg-gray-900 flex items-center justify-center transition-colors duration-300">
+              <div className="relative w-full h-[500px] md:h-[650px] lg:h-[750px] rounded-xl overflow-hidden shadow-2xl bg-slate-200 dark:bg-gray-900 flex items-center justify-center transition-colors duration-300">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeImageIndex + "-" + selectedProject.id}
@@ -233,7 +233,7 @@ export default function Portfolio() {
                       alt={selectedProject.title}
                       width={800}
                       height={600}
-                      className="object-contain w-full h-auto max-h-[70vh]"
+                      className="object-contain w-full h-full max-h-full"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       priority
                     />

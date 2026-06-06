@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useMotionTemplate, useMotionValue, animate, useSpring } from "framer-motion";
+import { motion, useMotionValue, animate } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import profilepic from "../assets/profilepic.png"
 import object from "../assets/obj1.png";
 import { FiArrowRight } from "react-icons/fi";
@@ -15,16 +15,6 @@ export const Hero = () => {
   const { theme } = useTheme();
   const color = useMotionValue(COLORS_TOP[0]);
 
-  // Custom cursor state
-  const [isHovered, setIsHovered] = useState(false);
-  const [isInside, setIsInside] = useState(false);
-  const mouseX = useMotionValue(-100);
-  const mouseY = useMotionValue(-100);
-
-  const springConfig = { damping: 25, stiffness: 400, mass: 0.5 };
-  const cursorX = useSpring(mouseX, springConfig);
-  const cursorY = useSpring(mouseY, springConfig);
-
   useEffect(() => {
     animate(color, COLORS_TOP, {
       ease: "easeInOut",
@@ -36,33 +26,10 @@ export const Hero = () => {
 
   return (
     <motion.section
-      onMouseMove={(e) => {
-        mouseX.set(e.clientX);
-        mouseY.set(e.clientY);
-      }}
-      onMouseEnter={() => setIsInside(true)}
-      onMouseLeave={() => { setIsInside(false); setIsHovered(false); }}
-      className="relative grid min-h-screen place-content-center overflow-hidden px-4 py-24 text-slate-800 dark:text-gray-200 transition-colors duration-300 md:cursor-none"
+      data-hover="true"
+      className="relative grid min-h-screen place-content-center overflow-hidden px-4 py-24 text-slate-800 dark:text-gray-200 transition-colors duration-300"
       id="about"
     >
-      {/* Custom Cursor */}
-      <motion.div
-        className="pointer-events-none fixed top-0 left-0 rounded-full z-[100] mix-blend-difference flex items-center justify-center overflow-hidden hidden md:flex"
-        animate={{
-          width: isHovered ? 120 : isInside ? 30 : 0,
-          height: isHovered ? 120 : isInside ? 30 : 0,
-          backgroundColor: isHovered ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 0.5)",
-          opacity: isInside ? 1 : 0
-        }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        style={{
-          x: cursorX,
-          y: cursorY,
-          translateX: "-50%",
-          translateY: "-50%",
-        }}
-      />
-
       <div className="z-10 flex flex-col items-center text-center space-y-5">
         {/* Status badge */}
         <span className="inline-flex items-center justify-center rounded-full border border-purple-300/70 bg-gradient-to-r from-purple-100 via-fuchsia-100 to-pink-100 px-4 py-2 text-sm font-semibold tracking-wide text-purple-800 shadow-[0_10px_30px_rgba(168,85,247,0.12)] dark:border-sky-500/60 dark:bg-gradient-to-r dark:from-slate-900 dark:via-slate-950 dark:to-indigo-950 dark:text-sky-300 dark:shadow-[0_10px_30px_rgba(59,130,246,0.18)]">
@@ -71,8 +38,7 @@ export const Hero = () => {
 
         {/* Intro */}
         <motion.h1 
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          data-hover="true"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -83,8 +49,7 @@ export const Hero = () => {
 
         {/* Name */}
         <motion.h1 
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          data-hover="true"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -134,8 +99,7 @@ export const Hero = () => {
         <line></line>
         {/* Description */}
         <motion.div 
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          data-hover="true"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}

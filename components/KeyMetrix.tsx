@@ -68,8 +68,8 @@ function KeyMetrix() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
             whileHover={{ scale: 1.05, y: -5 }}
-            className='flex flex-col items-center text-center p-8 rounded-3xl glass hover:bg-white/40 dark:hover:bg-slate-800/40 transition-all shadow-lg hover:shadow-xl'
-          >
+            data-hover="true"
+            className='flex flex-col items-center text-center p-8 rounded-3xl glass bg-white/10 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-all shadow-lg hover:shadow-xl'>
             <motion.h3
 
               initial={{ scale: 0.5 }}

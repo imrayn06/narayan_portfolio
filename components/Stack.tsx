@@ -11,39 +11,38 @@ const stackItems = [
   {
     id: 1,
     name: 'Social Media Management',
-    icon: FaInstagram, // or FaFacebook, depending on your focus
+    icon: FaInstagram,
     color: '#E1306C',
   },
-
   {
     id: 2,
+    name: 'Meta Ads',
+    icon: FaFacebook,
+    color: '#1877F2',
+  },
+  {
+    id: 3,
     name: 'WordPress',
     icon: FaWordpress,
     color: '#21759B',
   },
   {
-    id: 3,
+    id: 4,
     name: 'SEO & Local SEO',
     icon: FaSearch,
     color: '#FACC15',
   },
   {
-    id: 4,
+    id: 5,
     name: 'Google Analytics',
     icon: SiGoogleanalytics,
     color: '#F97316',
   },
   {
-    id: 5,
+    id: 6,
     name: 'Google Tools',
     icon: FaGoogle,
     color: '#4285F4',
-  },
-  {
-    id: 6,
-    name: 'Meta Ads',
-    icon: FaFacebook,
-    color: '#1877F2',
   },
   {
     id: 7,
@@ -66,13 +65,13 @@ const stackItems = [
   {
     id: 10,
     name: 'Email Marketing',
-    icon: SiMailchimp, // import from react-icons/si
+    icon: SiMailchimp,
     color: '#FF9900',
   },
   {
     id: 11,
     name: 'Content Marketing',
-    icon: FaPenNib, // import from react-icons/fa
+    icon: FaPenNib,
     color: '#8B5CF6',
   },
   {
@@ -81,7 +80,6 @@ const stackItems = [
     icon: FaReact,
     color: '#00D8FF',
   },
-
 ];
 
 
