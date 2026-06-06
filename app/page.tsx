@@ -13,25 +13,13 @@ export default function Home() {
     <>
      <link rel="icon" href="/logo.png" />
       <Navbar />
-      <SectionAnimation
-        icon="🚗"
-        direction="right"
-      />
+      <SectionAnimation icon="🌍" direction="right" />
       <Hero />
-      <SectionAnimation
-        icon="🚚"
-        direction="right"
-      />
+      <SectionAnimation icon="🌖" direction="right" />
       <KeyMetrix />
-      <SectionAnimation
-        icon="✈️"
-        direction="left"
-      />
+      <SectionAnimation icon="🪐" direction="left" />
       <Portfolio />
-      <SectionAnimation
-        icon="⛵"
-        direction="right"
-      />
+      <SectionAnimation icon="☄️" direction="right" />
       <Stack />
       <Contact />
       <GameSection />

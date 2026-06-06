@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, animate } from "framer-motion";
+import { motion, useMotionValue, animate, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { useEffect } from "react";
 import profilepic from "../assets/profilepic.png"
@@ -10,6 +10,58 @@ import { useTheme } from "./ThemeContext";
 import "../app/globals.css"
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
+
+/* ── Animated background circle ── */
+const DARK_STOPS = [
+  ["rgba(109,40,217,0.22)",  "rgba(59,130,246,0.14)",  "rgba(168,85,247,0.08)",  "rgba(15,23,42,0.04)"],
+  ["rgba(59,130,246,0.20)",  "rgba(99,102,241,0.16)",  "rgba(139,92,246,0.10)",  "rgba(15,23,42,0.04)"],
+  ["rgba(168,85,247,0.22)",  "rgba(236,72,153,0.12)",  "rgba(99,102,241,0.08)",  "rgba(15,23,42,0.04)"],
+  ["rgba(14,165,233,0.20)",  "rgba(109,40,217,0.14)",  "rgba(59,130,246,0.08)",  "rgba(15,23,42,0.04)"],
+];
+
+const LIGHT_STOPS = [
+  ["rgba(244,114,182,0.28)", "rgba(167,139,250,0.20)", "rgba(251,146,60,0.10)",  "rgba(255,255,255,0.04)"],
+  ["rgba(167,139,250,0.26)", "rgba(56,189,248,0.18)",  "rgba(244,114,182,0.10)", "rgba(255,255,255,0.04)"],
+  ["rgba(251,146,60,0.24)",  "rgba(244,114,182,0.18)", "rgba(167,139,250,0.10)", "rgba(255,255,255,0.04)"],
+  ["rgba(56,189,248,0.26)",  "rgba(167,139,250,0.20)", "rgba(251,191,36,0.10)",  "rgba(255,255,255,0.04)"],
+];
+
+function makeBg(stops: string[]) {
+  return `radial-gradient(circle, ${stops[0]} 0%, ${stops[1]} 25%, ${stops[2]} 60%, ${stops[3]} 100%)`;
+}
+
+function AnimatedBgCircle({ theme }: { theme: string }) {
+  const controls = useAnimation();
+  const stops = theme === "dark" ? DARK_STOPS : LIGHT_STOPS;
+
+  useEffect(() => {
+    let idx = 0;
+    const tick = () => {
+      idx = (idx + 1) % stops.length;
+      controls.start({
+        background: makeBg(stops[idx]),
+        transition: { duration: 4, ease: "easeInOut" },
+      });
+    };
+    controls.start({ background: makeBg(stops[0]) });
+    const id = setInterval(tick, 4000);
+    return () => clearInterval(id);
+  }, [theme, controls, stops]);
+
+  return (
+    <motion.div
+      animate={controls}
+      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-0"
+      style={{
+        width: 1000,
+        height: 1000,
+        background: makeBg(stops[0]),
+        filter: "blur(2px)",
+      }}
+    />
+  );
+}
+
 
 export const Hero = () => {
   const { theme } = useTheme();
@@ -103,9 +155,9 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}
-          className="w-full max-w-6xl mx-auto px-4 md:px-6 lg:px-8 text-center rounded-3xl bg-white/15 dark:bg-slate-900/25 backdrop-blur-xl shadow-lg shadow-slate-300/10 dark:shadow-black/30 ring-1 ring-white/10 dark:ring-white/10"
+          className="w-full max-w-5xl mx-auto px-8 md:px-14 lg:px-20 text-center rounded-3xl bg-white/15 dark:bg-slate-900/25 backdrop-blur-xl shadow-lg shadow-slate-300/10 dark:shadow-black/30 ring-1 ring-white/10 dark:ring-white/10"
         >
-          <p className="px-6 py-8 text-[20.5px] md:text-[22px] lg:text-[26px] leading-8 md:leading-9 lg:leading-10 text-slate-900 dark:text-neutral-100 font-mono font-medium gap-y-6 flex flex-col">
+          <p className="py-8 text-[20.5px] md:text-[22px] lg:text-[26px] leading-8 md:leading-9 lg:leading-10 text-slate-900 dark:text-neutral-100 font-mono font-medium">
             Versatile professional with nearly three years of experience in Software Engineering, Testing, and Quality Assurance, alongside experience in Digital Marketing and Social Media Management. Passionate about content creation, brand growth, and audience engagement, with hands-on experience in digital marketing initiatives at JRD Ayurveda and six months of experience as a Digital Marketing Executive and Social Media Manager at Mind and Matter. Skilled in content strategy, campaign coordination, social media management, analytics, and business growth initiatives.
           </p>
         </motion.div>
@@ -132,11 +184,9 @@ export const Hero = () => {
         </a>
       </div>
 
-      {/* Background circles */}
-      <div className="bg-circle-container">
-        <div className="bg-circle-background"></div>
-        <div className="bg-circle"></div>
-      </div>
+      {/* Animated background circle — theme-aware */}
+      <AnimatedBgCircle theme={theme} />
+
     </motion.section>
   );
 };

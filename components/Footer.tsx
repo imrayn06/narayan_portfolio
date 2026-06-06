@@ -6,7 +6,7 @@ function Footer() {
     <footer className="bg-slate-100/70 text-slate-700 dark:bg-black/20 dark:text-gray-300 py-6 font-mono">
       <div className="container mx-auto text-center">
         <p className="mb-4">© {new Date().getFullYear()} Shenehashis Dutta. All rights reserved.</p>
-        <div className="flex justify-center gap-6">
+        <div id="social-icons" className="flex justify-center gap-6">
           <a
             href="https://github.com/imrayn06"
             target="_blank"

@@ -19,6 +19,8 @@ export const metadata: Metadata = {
 };
 
 import CustomCursor from "@/components/CustomCursor";
+import BackgroundAnimation from "@/components/BackgroundAnimation";
+import ScrollSocialHint from "@/components/ScrollSocialHint";
 
 export default function RootLayout({
   children,
@@ -45,7 +47,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
+          <BackgroundAnimation />
           <CustomCursor />
+          <ScrollSocialHint />
           {children}
         </ThemeProvider>
       </body>
