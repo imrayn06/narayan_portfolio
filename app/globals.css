@@ -33,6 +33,19 @@ body {
   background-size: 45% 45%, 40% 40%, 50% 50%, 35% 35%;
   min-height: 100vh;
   transition: background 0.5s ease, background-color 0.5s ease, color 0.3s ease;
+  animation: bodyGradientMove 15s ease-in-out infinite alternate;
+}
+
+@keyframes bodyGradientMove {
+  0% {
+    background-position: 0% 0%, 100% 0%, 50% 100%, 0% 100%;
+  }
+  50% {
+    background-position: 10% 10%, 90% 10%, 40% 90%, 10% 90%;
+  }
+  100% {
+    background-position: 0% 0%, 100% 0%, 50% 100%, 0% 100%;
+  }
 }
 
 @keyframes bgGradientShift {

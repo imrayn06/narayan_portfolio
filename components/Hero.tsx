@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useMotionTemplate, useMotionValue, animate } from "framer-motion";
+import { motion, useMotionTemplate, useMotionValue, animate, useSpring } from "framer-motion";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import profilepic from "../assets/profilepic.png"
 import object from "../assets/obj1.png";
 import { FiArrowRight } from "react-icons/fi";
@@ -15,6 +15,16 @@ export const Hero = () => {
   const { theme } = useTheme();
   const color = useMotionValue(COLORS_TOP[0]);
 
+  // Custom cursor state
+  const [isHovered, setIsHovered] = useState(false);
+  const [isInside, setIsInside] = useState(false);
+  const mouseX = useMotionValue(-100);
+  const mouseY = useMotionValue(-100);
+
+  const springConfig = { damping: 25, stiffness: 400, mass: 0.5 };
+  const cursorX = useSpring(mouseX, springConfig);
+  const cursorY = useSpring(mouseY, springConfig);
+
   useEffect(() => {
     animate(color, COLORS_TOP, {
       ease: "easeInOut",
@@ -26,9 +36,33 @@ export const Hero = () => {
 
   return (
     <motion.section
-      className="relative grid min-h-screen place-content-center overflow-hidden px-4 py-24 text-slate-800 dark:text-gray-200 transition-colors duration-300"
+      onMouseMove={(e) => {
+        mouseX.set(e.clientX);
+        mouseY.set(e.clientY);
+      }}
+      onMouseEnter={() => setIsInside(true)}
+      onMouseLeave={() => { setIsInside(false); setIsHovered(false); }}
+      className="relative grid min-h-screen place-content-center overflow-hidden px-4 py-24 text-slate-800 dark:text-gray-200 transition-colors duration-300 md:cursor-none"
       id="about"
     >
+      {/* Custom Cursor */}
+      <motion.div
+        className="pointer-events-none fixed top-0 left-0 rounded-full z-[100] mix-blend-difference flex items-center justify-center overflow-hidden hidden md:flex"
+        animate={{
+          width: isHovered ? 120 : isInside ? 30 : 0,
+          height: isHovered ? 120 : isInside ? 30 : 0,
+          backgroundColor: isHovered ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 0.5)",
+          opacity: isInside ? 1 : 0
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        style={{
+          x: cursorX,
+          y: cursorY,
+          translateX: "-50%",
+          translateY: "-50%",
+        }}
+      />
+
       <div className="z-10 flex flex-col items-center text-center space-y-5">
         {/* Status badge */}
         <span className="inline-flex items-center justify-center rounded-full border border-purple-300/70 bg-gradient-to-r from-purple-100 via-fuchsia-100 to-pink-100 px-4 py-2 text-sm font-semibold tracking-wide text-purple-800 shadow-[0_10px_30px_rgba(168,85,247,0.12)] dark:border-sky-500/60 dark:bg-gradient-to-r dark:from-slate-900 dark:via-slate-950 dark:to-indigo-950 dark:text-sky-300 dark:shadow-[0_10px_30px_rgba(59,130,246,0.18)]">
@@ -36,28 +70,53 @@ export const Hero = () => {
         </span>
 
         {/* Intro */}
-        <h1 className="text-slate-800/40 dark:text-white/40 md:text-7xl text-5xl font-black">
+        <motion.h1 
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-slate-800/40 dark:text-white/40 md:text-7xl text-5xl font-black"
+        >
           Hi, I am
-        </h1>
+        </motion.h1>
 
         {/* Name */}
-        <h1 className="font-mono max-w-3xl bg-gradient-to-br from-slate-900 to-slate-700 dark:from-white dark:to-gray-200 bg-clip-text font-black leading-tight text-transparent md:text-7xl text-5xl">
+        <motion.h1 
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="font-mono max-w-3xl bg-gradient-to-br from-slate-900 to-slate-700 dark:from-white dark:to-gray-200 bg-clip-text font-black leading-tight text-transparent md:text-7xl text-5xl"
+        >
           Shenehashis Dutta
-        </h1>
+        </motion.h1>
         <line></line>
         <line></line>
 
         {/* Profile picture */}
-        <Image
-          src={profilepic}
-          alt="profile picture"
-          width={250}
-          className="rounded-3xl mx-auto shadow-lg dark:shadow-none"
-        />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <Image
+            src={profilepic}
+            alt="profile picture"
+            width={250}
+            className="rounded-3xl mx-auto shadow-lg dark:shadow-none"
+          />
+        </motion.div>
         <line></line>
 
         {/* Welcome box */}
-        <div className="flex bg-slate-200/50 dark:bg-white/10 shadow-xl p-3 rounded-3xl justify-center items-center space-x-2 text-slate-800 dark:text-gray-200">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="flex bg-slate-200/50 dark:bg-white/10 shadow-xl p-3 rounded-3xl justify-center items-center space-x-2 text-slate-800 dark:text-gray-200"
+        >
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
@@ -71,14 +130,21 @@ export const Hero = () => {
             />
           </motion.div>
           <p className="font-semibold">WELCOME TO MY PORTFOLIO</p>
-        </div>
+        </motion.div>
         <line></line>
         {/* Description */}
-        <div className="w-full max-w-6xl mx-auto px-4 md:px-6 lg:px-8 text-center rounded-3xl bg-white/15 dark:bg-slate-900/25 backdrop-blur-xl shadow-lg shadow-slate-300/10 dark:shadow-black/30 ring-1 ring-white/10 dark:ring-white/10">
+        <motion.div 
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
+          className="w-full max-w-6xl mx-auto px-4 md:px-6 lg:px-8 text-center rounded-3xl bg-white/15 dark:bg-slate-900/25 backdrop-blur-xl shadow-lg shadow-slate-300/10 dark:shadow-black/30 ring-1 ring-white/10 dark:ring-white/10"
+        >
           <p className="px-6 py-8 text-[20.5px] md:text-[22px] lg:text-[26px] leading-8 md:leading-9 lg:leading-10 text-slate-900 dark:text-neutral-100 font-mono font-medium gap-y-6 flex flex-col">
             Versatile professional with nearly three years of experience in Software Engineering, Testing, and Quality Assurance, alongside experience in Digital Marketing and Social Media Management. Passionate about content creation, brand growth, and audience engagement, with hands-on experience in digital marketing initiatives at JRD Ayurveda and six months of experience as a Digital Marketing Executive and Social Media Manager at Mind and Matter. Skilled in content strategy, campaign coordination, social media management, analytics, and business growth initiatives.
           </p>
-        </div>
+        </motion.div>
         <line></line>
         {/* Resume button */}
         <a

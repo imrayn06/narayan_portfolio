@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
-import { useMotionTemplate, useMotionValue, motion, animate } from "motion/react"
+import { useMotionTemplate, useMotionValue, motion, animate, AnimatePresence } from "motion/react"
 import { useTheme } from "./ThemeContext"
 
 const projects = [
@@ -161,8 +161,11 @@ export default function Portfolio() {
             Selected <span className="text-slate-500 dark:text-gray-400">Projects</span>
           </h2>
 
-          {projects.map((project) => (
-            <div
+          {projects.map((project, index) => (
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               key={project.id}
               onClick={() => setSelectedProject(project)}
               className="cursor-pointer mb-6 group"
@@ -206,7 +209,7 @@ export default function Portfolio() {
                   )}
                 </>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -216,43 +219,56 @@ export default function Portfolio() {
             <div className="w-full">
               {/* Image container – shows full image without cropping */}
               <div className="relative w-full min-h-[300px] md:min-h-[400px] rounded-xl overflow-hidden shadow-2xl bg-slate-200 dark:bg-gray-900 flex items-center justify-center transition-colors duration-300">
-                <Image
-                  key={selectedProject.images[activeImageIndex]}
-                  src={selectedProject.images[activeImageIndex]}
-                  alt={selectedProject.title}
-                  width={800}
-                  height={600}
-                  className="object-contain w-full h-auto max-h-[70vh] transition-opacity duration-500"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeImageIndex + "-" + selectedProject.id}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-full h-full flex items-center justify-center absolute inset-0"
+                  >
+                    <Image
+                      src={selectedProject.images[activeImageIndex]}
+                      alt={selectedProject.title}
+                      width={800}
+                      height={600}
+                      className="object-contain w-full h-auto max-h-[70vh]"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      priority
+                    />
+                  </motion.div>
+                </AnimatePresence>
 
                 {/* Prev / Next buttons */}
                 {selectedProject.images.length > 1 && (
                   <>
-                    <button
+                    <motion.button
+                      whileTap={{ scale: 0.9 }}
                       onClick={handlePrev}
-                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white rounded-full w-9 h-9 flex items-center justify-center text-lg transition"
+                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white rounded-full w-9 h-9 flex items-center justify-center text-lg transition z-10"
                       aria-label="Previous image"
                     >
                       ‹
-                    </button>
-                    <button
+                    </motion.button>
+                    <motion.button
+                      whileTap={{ scale: 0.9 }}
                       onClick={handleNext}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white rounded-full w-9 h-9 flex items-center justify-center text-lg transition"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 text-white rounded-full w-9 h-9 flex items-center justify-center text-lg transition z-10"
                       aria-label="Next image"
                     >
                       ›
-                    </button>
+                    </motion.button>
                   </>
                 )}
               </div>
 
               {/* Dot indicators */}
               {selectedProject.images.length > 1 && (
-                <div className="flex justify-center gap-2 mt-3">
+                <div className="flex justify-center gap-2 mt-3 relative z-10">
                   {selectedProject.images.map((_, i) => (
-                    <button
+                    <motion.button
+                      whileTap={{ scale: 0.8 }}
                       key={i}
                       onClick={() => setActiveImageIndex(i)}
                       className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === activeImageIndex

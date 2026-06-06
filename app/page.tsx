@@ -6,6 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import Portfolio from "@/components/Portfolio";
 import Stack from "@/components/Stack"
 import SectionAnimation from "@/components/SectionAnimation"
+import GameSection from "@/components/GameSection"
 
 export default function Home() {
   return (
@@ -21,14 +22,19 @@ export default function Home() {
         icon="🚚"
         direction="right"
       />
+      <KeyMetrix />
+      <SectionAnimation
+        icon="✈️"
+        direction="left"
+      />
       <Portfolio />
       <SectionAnimation
         icon="⛵"
         direction="right"
       />
       <Stack />
-      <KeyMetrix />
       <Contact />
+      <GameSection />
       <Footer />
     </>
   );

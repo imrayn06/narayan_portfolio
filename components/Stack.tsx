@@ -1,8 +1,10 @@
+"use client"
+
 import React from 'react'
 import { FaReact, FaHtml5, FaCss3, FaGoogle, FaSearch, FaFacebook, FaWordpress, FaInstagram, FaPenNib } from 'react-icons/fa'
 import { IoLogoNodejs } from 'react-icons/io'
 import { SiMongodb, SiExpress, SiCanva, SiGoogleanalytics, SiMailchimp } from 'react-icons/si'
-
+import { motion } from 'framer-motion'
 
 
 const stackItems = [
@@ -91,17 +93,22 @@ function Stack() {
           My Stack
         </h2>
         <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-5 '>
-          {stackItems.map((item) => (
-            <div key={item.id}
-              className='flex items-center justify-center flex-col rounded-xl px-1 md:px-2'>
-              <div className='mb-2 md:mb-4 bg-slate-200/60 dark:bg-white/10 p-3 sm:p-4 md:p-6 rounded-xl'>
+          {stackItems.map((item, index) => (
+            <motion.div key={item.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              whileHover={{ scale: 1.1, y: -5 }}
+              whileTap={{ scale: 0.95 }}
+              className='flex items-center justify-center flex-col rounded-xl px-1 md:px-2 cursor-pointer'>
+              <div className='mb-2 md:mb-4 bg-slate-200/60 dark:bg-white/10 p-3 sm:p-4 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow'>
                 {React.createElement(item.icon, {
                   className: "w-10 h-10 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-28 lg:h-28",
                   style: { color: item.color }
                 })}
               </div>
               <p className='text-slate-900 dark:text-gray-100 font-semibold text-xs sm:text-sm md:text-base'>{item.name}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

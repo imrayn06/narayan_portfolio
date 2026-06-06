@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 import { FiSun, FiMoon } from "react-icons/fi"
 import { useTheme } from "./ThemeContext"
+import { motion } from "framer-motion"
 
 const navlinks = [
   { title: "About", path: "#about" },
@@ -36,13 +37,21 @@ export const Navbar = () => {
         </ul>
 
         {/* Theme Toggle Button */}
-        <button
+        <motion.button
+          whileTap={{ scale: 0.9 }}
           onClick={toggleTheme}
           aria-label="Toggle theme"
           className="p-2 rounded-full hover:bg-purple-100 dark:hover:bg-white/10 transition-colors text-purple-700 dark:text-slate-200 flex items-center justify-center"
         >
-          {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
-        </button>
+          <motion.div
+            key={theme}
+            initial={{ scale: 0.5, rotate: -90, opacity: 0 }}
+            animate={{ scale: 1, rotate: 0, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 200, damping: 10 }}
+          >
+            {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
+          </motion.div>
+        </motion.button>
 
       </div>
 
@@ -51,7 +60,8 @@ export const Navbar = () => {
         onClick={toggleNav} 
         className="md:hidden absolute top-5 right-3 border rounded-xl z-50 text-purple-700 dark:text-white/70 border-purple-200/70 dark:border-white/70 p-2 bg-white/90 dark:bg-black/50 backdrop-blur-md cursor-pointer flex items-center gap-2"
       >
-        <button
+        <motion.button
+          whileTap={{ scale: 0.9 }}
           onClick={(e) => {
             e.stopPropagation();
             toggleTheme();
@@ -59,9 +69,18 @@ export const Navbar = () => {
           aria-label="Toggle theme"
           className="p-1 rounded-full hover:bg-purple-100 dark:hover:bg-white/10 transition-colors text-purple-700 dark:text-slate-200"
         >
-          {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
-        </button>
-        {nav ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
+          <motion.div
+            key={theme}
+            initial={{ scale: 0.5, rotate: -90, opacity: 0 }}
+            animate={{ scale: 1, rotate: 0, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 200, damping: 10 }}
+          >
+            {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
+          </motion.div>
+        </motion.button>
+        <motion.div whileTap={{ scale: 0.9 }}>
+          {nav ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
+        </motion.div>
       </div>
 
       {/* Mobile Nav Menu */}
