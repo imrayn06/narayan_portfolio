@@ -36,7 +36,7 @@ const metrics = [
 ]
 
 
-function KeyMetrix() {
+function MetricsSection() {
   const ref = React.useRef<HTMLElement>(null);
 
   const isInView = useInView(ref, { once: false });
@@ -75,7 +75,7 @@ function KeyMetrix() {
               initial={{ scale: 0.5 }}
               animate={isInView ? { scale: 1 } : { scale: 0.5 }}
               transition={{ duration: 0.4, delay: 0.6 + index * 0.1, type: 'spring' }}
-              className='text-6xl font-black font-mono text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500 animate-gradient mb-4'
+              className='text-6xl font-black font-sans text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500 animate-gradient mb-4'
             >
               {metric.value}
             </motion.h3>
@@ -85,7 +85,7 @@ function KeyMetrix() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
-              className='text-2xl font-mono font-bold mb-3'
+              className='text-2xl font-sans font-bold mb-3'
             >
               {metric.label}
             </motion.p>
@@ -94,7 +94,7 @@ function KeyMetrix() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
-              className='text-slate-600 dark:text-gray-400 font-mono text-sm leading-relaxed'
+              className='text-slate-600 dark:text-gray-400 font-sans text-sm leading-relaxed'
             >
               {metric.description}
             </motion.p>
@@ -105,4 +105,4 @@ function KeyMetrix() {
   )
 }
 
-export default KeyMetrix
+export default MetricsSection

@@ -130,7 +130,7 @@ export default function GameSection() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsModalOpen(true)}
-        className="px-8 py-4 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-mono font-bold text-lg md:text-xl rounded-full shadow-[0_10px_30px_rgba(99,102,241,0.4)] hover:shadow-[0_15px_40px_rgba(99,102,241,0.6)] transition-all duration-300"
+        className="px-8 py-4 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-sans font-bold text-lg md:text-xl rounded-full shadow-[0_10px_30px_rgba(99,102,241,0.4)] hover:shadow-[0_15px_40px_rgba(99,102,241,0.6)] transition-all duration-300"
       >
         Got enough info! Now let's play a game 🎮
       </motion.button>
@@ -162,8 +162,8 @@ export default function GameSection() {
                 <AiOutlineClose size={20} />
               </button>
 
-              <h2 className="text-3xl font-black font-mono text-slate-800 dark:text-white mb-2 mt-4">Tic Tac Toe</h2>
-              <p className="text-slate-500 dark:text-gray-400 font-mono text-sm mb-6 text-center">
+              <h2 className="text-3xl font-black font-sans text-slate-800 dark:text-white mb-2 mt-4">Tic Tac Toe</h2>
+              <p className="text-slate-500 dark:text-gray-400 font-sans text-sm mb-6 text-center">
                 Player (X) vs Sneh (O)<br/>
                 <span className="text-xs text-purple-500 font-semibold">
                   {winner ? "Game Over!" : (isPlayerTurn ? "Your turn!" : "Sneh is thinking...")}
@@ -178,7 +178,7 @@ export default function GameSection() {
                     whileTap={{ scale: cell || winner || !isPlayerTurn ? 1 : 0.9 }}
                     onClick={() => handleCellClick(index)}
                     disabled={!!cell || !!winner || !isPlayerTurn}
-                    className={`w-full h-full rounded-2xl text-5xl sm:text-6xl font-black font-mono flex items-center justify-center transition-colors
+                    className={`w-full h-full rounded-2xl text-5xl sm:text-6xl font-black font-sans flex items-center justify-center transition-colors
                       ${cell === 'X' ? 'text-purple-600 bg-purple-100 dark:bg-purple-900/30' : ''}
                       ${cell === 'O' ? 'text-indigo-500 bg-indigo-100 dark:bg-indigo-900/30' : ''}
                       ${!cell ? 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 cursor-pointer' : 'cursor-default'}
@@ -205,20 +205,20 @@ export default function GameSection() {
                     animate={{ opacity: 1, y: 0 }}
                     className="flex flex-col items-center"
                   >
-                    <p className="text-2xl font-black font-mono text-slate-800 dark:text-white mb-3">
+                    <p className="text-2xl font-black font-sans text-slate-800 dark:text-white mb-3">
                       {winner === 'Draw' ? "It's a Draw! 🤝" : `${winner} Wins! 🏆`}
                     </p>
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={handleRestart}
-                      className="px-6 py-2 bg-slate-800 dark:bg-white text-white dark:text-slate-900 font-bold font-mono rounded-full"
+                      className="px-6 py-2 bg-slate-800 dark:bg-white text-white dark:text-slate-900 font-bold font-sans rounded-full"
                     >
                       Play Again
                     </motion.button>
                   </motion.div>
                 ) : (
-                  <p className="text-slate-400 font-mono text-sm text-center">
+                  <p className="text-slate-400 font-sans text-sm text-center">
                     Winner goes first next round.<br/>Draw swaps the first player.
                   </p>
                 )}

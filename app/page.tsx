@@ -1,10 +1,10 @@
-import Contact from "@/components/Contact";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import { Hero } from "@/components/Hero";
-import KeyMetrix from "@/components/KeyMetrix";
+import { HeroSection } from "@/components/HeroSection";
+import MetricsSection from "@/components/MetricsSection";
 import { Navbar } from "@/components/Navbar";
-import Portfolio from "@/components/Portfolio";
-import Stack from "@/components/Stack"
+import ProjectsSection from "@/components/ProjectsSection";
+import TechStackSection from "@/components/TechStackSection"
 import SectionAnimation from "@/components/SectionAnimation"
 import GameSection from "@/components/GameSection"
 
@@ -14,14 +14,14 @@ export default function Home() {
      <link rel="icon" href="/logo.png" />
       <Navbar />
       <SectionAnimation icon="🌍" direction="right" />
-      <Hero />
+      <HeroSection />
       <SectionAnimation icon="🌖" direction="right" />
-      <KeyMetrix />
+      <MetricsSection />
       <SectionAnimation icon="🪐" direction="left" />
-      <Portfolio />
+      <ProjectsSection />
       <SectionAnimation icon="☄️" direction="right" />
-      <Stack />
-      <Contact />
+      <TechStackSection />
+      <ContactSection />
       <GameSection />
       <Footer />
     </>

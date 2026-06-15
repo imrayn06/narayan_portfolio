@@ -83,7 +83,7 @@ const stackItems = [
 ];
 
 
-function Stack() {
+function TechStackSection() {
   return (
     <section id='stack' className='py-16 glass font-black '>
       <div className='max-w-[1200px] mx-auto px-4 text-center'>
@@ -115,4 +115,4 @@ function Stack() {
   )
 }
 
-export default Stack
+export default TechStackSection

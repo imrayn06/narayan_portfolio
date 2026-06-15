@@ -103,7 +103,7 @@ const projects = [
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"]
 
-export default function Portfolio() {
+export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState(projects[0])
   const [activeImageIndex, setActiveImageIndex] = useState(0)
   const { theme } = useTheme()
@@ -157,7 +157,7 @@ export default function Portfolio() {
 
         {/* LEFT SIDE – project list */}
         <div className="order-2 lg:order-1">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-mono mb-8">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-sans mb-8">
             Selected <span className="text-slate-500 dark:text-gray-400">Projects</span>
           </h2>
 
@@ -170,12 +170,12 @@ export default function Portfolio() {
               onClick={() => setSelectedProject(project)}
               className="cursor-pointer mb-6 group"
             >
-              <p className="text-slate-500 dark:text-gray-400 font-mono text-sm md:text-base mb-1">
+              <p className="text-slate-500 dark:text-gray-400 font-sans text-sm md:text-base mb-1">
                 {project.date}
               </p>
 
               <h3
-                className={`text-xl md:text-2xl lg:text-3xl font-semibold font-mono transition-colors duration-300
+                className={`text-xl md:text-2xl lg:text-3xl font-semibold font-sans transition-colors duration-300
                   ${selectedProject.id === project.id
                     ? "text-slate-800 dark:text-gray-200"
                     : "text-slate-400 dark:text-gray-500 hover:text-slate-600 dark:hover:text-gray-300"
@@ -187,7 +187,7 @@ export default function Portfolio() {
               {selectedProject.id === project.id && (
                 <>
                   <div className="border-b-2 border-slate-300 dark:border-gray-600 my-3" />
-                  <p className="text-slate-600 dark:text-gray-300 text-base md:text-lg font-mono">
+                  <p className="text-slate-600 dark:text-gray-300 text-base md:text-lg font-sans">
                     {project.description}
                   </p>
 
@@ -199,7 +199,7 @@ export default function Portfolio() {
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-4 py-2 border border-slate-400 dark:border-gray-400 rounded font-mono text-sm
+                          className="px-4 py-2 border border-slate-400 dark:border-gray-400 rounded font-sans text-sm
                                      hover:bg-slate-800 hover:text-white dark:hover:bg-white dark:hover:text-black transition"
                         >
                           {link.label}
@@ -282,7 +282,7 @@ export default function Portfolio() {
               )}
             </div>
           ) : (
-            <div className="w-full aspect-[4/3] bg-slate-200 dark:bg-gray-800 rounded-xl flex items-center justify-center text-slate-500 dark:text-gray-400 font-mono">
+            <div className="w-full aspect-[4/3] bg-slate-200 dark:bg-gray-800 rounded-xl flex items-center justify-center text-slate-500 dark:text-gray-400 font-sans">
               No preview available
             </div>
           )}

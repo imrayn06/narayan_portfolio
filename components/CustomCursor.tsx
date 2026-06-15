@@ -28,20 +28,15 @@ export default function CustomCursor() {
       const elem = document.elementFromPoint(x, y) as HTMLElement | null;
       if (!elem) { setIsHovered(false); return; }
 
-      const tag = elem.tagName;
-      const isInteractive =
-        !IGNORED_TAGS.has(tag) ||
-        elem.matches("a, button, input, textarea, select, label, img, svg, [role], p, h1, h2, h3, h4, h5, h6, span");
-
       const hasDirectText = Array.from(elem.childNodes).some(
         (n) => n.nodeType === Node.TEXT_NODE && n.textContent?.trim()
       );
 
       const insideContent = !!elem.closest(
-        'a, button, input, textarea, select, label, img, svg, p, h1, h2, h3, h4, h5, h6, span, li, [role="button"], article, section, .card, [data-hover]'
+        'a, button, input, textarea, select, label, img, svg, p, h1, h2, h3, h4, h5, h6, li, [role="button"], [data-hover]'
       );
 
-      setIsHovered(isInteractive || hasDirectText || insideContent);
+      setIsHovered(hasDirectText || insideContent);
     };
 
     /* ── Mouse (desktop) ── */
@@ -110,10 +105,10 @@ export default function CustomCursor() {
         translateY: "-50%",
       }}
       animate={{
-        width: isHovered ? (isMobile ? 60 : 100) : isMobile ? 20 : 26,
-        height: isHovered ? (isMobile ? 60 : 100) : isMobile ? 20 : 26,
+        width: isHovered ? (isMobile ? 60 : 100) : isMobile ? 10 : 12,
+        height: isHovered ? (isMobile ? 60 : 100) : isMobile ? 10 : 12,
         backgroundColor: "rgba(255, 255, 255, 1)",
-        opacity: isMobile ? (touchVisible ? 1 : 0) : 1,
+        opacity: isHovered ? 1 : (isMobile ? (touchVisible ? 0.7 : 0) : 0.6),
         boxShadow: isHovered
           ? "0 0 28px 14px rgba(255,255,255,0.65)"
           : "0 0 0px 0px rgba(255,255,255,0)",

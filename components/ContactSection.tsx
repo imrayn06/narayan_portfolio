@@ -3,7 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-function Contact() {
+function ContactSection() {
   return (
     <section id='contact' className='py-12 text-slate-900 dark:text-white font-black max-w-[1500px] mx-auto px-4'>
       <motion.div
@@ -54,4 +54,4 @@ function Contact() {
   )
 }
 
-export default Contact
+export default ContactSection

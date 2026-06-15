@@ -4,19 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useTheme } from "@/components/ThemeContext";
 
-/* ─────────────────────────────────────────
-   Static star seed (generated once)
-───────────────────────────────────────── */
-const STAR_COUNT = 160;
-const stars = Array.from({ length: STAR_COUNT }, (_, i) => ({
-  id: i,
-  x: Math.random() * 100,
-  y: Math.random() * 100,
-  r: Math.random() * 1.8 + 0.4,
-  delay: Math.random() * 6,
-  duration: Math.random() * 4 + 3,
-  opacity: Math.random() * 0.5 + 0.3,
-}));
+import CanvasStarfield from "@/components/CanvasStarfield";
 
 /* ─────────────────────────────────────────
    Nebula blobs (fixed positions)
@@ -65,7 +53,10 @@ export default function BackgroundAnimation() {
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
     >
-      {/* ── SVG canvas for stars & nebulae ── */}
+      {/* ── Interactive Canvas Stars ── */}
+      {isDark && <CanvasStarfield />}
+
+      {/* ── SVG canvas for nebulae & shooting stars ── */}
       <svg
         className="absolute inset-0 w-full h-full"
         xmlns="http://www.w3.org/2000/svg"
@@ -135,24 +126,7 @@ export default function BackgroundAnimation() {
           />
         ))}
 
-        {/* Stars – only in dark mode */}
-        {isDark &&
-          stars.map((s) => (
-            <motion.circle
-              key={s.id}
-              cx={`${s.x}%`}
-              cy={`${s.y}%`}
-              r={s.r}
-              fill="white"
-              animate={{ opacity: [s.opacity, 1, s.opacity] }}
-              transition={{
-                duration: s.duration,
-                delay: s.delay,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          ))}
+
 
         {/* Shooting stars – dark only */}
         {isDark &&

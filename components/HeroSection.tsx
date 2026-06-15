@@ -2,7 +2,7 @@
 
 import { motion, useMotionValue, animate, useAnimation } from "framer-motion";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import profilepic from "../assets/profilepic.png"
 import object from "../assets/obj1.png";
 import { FiArrowRight } from "react-icons/fi";
@@ -13,17 +13,17 @@ const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
 /* ── Animated background circle ── */
 const DARK_STOPS = [
-  ["rgba(109,40,217,0.22)",  "rgba(59,130,246,0.14)",  "rgba(168,85,247,0.08)",  "rgba(15,23,42,0.04)"],
-  ["rgba(59,130,246,0.20)",  "rgba(99,102,241,0.16)",  "rgba(139,92,246,0.10)",  "rgba(15,23,42,0.04)"],
-  ["rgba(168,85,247,0.22)",  "rgba(236,72,153,0.12)",  "rgba(99,102,241,0.08)",  "rgba(15,23,42,0.04)"],
-  ["rgba(14,165,233,0.20)",  "rgba(109,40,217,0.14)",  "rgba(59,130,246,0.08)",  "rgba(15,23,42,0.04)"],
+  ["rgba(109,40,217,0.22)", "rgba(59,130,246,0.14)", "rgba(168,85,247,0.08)", "rgba(15,23,42,0.04)"],
+  ["rgba(59,130,246,0.20)", "rgba(99,102,241,0.16)", "rgba(139,92,246,0.10)", "rgba(15,23,42,0.04)"],
+  ["rgba(168,85,247,0.22)", "rgba(236,72,153,0.12)", "rgba(99,102,241,0.08)", "rgba(15,23,42,0.04)"],
+  ["rgba(14,165,233,0.20)", "rgba(109,40,217,0.14)", "rgba(59,130,246,0.08)", "rgba(15,23,42,0.04)"],
 ];
 
 const LIGHT_STOPS = [
-  ["rgba(244,114,182,0.28)", "rgba(167,139,250,0.20)", "rgba(251,146,60,0.10)",  "rgba(255,255,255,0.04)"],
-  ["rgba(167,139,250,0.26)", "rgba(56,189,248,0.18)",  "rgba(244,114,182,0.10)", "rgba(255,255,255,0.04)"],
-  ["rgba(251,146,60,0.24)",  "rgba(244,114,182,0.18)", "rgba(167,139,250,0.10)", "rgba(255,255,255,0.04)"],
-  ["rgba(56,189,248,0.26)",  "rgba(167,139,250,0.20)", "rgba(251,191,36,0.10)",  "rgba(255,255,255,0.04)"],
+  ["rgba(244,114,182,0.28)", "rgba(167,139,250,0.20)", "rgba(251,146,60,0.10)", "rgba(255,255,255,0.04)"],
+  ["rgba(167,139,250,0.26)", "rgba(56,189,248,0.18)", "rgba(244,114,182,0.10)", "rgba(255,255,255,0.04)"],
+  ["rgba(251,146,60,0.24)", "rgba(244,114,182,0.18)", "rgba(167,139,250,0.10)", "rgba(255,255,255,0.04)"],
+  ["rgba(56,189,248,0.26)", "rgba(167,139,250,0.20)", "rgba(251,191,36,0.10)", "rgba(255,255,255,0.04)"],
 ];
 
 function makeBg(stops: string[]) {
@@ -31,39 +31,33 @@ function makeBg(stops: string[]) {
 }
 
 function AnimatedBgCircle({ theme }: { theme: string }) {
-  const controls = useAnimation();
+  const [bgIdx, setBgIdx] = useState(0);
   const stops = theme === "dark" ? DARK_STOPS : LIGHT_STOPS;
 
   useEffect(() => {
-    let idx = 0;
-    const tick = () => {
-      idx = (idx + 1) % stops.length;
-      controls.start({
-        background: makeBg(stops[idx]),
-        transition: { duration: 4, ease: "easeInOut" },
-      });
-    };
-    controls.start({ background: makeBg(stops[0]) });
-    const id = setInterval(tick, 4000);
+    setBgIdx(0); // reset on theme change
+    const id = setInterval(() => {
+      setBgIdx((prev) => (prev + 1) % stops.length);
+    }, 4000);
     return () => clearInterval(id);
-  }, [theme, controls, stops]);
+  }, [theme, stops.length]);
 
   return (
-    <motion.div
-      animate={controls}
-      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-0"
+    <div
+      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-0 pointer-events-none"
       style={{
         width: 1000,
         height: 1000,
-        background: makeBg(stops[0]),
-        filter: "blur(2px)",
+        background: makeBg(stops[bgIdx]),
+        transition: "background 4s ease-in-out",
+        opacity: 0.7,
       }}
     />
   );
 }
 
 
-export const Hero = () => {
+export const HeroSection = () => {
   const { theme } = useTheme();
   const color = useMotionValue(COLORS_TOP[0]);
 
@@ -89,7 +83,7 @@ export const Hero = () => {
         </span>
 
         {/* Intro */}
-        <motion.h1 
+        <motion.h1
           data-hover="true"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -100,17 +94,17 @@ export const Hero = () => {
         </motion.h1>
 
         {/* Name */}
-        <motion.h1 
+        <motion.h1
           data-hover="true"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-mono max-w-3xl bg-gradient-to-br from-slate-900 to-slate-700 dark:from-white dark:to-gray-200 bg-clip-text font-black leading-tight text-transparent md:text-7xl text-5xl"
+          className="font-sans max-w-3xl bg-gradient-to-br from-slate-900 to-slate-700 dark:from-white dark:to-gray-200 bg-clip-text font-black leading-tight text-transparent md:text-7xl text-5xl"
         >
           Shenehashis Dutta
         </motion.h1>
-        <line></line>
-        <line></line>
+        <br />
+        <br />
 
         {/* Profile picture */}
         <motion.div
@@ -125,10 +119,10 @@ export const Hero = () => {
             className="rounded-3xl mx-auto shadow-lg dark:shadow-none"
           />
         </motion.div>
-        <line></line>
+        <br />
 
         {/* Welcome box */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
@@ -148,20 +142,25 @@ export const Hero = () => {
           </motion.div>
           <p className="font-semibold">WELCOME TO MY PORTFOLIO</p>
         </motion.div>
-        <line></line>
+        <br />
         {/* Description */}
-        <motion.div 
+        <motion.div
           data-hover="true"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45 }}
-          className="w-full max-w-5xl mx-auto px-8 md:px-14 lg:px-20 text-center rounded-3xl bg-white/15 dark:bg-slate-900/25 backdrop-blur-xl shadow-lg shadow-slate-300/10 dark:shadow-black/30 ring-1 ring-white/10 dark:ring-white/10"
+          className="w-full max-w-5xl mx-auto px-6 sm:px-8 md:px-14 lg:px-20 py-8 md:py-10 text-center rounded-3xl bg-white/30 dark:bg-slate-900/40 backdrop-blur-xl shadow-lg shadow-slate-300/10 dark:shadow-black/30 ring-1 ring-white/20 dark:ring-white/10"
         >
-          <p className="py-8 text-[20.5px] md:text-[22px] lg:text-[26px] leading-8 md:leading-9 lg:leading-10 text-slate-900 dark:text-neutral-100 font-mono font-medium">
-            Versatile professional with nearly three years of experience in Software Engineering, Testing, and Quality Assurance, alongside experience in Digital Marketing and Social Media Management. Passionate about content creation, brand growth, and audience engagement, with hands-on experience in digital marketing initiatives at JRD Ayurveda and six months of experience as a Digital Marketing Executive and Social Media Manager at Mind and Matter. Skilled in content strategy, campaign coordination, social media management, analytics, and business growth initiatives.
-          </p>
+          <div className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] leading-relaxed md:leading-8 lg:leading-9 text-slate-800 dark:text-neutral-200 font-sans font-medium space-y-6">
+            <p>
+              Versatile professional with nearly four years of cross-functional experience spanning Digital Marketing, Social Media Management, Software Development, Testing, and Quality Assurance. In recent roles, I specialised in Digital and Social Media Marketing, driving content strategy, brand positioning, audience engagement, campaign execution, and online growth initiatives. Successfully contributed to digital marketing efforts at JRD Ayurveda and led social media and marketing activities at Mind and Matter, enhancing brand visibility, increasing audience engagement, and supporting business growth through data-driven marketing strategies.
+            </p>
+            <p>
+              Before transitioning into marketing, I built a strong foundation through three years of experience in Software Development, Testing, and Quality Assurance at Wipro Technologies and Q3 Technologies, developing expertise in analytical thinking, problem-solving, process optimisation, and quality management. This unique blend of technical proficiency and creative marketing acumen enables the delivery of strategic, results-oriented solutions that align technology with business and customer objectives.
+            </p>
+          </div>
         </motion.div>
-        <line></line>
+        <br />
         {/* Resume button */}
         <a
           href="https://drive.google.com/file/d/1SIgneDnDqqFIYPjAzUY2wXyBdhGGrPp6/view?usp=sharing"
@@ -176,7 +175,7 @@ export const Hero = () => {
             }}
             whileHover={{ scale: 1.015 }}
             whileTap={{ scale: 0.985 }}
-            className="flex w-fit items-center gap-3 rounded-full px-7 py-3 text-lg tracking-wide font-semibold bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500 text-white shadow-[0_20px_50px_rgba(168,85,247,0.22)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(168,85,247,0.28)] dark:bg-gradient-to-r dark:from-sky-500 dark:via-blue-500 dark:to-indigo-600 dark:shadow-[0_20px_50px_rgba(59,130,246,0.24)] font-mono"
+            className="flex w-fit items-center gap-3 rounded-full px-7 py-3 text-lg tracking-wide font-semibold bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500 text-white shadow-[0_20px_50px_rgba(168,85,247,0.22)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(168,85,247,0.28)] dark:bg-gradient-to-r dark:from-sky-500 dark:via-blue-500 dark:to-indigo-600 dark:shadow-[0_20px_50px_rgba(59,130,246,0.24)] font-sans"
           >
             Download Resume
             <FiArrowRight />
