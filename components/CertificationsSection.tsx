@@ -31,7 +31,7 @@ export default function CertificationsSection() {
             My Recent <span className="text-slate-500 dark:text-gray-400">Certifications</span>
           </h2>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-center justify-center">
           {certifications.map((cert, index) => (
             <motion.div

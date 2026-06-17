@@ -14,7 +14,7 @@ import { Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune } from "@
 export default function Home() {
   return (
     <>
-     <link rel="icon" href="/logo.png" />
+      <link rel="icon" href="/logo.png" />
       <Navbar />
       <SectionAnimation icon={<Mercury size={44} />} direction="right" />
       <HeroSection />

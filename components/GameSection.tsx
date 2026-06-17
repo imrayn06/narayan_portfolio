@@ -23,7 +23,7 @@ export default function GameSection() {
   // Check for winner on every board change
   useEffect(() => {
     let currentWinner: Player | 'Draw' | null = null;
-    
+
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
@@ -164,7 +164,7 @@ export default function GameSection() {
 
               <h2 className="text-3xl font-black font-sans text-slate-800 dark:text-white mb-2 mt-4">Tic Tac Toe</h2>
               <p className="text-slate-500 dark:text-gray-400 font-sans text-sm mb-6 text-center">
-                Player (X) vs Sneh (O)<br/>
+                Player (X) vs Sneh (O)<br />
                 <span className="text-xs text-purple-500 font-semibold">
                   {winner ? "Game Over!" : (isPlayerTurn ? "Your turn!" : "Sneh is thinking...")}
                 </span>
@@ -219,7 +219,7 @@ export default function GameSection() {
                   </motion.div>
                 ) : (
                   <p className="text-slate-400 font-sans text-sm text-center">
-                    Winner goes first next round.<br/>Draw swaps the first player.
+                    Winner goes first next round.<br />Draw swaps the first player.
                   </p>
                 )}
               </div>

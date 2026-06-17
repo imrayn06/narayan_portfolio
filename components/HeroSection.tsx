@@ -155,8 +155,13 @@ export const HeroSection = () => {
             <p>
               Versatile professional with nearly four years of cross-functional experience spanning Digital Marketing, Social Media Management, Software Development, Testing, and Quality Assurance. In recent roles, I specialised in Digital and Social Media Marketing, driving content strategy, brand positioning, audience engagement, campaign execution, and online growth initiatives. Successfully contributed to digital marketing efforts at JRD Ayurveda and led social media and marketing activities at Mind and Matter, enhancing brand visibility, increasing audience engagement, and supporting business growth through data-driven marketing strategies.
             </p>
+
             <p>
-              Before transitioning into marketing, I built a strong foundation through three years of experience in Software Development, Testing, and Quality Assurance at Wipro Technologies and Q3 Technologies, developing expertise in analytical thinking, problem-solving, process optimisation, and quality management. This unique blend of technical proficiency and creative marketing acumen enables the delivery of strategic, results-oriented solutions that align technology with business and customer objectives.
+              I have a strong interest in client servicing, media coordination, and community engagement, with experience collaborating across teams, coordinating campaigns, managing online communities, and fostering meaningful interactions that strengthen brand relationships and support business objectives. My ability to balance creativity with analytical thinking enables me to develop and execute marketing initiatives that align with both brand and business goals.
+            </p>
+
+            <p>
+              Before transitioning into marketing, I built a strong foundation through three years of experience in Software Development, Testing, and Quality Assurance, developing expertise in analytical thinking, problem-solving, process optimisation, and quality management. This unique blend of technical proficiency and creative marketing acumen enables me to bridge business, creative, and technical teams while delivering strategic, results-oriented solutions that align technology with business and customer objectives.
             </p>
           </div>
         </motion.div>

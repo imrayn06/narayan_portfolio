@@ -25,7 +25,7 @@ export const Navbar = () => {
     <div className="z-50 fixed justify-center w-full text-slate-800 dark:text-white font-bold">
       {/* Desktop Navbar */}
       <div className="border border-purple-200/70 dark:border-white/20 mt-8 bg-white/80 dark:bg-[#0a0a0a]/40 backdrop-blur-3xl rounded-3xl hidden md:flex items-center justify-between p-2 max-w-[500px] mx-auto px-6 shadow-lg shadow-purple-200/30 dark:shadow-none">
-        
+
         <ul className="flex flex-row p-2 space-x-8">
           {navlinks.map((link, index) => (
             <li key={index}>
@@ -56,8 +56,8 @@ export const Navbar = () => {
       </div>
 
       {/* Mobile Nav Button */}
-      <div 
-        onClick={toggleNav} 
+      <div
+        onClick={toggleNav}
         className="md:hidden absolute top-5 right-3 border rounded-xl z-50 text-purple-700 dark:text-white/70 border-purple-200/70 dark:border-white/70 p-2 bg-white/90 dark:bg-black/50 backdrop-blur-md cursor-pointer flex items-center gap-2"
       >
         <motion.button
@@ -91,8 +91,8 @@ export const Navbar = () => {
         <ul className="flex flex-col items-center justify-center space-y-8 h-full text-2xl">
           {navlinks.map((link, index) => (
             <li key={index}>
-              <Link 
-                href={link.path} 
+              <Link
+                href={link.path}
                 onClick={toggleNav}
                 className="transform hover:text-purple-600 dark:hover:text-white/50 transition-all duration-300 ease-in-out"
               >
