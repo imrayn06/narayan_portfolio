@@ -1,9 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
+import React from "react"
 
 interface SectionAnimationProps {
-  icon: string
+  icon: React.ReactNode
   direction: "left" | "right"
 }
 
