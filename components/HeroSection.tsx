@@ -103,6 +103,17 @@ export const HeroSection = () => {
         >
           Shenehashis Dutta
         </motion.h1>
+
+        {/* Subtitle */}
+        <motion.h2
+          data-hover="true"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="mt-2 text-xl md:text-2xl font-medium text-slate-600 dark:text-gray-300"
+        >
+          Building brands through content strategy, community engagement, and data-driven marketing.
+        </motion.h2>
         <br />
         <br />
 
@@ -163,6 +174,36 @@ export const HeroSection = () => {
             <p>
               Before transitioning into marketing, I built a strong foundation through three years of experience in Software Development, Testing, and Quality Assurance, developing expertise in analytical thinking, problem-solving, process optimisation, and quality management. This unique blend of technical proficiency and creative marketing acumen enables me to bridge business, creative, and technical teams while delivering strategic, results-oriented solutions that align technology with business and customer objectives.
             </p>
+            
+            <div className="text-left bg-white/40 dark:bg-slate-800/50 p-6 rounded-2xl shadow-inner mt-8 border border-white/20 dark:border-white/10">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 dark:from-purple-400 dark:to-pink-400">Key Highlights</h3>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[15px] sm:text-[17px] md:text-[19px] lg:text-[21px] font-semibold text-slate-700 dark:text-gray-300">
+                <li className="flex items-center space-x-2">
+                  <span className="text-pink-500 text-2xl">•</span>
+                  <span>Grew Instagram engagement by 15%</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="text-purple-500 text-2xl">•</span>
+                  <span>Increased reach by 120%</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="text-pink-500 text-2xl">•</span>
+                  <span>Managed 5+ brand campaigns</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="text-purple-500 text-2xl">•</span>
+                  <span>Curated 50+ social media creatives</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="text-pink-500 text-2xl">•</span>
+                  <span>Built communities of 2,000+ members</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <span className="text-purple-500 text-2xl">•</span>
+                  <span>Improved CTR by 5%</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </motion.div>
         <br />
