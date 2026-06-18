@@ -74,21 +74,16 @@ export const HeroSection = () => {
     <motion.section
       data-hover="true"
       className="relative grid min-h-screen place-content-center overflow-hidden px-4 py-24 text-slate-800 dark:text-gray-200 transition-colors duration-300"
-      id="about"
+      id="home"
     >
       <div className="z-10 flex flex-col items-center text-center space-y-5">
-        {/* Status badge */}
-        <span className="inline-flex items-center justify-center rounded-full border border-purple-300/70 bg-gradient-to-r from-purple-100 via-fuchsia-100 to-pink-100 px-4 py-2 text-sm font-semibold tracking-wide text-purple-800 shadow-[0_10px_30px_rgba(168,85,247,0.12)] dark:border-sky-500/60 dark:bg-gradient-to-r dark:from-slate-900 dark:via-slate-950 dark:to-indigo-950 dark:text-sky-300 dark:shadow-[0_10px_30px_rgba(59,130,246,0.18)]">
-          Open for work
-        </span>
-
         {/* Intro */}
         <motion.h1
           data-hover="true"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-slate-800/40 dark:text-white/40 md:text-7xl text-5xl font-black"
+          className="text-slate-800/40 dark:text-white/40 md:text-7xl text-5xl font-black mt-10"
         >
           Hi, I am
         </motion.h1>
@@ -110,123 +105,142 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-2 text-xl md:text-2xl font-medium text-slate-600 dark:text-gray-300"
+          className="mt-2 text-2xl md:text-3xl font-bold text-slate-800 dark:text-gray-100"
         >
-          Building brands through content strategy, community engagement, and data-driven marketing.
+          Digital Marketing Strategist
         </motion.h2>
-        <br />
-        <br />
 
-        {/* Profile picture */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <Image
-            src={profilepic}
-            alt="profile picture"
-            width={250}
-            className="rounded-3xl mx-auto shadow-lg dark:shadow-none"
-          />
-        </motion.div>
-        <br />
-
-        {/* Welcome box */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          className="flex bg-slate-200/50 dark:bg-white/10 shadow-xl p-3 rounded-3xl justify-center items-center space-x-2 text-slate-800 dark:text-gray-200"
-        >
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-            className="flex items-center justify-center"
-          >
-            <Image
-              src={object}
-              alt="object"
-              width={30}
-              className="rounded-2xl mx-auto"
-            />
-          </motion.div>
-          <p className="font-semibold">WELCOME TO MY PORTFOLIO</p>
-        </motion.div>
-        <br />
-        {/* Description */}
-        <motion.div
+        <motion.h3
           data-hover="true"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.45 }}
-          className="w-full max-w-5xl mx-auto px-6 sm:px-8 md:px-14 lg:px-20 py-8 md:py-10 text-center rounded-3xl bg-white/30 dark:bg-slate-900/40 backdrop-blur-xl shadow-lg shadow-slate-300/10 dark:shadow-black/30 ring-1 ring-white/20 dark:ring-white/10"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-lg md:text-xl font-medium text-slate-600 dark:text-gray-300"
         >
-          <div className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] leading-relaxed md:leading-8 lg:leading-9 text-slate-800 dark:text-neutral-200 font-sans font-medium space-y-6">
-            <p>
-              Versatile professional with nearly four years of cross-functional experience spanning Digital Marketing, Social Media Management, Software Development, Testing, and Quality Assurance. In recent roles, I specialised in Digital and Social Media Marketing, driving content strategy, brand positioning, audience engagement, campaign execution, and online growth initiatives. Successfully contributed to digital marketing efforts at JRD Ayurveda and led social media and marketing activities at Mind and Matter, enhancing brand visibility, increasing audience engagement, and supporting business growth through data-driven marketing strategies.
-            </p>
+          Content Strategy | Community Engagement | Client & Media Coordination
+        </motion.h3>
 
-            <p>
-              I have a strong interest in client servicing, media coordination, and community engagement, with experience collaborating across teams, coordinating campaigns, managing online communities, and fostering meaningful interactions that strengthen brand relationships and support business objectives. My ability to balance creativity with analytical thinking enables me to develop and execute marketing initiatives that align with both brand and business goals.
-            </p>
-
-            <p>
-              Before transitioning into marketing, I built a strong foundation through three years of experience in Software Development, Testing, and Quality Assurance, developing expertise in analytical thinking, problem-solving, process optimisation, and quality management. This unique blend of technical proficiency and creative marketing acumen enables me to bridge business, creative, and technical teams while delivering strategic, results-oriented solutions that align technology with business and customer objectives.
-            </p>
-            
-            <div className="text-left bg-white/40 dark:bg-slate-800/50 p-6 rounded-2xl shadow-inner mt-8 border border-white/20 dark:border-white/10">
-              <h3 className="text-xl md:text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 dark:from-purple-400 dark:to-pink-400">Key Highlights</h3>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[15px] sm:text-[17px] md:text-[19px] lg:text-[21px] font-semibold text-slate-700 dark:text-gray-300">
-                <li className="flex items-center space-x-2">
-                  <span className="text-pink-500 text-2xl">•</span>
-                  <span>Grew Instagram engagement by 15%</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="text-purple-500 text-2xl">•</span>
-                  <span>Increased reach by 120%</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="text-pink-500 text-2xl">•</span>
-                  <span>Managed 5+ brand campaigns</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="text-purple-500 text-2xl">•</span>
-                  <span>Curated 50+ social media creatives</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="text-pink-500 text-2xl">•</span>
-                  <span>Built communities of 2,000+ members</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="text-purple-500 text-2xl">•</span>
-                  <span>Improved CTR by 5%</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </motion.div>
-        <br />
-        {/* Resume button */}
-        <a
-          href="https://drive.google.com/file/d/1SIgneDnDqqFIYPjAzUY2wXyBdhGGrPp6/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ textDecoration: "none" }}
+        <motion.p
+          data-hover="true"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="text-base md:text-lg text-slate-500 dark:text-gray-400 max-w-2xl mt-4 mb-8"
         >
-          <motion.button
-            style={{
-              border: "1px solid #61DAFB",
-              boxShadow: "0px 4px 24px #61DAFB"
-            }}
-            whileHover={{ scale: 1.015 }}
-            whileTap={{ scale: 0.985 }}
-            className="flex w-fit items-center gap-3 rounded-full px-7 py-3 text-lg tracking-wide font-semibold bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500 text-white shadow-[0_20px_50px_rgba(168,85,247,0.22)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(168,85,247,0.28)] dark:bg-gradient-to-r dark:from-sky-500 dark:via-blue-500 dark:to-indigo-600 dark:shadow-[0_20px_50px_rgba(59,130,246,0.24)] font-sans"
+          Helping brands grow through strategic content, audience engagement, and data-driven marketing.
+        </motion.p>
+
+        {/* Profile picture with Skill Pills */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="relative w-full max-w-lg mx-auto flex justify-center py-10"
+        >
+          {/* Floating Skill Pills */}
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-0 left-0 md:-left-10 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-purple-100 dark:border-purple-900/50 text-sm font-semibold text-purple-700 dark:text-purple-300"
           >
-            Download Resume
-            <FiArrowRight />
-          </motion.button>
-        </a>
+            Content Strategy
+          </motion.div>
+          
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute top-1/4 right-0 md:-right-12 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-sky-100 dark:border-sky-900/50 text-sm font-semibold text-sky-700 dark:text-sky-300"
+          >
+            Community Management
+          </motion.div>
+          
+          <motion.div
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            className="absolute bottom-10 left-4 md:-left-4 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-pink-100 dark:border-pink-900/50 text-sm font-semibold text-pink-700 dark:text-pink-300"
+          >
+            Client Servicing
+          </motion.div>
+
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            className="absolute bottom-0 right-10 md:right-0 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-indigo-100 dark:border-indigo-900/50 text-sm font-semibold text-indigo-700 dark:text-indigo-300"
+          >
+            Campaign Planning
+          </motion.div>
+
+          <Image
+            src={profilepic}
+            alt="profile picture"
+            width={220}
+            className="rounded-[2rem] shadow-2xl relative z-10 border-4 border-white/50 dark:border-slate-800/50"
+          />
+        </motion.div>
+
+        {/* CTA Buttons */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex flex-wrap justify-center gap-4 mt-8"
+        >
+          <a href="#portfolio" style={{ textDecoration: "none" }}>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 rounded-full px-6 py-3 text-base font-semibold bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-lg hover:shadow-xl transition-all"
+            >
+              View My Work
+            </motion.button>
+          </a>
+          
+          <a
+            href="https://drive.google.com/file/d/1SIgneDnDqqFIYPjAzUY2wXyBdhGGrPp6/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 rounded-full px-6 py-3 text-base font-semibold bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500 text-white shadow-lg hover:shadow-xl transition-all"
+            >
+              Download Resume
+            </motion.button>
+          </a>
+          
+          <a href="#contact" style={{ textDecoration: "none" }}>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 rounded-full px-6 py-3 text-base font-semibold bg-white text-slate-900 dark:bg-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all"
+            >
+              Contact Me
+            </motion.button>
+          </a>
+        </motion.div>
+
+        {/* Badges */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="flex flex-wrap justify-center gap-3 mt-8"
+        >
+          <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full border border-green-200 dark:border-green-800/50">
+            • Open to Work
+          </span>
+          <span className="px-3 py-1 text-xs font-medium bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 rounded-full border border-blue-200 dark:border-blue-800/50">
+            • 4+ Years Experience
+          </span>
+          <span className="px-3 py-1 text-xs font-medium bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 rounded-full border border-orange-200 dark:border-orange-800/50">
+            • Based in Kolkata
+          </span>
+          <span className="px-3 py-1 text-xs font-medium bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 rounded-full border border-purple-200 dark:border-purple-800/50">
+            • Available for Freelance
+          </span>
+        </motion.div>
       </div>
 
       {/* Animated background circle — theme-aware */}

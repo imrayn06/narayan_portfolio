@@ -8,8 +8,9 @@ import { motion } from "framer-motion"
 
 const navlinks = [
   { title: "About", path: "#about" },
+  { title: "Experience", path: "#experience" },
   { title: "Portfolio", path: "#portfolio" },
-  { title: "Stack", path: "#stack" },
+  { title: "Skills", path: "#skills" },
   { title: "Contact", path: "#contact" }
 ]
 
@@ -24,7 +25,7 @@ export const Navbar = () => {
   return (
     <div className="z-50 fixed justify-center w-full text-slate-800 dark:text-white font-bold">
       {/* Desktop Navbar */}
-      <div className="border border-purple-200/70 dark:border-white/20 mt-8 bg-white/80 dark:bg-[#0a0a0a]/40 backdrop-blur-3xl rounded-3xl hidden md:flex items-center justify-between p-2 max-w-[500px] mx-auto px-6 shadow-lg shadow-purple-200/30 dark:shadow-none">
+      <div className="border border-purple-200/70 dark:border-white/20 mt-8 bg-white/80 dark:bg-[#0a0a0a]/40 backdrop-blur-3xl rounded-3xl hidden md:flex items-center justify-between p-2 max-w-[600px] mx-auto px-6 shadow-lg shadow-purple-200/30 dark:shadow-none">
 
         <ul className="flex flex-row p-2 space-x-8">
           {navlinks.map((link, index) => (

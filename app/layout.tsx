@@ -14,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shenehashis Dutta",
-  description: "Narayan Shenehashis Dutta's Portfolio",
+  title: "Shenehashis Dutta | Digital Marketing Strategist & Brand Strategist",
+  description: "Digital Marketing Strategist with 4+ years of experience in content strategy, community engagement, client coordination, media coordination, brand strategy, and marketing analytics. Open to Social Media Strategist, Community Manager, and Client Servicing roles.",
+  keywords: "Digital Marketing Strategist, Social Media Strategist, Community Manager, Brand Strategy, Content Strategy, Marketing Analytics, Campaign Management, Audience Growth, Client Servicing, Media Coordination",
 };
 
 import CustomCursor from "@/components/CustomCursor";
