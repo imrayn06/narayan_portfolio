@@ -46,7 +46,11 @@ const caseStudies = [
 ];
 
 export default function ProjectsSection() {
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+
+  const toggleExpand = (id: number) => {
+    setExpandedId(expandedId === id ? null : id);
+  };
 
   return (
     <section id="portfolio" className="py-20 md:py-32 bg-slate-50 dark:bg-slate-900/30">
@@ -67,71 +71,83 @@ export default function ProjectsSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {caseStudies.map((study, index) => (
-            <motion.div
-              key={study.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              onMouseEnter={() => setHoveredId(study.id)}
-              onMouseLeave={() => setHoveredId(null)}
-              className="group relative bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col"
-            >
-              {/* Thumbnail */}
-              <div className="relative h-56 w-full overflow-hidden bg-slate-200 dark:bg-slate-700">
-                <Image
-                  src={study.image}
-                  alt={study.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-80" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <span className="inline-block px-3 py-1 bg-purple-500 text-white text-xs font-bold rounded-full mb-2">
-                    {study.category}
-                  </span>
-                  <h3 className="text-xl font-bold text-white line-clamp-2">
-                    {study.title}
-                  </h3>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-6 flex-grow flex flex-col">
-                <p className="text-slate-600 dark:text-gray-300 text-sm mb-6 line-clamp-3">
-                  {study.summary}
-                </p>
-
-                <div className="space-y-3 mb-8 text-sm">
-                  <div className="flex items-start">
-                    <span className="font-bold text-slate-800 dark:text-gray-200 w-24 shrink-0">Challenge:</span>
-                    <span className="text-slate-600 dark:text-gray-400 line-clamp-1">{study.challenge}</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="font-bold text-slate-800 dark:text-gray-200 w-24 shrink-0">Strategy:</span>
-                    <span className="text-slate-600 dark:text-gray-400 line-clamp-1">{study.strategy}</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="font-bold text-slate-800 dark:text-gray-200 w-24 shrink-0">Results:</span>
-                    <span className="text-green-600 dark:text-green-400 font-semibold line-clamp-1">{study.results}</span>
-                  </div>
-                </div>
-
-                <div className="mt-auto pt-4 border-t border-slate-100 dark:border-slate-700">
-                  <Link href={`/case-studies?id=${study.id}`} className="flex items-center justify-between w-full group/btn">
-                    <span className="font-semibold text-purple-600 dark:text-purple-400 group-hover/btn:text-purple-700 dark:group-hover/btn:text-purple-300 transition-colors">
-                      View Case Study
+          {caseStudies.map((study, index) => {
+            const isExpanded = expandedId === study.id;
+            return (
+              <motion.div
+                key={study.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group relative bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col"
+              >
+                {/* Thumbnail */}
+                <div className="relative h-64 md:h-56 w-full overflow-hidden bg-slate-200 dark:bg-slate-700">
+                  <Image
+                    src={study.image}
+                    alt={study.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-80" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="inline-block px-3 py-1 bg-purple-500 text-white text-xs font-bold rounded-full mb-2">
+                      {study.category}
                     </span>
-                    <span className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover/btn:bg-purple-600 group-hover/btn:text-white transition-all transform group-hover/btn:translate-x-1">
-                      <FiArrowRight />
-                    </span>
-                  </Link>
+                    <h3 className="text-xl font-bold text-white line-clamp-2">
+                      {study.title}
+                    </h3>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+
+                {/* Content */}
+                <div className="p-6 flex-grow flex flex-col justify-between">
+                  <div>
+                    <p className="text-slate-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
+                      {study.summary}
+                    </p>
+
+                    {/* Toggle Button for Mobile */}
+                    <button
+                      onClick={() => toggleExpand(study.id)}
+                      className="md:hidden text-xs text-purple-600 dark:text-purple-400 font-bold mb-4 underline block"
+                    >
+                      {isExpanded ? "Hide Project Details" : "Reveal Project Details"}
+                    </button>
+
+                    {/* Details Container - Collapsible on Mobile, always block on Desktop */}
+                    <div className={`space-y-3 mb-6 text-sm md:block ${isExpanded ? 'block' : 'hidden'}`}>
+                      <div className="flex items-start">
+                        <span className="font-bold text-slate-800 dark:text-gray-200 w-24 shrink-0">Challenge:</span>
+                        <span className="text-slate-600 dark:text-gray-400">{study.challenge}</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-bold text-slate-800 dark:text-gray-200 w-24 shrink-0">Strategy:</span>
+                        <span className="text-slate-600 dark:text-gray-400">{study.strategy}</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-bold text-slate-800 dark:text-gray-200 w-24 shrink-0">Results:</span>
+                        <span className="text-green-600 dark:text-green-400 font-semibold">{study.results}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-slate-100 dark:border-slate-700">
+                    <Link href={`/case-studies?id=${study.id}`} className="flex items-center justify-between w-full group/btn">
+                      <span className="font-semibold text-purple-600 dark:text-purple-400 group-hover/btn:text-purple-700 dark:group-hover/btn:text-purple-300 transition-colors">
+                        View Case Study
+                      </span>
+                      <span className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover/btn:bg-purple-600 group-hover/btn:text-white transition-all transform group-hover/btn:translate-x-1">
+                        <FiArrowRight />
+                      </span>
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

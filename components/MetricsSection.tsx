@@ -72,7 +72,7 @@ function MetricsSection() {
             transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
             whileHover={{ scale: 1.05, y: -5 }}
             data-hover="true"
-            className='flex flex-col items-center justify-center text-center p-6 rounded-3xl glass bg-white/10 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-all shadow-lg hover:shadow-xl border border-white/20 dark:border-white/10'
+            className={`flex flex-col items-center justify-center text-center p-6 rounded-3xl glass bg-white/10 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-all shadow-lg hover:shadow-xl border border-white/20 dark:border-white/10 ${index === 4 ? 'col-span-2 md:col-span-1' : ''}`}
           >
             <motion.h3
               initial={{ scale: 0.5 }}

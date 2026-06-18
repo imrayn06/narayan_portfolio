@@ -8,18 +8,18 @@ import {
 } from "react-icons/fi";
 
 const expertiseAreas = [
-  { title: "Social Media Strategy", icon: <FiTrendingUp size={24} /> },
-  { title: "Content Strategy", icon: <FiMessageCircle size={24} /> },
-  { title: "Community Engagement", icon: <FiUsers size={24} /> },
-  { title: "Client Coordination", icon: <FiBriefcase size={24} /> },
-  { title: "Media Coordination", icon: <FiRadio size={24} /> },
-  { title: "Campaign Planning", icon: <FiCalendar size={24} /> },
-  { title: "Brand Positioning", icon: <FiTarget size={24} /> },
-  { title: "Marketing Analytics", icon: <FiBarChart2 size={24} /> },
-  { title: "Performance Marketing", icon: <FiActivity size={24} /> },
-  { title: "Audience Growth", icon: <FiUserPlus size={24} /> },
-  { title: "Consumer Insights", icon: <FiSearch size={24} /> },
-  { title: "Cross-functional Collab", icon: <FiLayers size={24} /> },
+  { title: "Social Media Strategy", icon: <FiTrendingUp size={28} /> },
+  { title: "Content Strategy", icon: <FiMessageCircle size={28} /> },
+  { title: "Community Engagement", icon: <FiUsers size={28} /> },
+  { title: "Client Coordination", icon: <FiBriefcase size={28} /> },
+  { title: "Media Coordination", icon: <FiRadio size={28} /> },
+  { title: "Campaign Planning", icon: <FiCalendar size={28} /> },
+  { title: "Brand Positioning", icon: <FiTarget size={28} /> },
+  { title: "Marketing Analytics", icon: <FiBarChart2 size={28} /> },
+  { title: "Performance Marketing", icon: <FiActivity size={28} /> },
+  { title: "Audience Growth", icon: <FiUserPlus size={28} /> },
+  { title: "Consumer Insights", icon: <FiSearch size={28} /> },
+  { title: "Cross-functional Collab", icon: <FiLayers size={28} /> },
 ];
 
 export default function CoreExpertiseSection() {
@@ -41,7 +41,7 @@ export default function CoreExpertiseSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 md:gap-6">
           {expertiseAreas.map((item, index) => (
             <motion.div
               key={index}
@@ -50,12 +50,12 @@ export default function CoreExpertiseSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               whileHover={{ y: -5, scale: 1.02 }}
-              className="p-6 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 shadow-md hover:shadow-xl dark:shadow-none transition-all flex flex-col items-center text-center group cursor-pointer"
+              className="p-4 sm:p-6 h-full rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 shadow-md hover:shadow-xl dark:shadow-none transition-all flex flex-col items-center justify-center text-center group cursor-pointer"
             >
-              <div className="w-14 h-14 mb-4 rounded-full bg-slate-100 dark:bg-slate-700/50 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:bg-purple-600 group-hover:text-white dark:group-hover:bg-purple-500 transition-colors">
+              <div className="w-16 h-16 mb-4 rounded-full bg-slate-100 dark:bg-slate-700/50 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:bg-purple-600 group-hover:text-white dark:group-hover:bg-purple-500 transition-colors">
                 {item.icon}
               </div>
-              <h3 className="text-lg font-semibold text-slate-800 dark:text-gray-200">
+              <h3 className="text-sm sm:text-base md:text-lg font-bold text-slate-800 dark:text-gray-200">
                 {item.title}
               </h3>
             </motion.div>

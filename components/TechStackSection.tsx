@@ -108,7 +108,7 @@ function TechStackSection() {
             <h3 className="text-2xl font-bold mb-8 text-slate-800 dark:text-gray-200 flex items-center justify-center lg:justify-start">
               Marketing Tools
             </h3>
-            <div className='grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
+            <div className='grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
               {marketingTools.map((tool, index) => (
                 <motion.div 
                   key={index}
@@ -117,9 +117,9 @@ function TechStackSection() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   whileHover={{ scale: 1.1, y: -5 }}
-                  className='flex flex-col items-center justify-center p-4 bg-white dark:bg-slate-800/80 rounded-2xl shadow-md border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-all group'
+                  className='flex flex-col items-center justify-center p-4 bg-white dark:bg-slate-800/80 rounded-2xl shadow-md border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-all group min-h-[96px]'
                 >
-                  <div className='mb-3 text-3xl sm:text-4xl transition-transform group-hover:scale-110' style={{ color: tool.color }}>
+                  <div className='mb-2 text-3xl sm:text-4xl transition-transform group-hover:scale-110' style={{ color: tool.color }}>
                     <tool.icon className={`dark:text-[${tool.darkColor || tool.color}] text-[${tool.color}]`} />
                   </div>
                   <p className='text-slate-700 dark:text-gray-300 font-semibold text-xs text-center'>{tool.name}</p>

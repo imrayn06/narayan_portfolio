@@ -73,17 +73,17 @@ export const HeroSection = () => {
   return (
     <motion.section
       data-hover="true"
-      className="relative grid min-h-screen place-content-center overflow-hidden px-4 py-24 text-slate-800 dark:text-gray-200 transition-colors duration-300"
+      className="relative grid min-h-[85vh] md:min-h-screen place-content-center overflow-hidden px-4 py-16 md:py-24 text-slate-800 dark:text-gray-200 transition-colors duration-300"
       id="home"
     >
-      <div className="z-10 flex flex-col items-center text-center space-y-5">
+      <div className="z-10 flex flex-col items-center text-center space-y-4 md:space-y-5">
         {/* Intro */}
         <motion.h1
           data-hover="true"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-slate-800/40 dark:text-white/40 md:text-7xl text-5xl font-black mt-10"
+          className="text-slate-800/40 dark:text-white/40 md:text-7xl text-2xl font-black mt-6 md:mt-10"
         >
           Hi, I am
         </motion.h1>
@@ -94,7 +94,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-sans max-w-3xl bg-gradient-to-br from-slate-900 to-slate-700 dark:from-white dark:to-gray-200 bg-clip-text font-black leading-tight text-transparent md:text-7xl text-5xl"
+          className="font-sans max-w-3xl bg-gradient-to-br from-slate-900 to-slate-700 dark:from-white dark:to-gray-200 bg-clip-text font-black leading-tight text-transparent md:text-7xl text-4xl sm:text-5xl"
         >
           Shenehashis Dutta
         </motion.h1>
@@ -105,7 +105,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-2 text-2xl md:text-3xl font-bold text-slate-800 dark:text-gray-100"
+          className="mt-1 md:mt-2 text-xl md:text-3xl font-bold text-slate-800 dark:text-gray-100"
         >
           Digital Marketing Strategist
         </motion.h2>
@@ -115,7 +115,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-lg md:text-xl font-medium text-slate-600 dark:text-gray-300"
+          className="text-sm sm:text-base md:text-xl font-medium text-slate-600 dark:text-gray-300 tracking-wide leading-relaxed"
         >
           Content Strategy | Community Engagement | Client & Media Coordination
         </motion.h3>
@@ -125,7 +125,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="text-base md:text-lg text-slate-500 dark:text-gray-400 max-w-2xl mt-4 mb-8"
+          className="text-sm sm:text-base md:text-lg text-slate-500 dark:text-gray-400 max-w-2xl mt-3 md:mt-4 mb-4 md:mb-8 leading-relaxed"
         >
           Helping brands grow through strategic content, audience engagement, and data-driven marketing.
         </motion.p>
@@ -135,13 +135,13 @@ export const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="relative w-full max-w-lg mx-auto flex justify-center py-10"
+          className="relative w-full max-w-lg mx-auto flex flex-col items-center py-6 md:py-10"
         >
-          {/* Floating Skill Pills */}
+          {/* Floating Skill Pills - Desktop only */}
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-0 left-0 md:-left-10 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-purple-100 dark:border-purple-900/50 text-sm font-semibold text-purple-700 dark:text-purple-300"
+            className="absolute top-0 left-0 md:-left-10 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-purple-100 dark:border-purple-900/50 text-sm font-semibold text-purple-700 dark:text-purple-300 hidden md:block"
           >
             Content Strategy
           </motion.div>
@@ -149,7 +149,7 @@ export const HeroSection = () => {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute top-1/4 right-0 md:-right-12 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-sky-100 dark:border-sky-900/50 text-sm font-semibold text-sky-700 dark:text-sky-300"
+            className="absolute top-1/4 right-0 md:-right-12 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-sky-100 dark:border-sky-900/50 text-sm font-semibold text-sky-700 dark:text-sky-300 hidden md:block"
           >
             Community Management
           </motion.div>
@@ -157,7 +157,7 @@ export const HeroSection = () => {
           <motion.div
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            className="absolute bottom-10 left-4 md:-left-4 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-pink-100 dark:border-pink-900/50 text-sm font-semibold text-pink-700 dark:text-pink-300"
+            className="absolute bottom-10 left-4 md:-left-4 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-pink-100 dark:border-pink-900/50 text-sm font-semibold text-pink-700 dark:text-pink-300 hidden md:block"
           >
             Client Servicing
           </motion.div>
@@ -165,7 +165,7 @@ export const HeroSection = () => {
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute bottom-0 right-10 md:right-0 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-indigo-100 dark:border-indigo-900/50 text-sm font-semibold text-indigo-700 dark:text-indigo-300"
+            className="absolute bottom-0 right-10 md:right-0 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-indigo-100 dark:border-indigo-900/50 text-sm font-semibold text-indigo-700 dark:text-indigo-300 hidden md:block"
           >
             Campaign Planning
           </motion.div>
@@ -173,9 +173,24 @@ export const HeroSection = () => {
           <Image
             src={profilepic}
             alt="profile picture"
-            width={220}
-            className="rounded-[2rem] shadow-2xl relative z-10 border-4 border-white/50 dark:border-slate-800/50"
+            className="w-[250px] md:w-[220px] rounded-[2rem] shadow-2xl relative z-10 border-4 border-white/50 dark:border-slate-800/50 object-cover"
           />
+
+          {/* Mobile-only wrapped skill pills */}
+          <div className="flex md:hidden flex-wrap justify-center gap-2 mt-6 z-20">
+            <div className="px-3 py-1.5 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow border border-purple-100 dark:border-purple-900/30 text-xs font-semibold text-purple-700 dark:text-purple-300 min-h-[40px] flex items-center">
+              Content Strategy
+            </div>
+            <div className="px-3 py-1.5 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow border border-sky-100 dark:border-sky-900/30 text-xs font-semibold text-sky-700 dark:text-sky-300 min-h-[40px] flex items-center">
+              Community Management
+            </div>
+            <div className="px-3 py-1.5 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow border border-pink-100 dark:border-pink-900/30 text-xs font-semibold text-pink-700 dark:text-pink-300 min-h-[40px] flex items-center">
+              Client Servicing
+            </div>
+            <div className="px-3 py-1.5 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow border border-indigo-100 dark:border-indigo-900/30 text-xs font-semibold text-indigo-700 dark:text-indigo-300 min-h-[40px] flex items-center">
+              Campaign Planning
+            </div>
+          </div>
         </motion.div>
 
         {/* CTA Buttons */}
@@ -183,13 +198,13 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-wrap justify-center gap-4 mt-8"
+          className="flex flex-col md:flex-row justify-center gap-4 mt-6 w-full max-w-xs sm:max-w-sm md:max-w-none px-4 md:px-0"
         >
-          <a href="#portfolio" style={{ textDecoration: "none" }}>
+          <a href="#portfolio" style={{ textDecoration: "none" }} className="w-full md:w-auto block">
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 rounded-full px-6 py-3 text-base font-semibold bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-lg hover:shadow-xl transition-all"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full md:w-auto flex items-center justify-center gap-2 rounded-full px-6 py-4 md:py-3 text-base font-semibold min-h-[48px] bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-lg hover:shadow-xl transition-all"
             >
               View My Work
             </motion.button>
@@ -200,21 +215,22 @@ export const HeroSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: "none" }}
+            className="w-full md:w-auto block"
           >
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 rounded-full px-6 py-3 text-base font-semibold bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500 text-white shadow-lg hover:shadow-xl transition-all"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full md:w-auto flex items-center justify-center gap-2 rounded-full px-6 py-4 md:py-3 text-base font-semibold min-h-[48px] bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500 text-white shadow-lg hover:shadow-xl transition-all"
             >
               Download Resume
             </motion.button>
           </a>
           
-          <a href="#contact" style={{ textDecoration: "none" }}>
+          <a href="#contact" style={{ textDecoration: "none" }} className="w-full md:w-auto block">
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 rounded-full px-6 py-3 text-base font-semibold bg-white text-slate-900 dark:bg-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full md:w-auto flex items-center justify-center gap-2 rounded-full px-6 py-4 md:py-3 text-base font-semibold min-h-[48px] bg-white text-slate-900 dark:bg-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all"
             >
               Contact Me
             </motion.button>
@@ -226,18 +242,18 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-wrap justify-center gap-3 mt-8"
+          className="flex flex-wrap justify-center gap-2 mt-6"
         >
-          <span className="px-3 py-1 text-xs font-medium bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full border border-green-200 dark:border-green-800/50">
+          <span className="px-3 py-1.5 text-xs font-medium bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full border border-green-200 dark:border-green-800/50 min-h-[36px] flex items-center">
             • Open to Work
           </span>
-          <span className="px-3 py-1 text-xs font-medium bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 rounded-full border border-blue-200 dark:border-blue-800/50">
+          <span className="px-3 py-1.5 text-xs font-medium bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 rounded-full border border-blue-200 dark:border-blue-800/50 min-h-[36px] flex items-center">
             • 4+ Years Experience
           </span>
-          <span className="px-3 py-1 text-xs font-medium bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 rounded-full border border-orange-200 dark:border-orange-800/50">
+          <span className="px-3 py-1.5 text-xs font-medium bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 rounded-full border border-orange-200 dark:border-orange-800/50 min-h-[36px] flex items-center">
             • Based in Kolkata
           </span>
-          <span className="px-3 py-1 text-xs font-medium bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 rounded-full border border-purple-200 dark:border-purple-800/50">
+          <span className="px-3 py-1.5 text-xs font-medium bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 rounded-full border border-purple-200 dark:border-purple-800/50 min-h-[36px] flex items-center">
             • Available for Freelance
           </span>
         </motion.div>

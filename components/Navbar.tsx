@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 import { FiSun, FiMoon } from "react-icons/fi"
 import { useTheme } from "./ThemeContext"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 const navlinks = [
   { title: "About", path: "#about" },
@@ -23,10 +23,34 @@ export const Navbar = () => {
   }
 
   return (
-    <div className="z-50 fixed justify-center w-full text-slate-800 dark:text-white font-bold">
+    <div className="z-50 fixed top-0 left-0 w-full text-slate-800 dark:text-white font-bold">
+      {/* Mobile Top Bar (Sticky with blur background) */}
+      <div className="flex md:hidden items-center justify-between px-6 py-4 w-full bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-purple-200/20 dark:border-white/10 shadow-sm z-50 relative">
+        <Link href="#home" className="text-xl font-black bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+          SD
+        </Link>
+        <div className="flex items-center gap-4">
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="p-2 rounded-full hover:bg-purple-100 dark:hover:bg-white/10 transition-colors text-purple-700 dark:text-slate-200 flex items-center justify-center min-w-[44px] min-h-[44px]"
+          >
+            {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            onClick={toggleNav}
+            aria-label="Toggle menu"
+            className="p-2 rounded-xl text-purple-700 dark:text-white/70 border border-purple-200/70 dark:border-white/20 hover:bg-purple-100 dark:hover:bg-white/10 transition-colors flex items-center justify-center min-w-[44px] min-h-[44px]"
+          >
+            {nav ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
+          </motion.button>
+        </div>
+      </div>
+
       {/* Desktop Navbar */}
       <div className="border border-purple-200/70 dark:border-white/20 mt-8 bg-white/80 dark:bg-[#0a0a0a]/40 backdrop-blur-3xl rounded-3xl hidden md:flex items-center justify-between p-2 max-w-[600px] mx-auto px-6 shadow-lg shadow-purple-200/30 dark:shadow-none">
-
         <ul className="flex flex-row p-2 space-x-8">
           {navlinks.map((link, index) => (
             <li key={index}>
@@ -42,7 +66,7 @@ export const Navbar = () => {
           whileTap={{ scale: 0.9 }}
           onClick={toggleTheme}
           aria-label="Toggle theme"
-          className="p-2 rounded-full hover:bg-purple-100 dark:hover:bg-white/10 transition-colors text-purple-700 dark:text-slate-200 flex items-center justify-center"
+          className="p-2 rounded-full hover:bg-purple-100 dark:hover:bg-white/10 transition-colors text-purple-700 dark:text-slate-200 flex items-center justify-center min-w-[44px] min-h-[44px]"
         >
           <motion.div
             key={theme}
@@ -53,57 +77,34 @@ export const Navbar = () => {
             {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
           </motion.div>
         </motion.button>
-
       </div>
 
-      {/* Mobile Nav Button */}
-      <div
-        onClick={toggleNav}
-        className="md:hidden absolute top-5 right-3 border rounded-xl z-50 text-purple-700 dark:text-white/70 border-purple-200/70 dark:border-white/70 p-2 bg-white/90 dark:bg-black/50 backdrop-blur-md cursor-pointer flex items-center gap-2"
-      >
-        <motion.button
-          whileTap={{ scale: 0.9 }}
-          onClick={(e) => {
-            e.stopPropagation();
-            toggleTheme();
-          }}
-          aria-label="Toggle theme"
-          className="p-1 rounded-full hover:bg-purple-100 dark:hover:bg-white/10 transition-colors text-purple-700 dark:text-slate-200"
-        >
+      {/* Mobile Nav Menu Drawer */}
+      <AnimatePresence>
+        {nav && (
           <motion.div
-            key={theme}
-            initial={{ scale: 0.5, rotate: -90, opacity: 0 }}
-            animate={{ scale: 1, rotate: 0, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 10 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed left-0 top-[65px] w-full bg-white/95 dark:bg-[#0a0a0a]/95 backdrop-blur-lg border-b border-purple-200/20 dark:border-white/10 z-40 md:hidden shadow-lg"
           >
-            {theme === "dark" ? <FiSun size={20} /> : <FiMoon size={20} />}
+            <ul className="flex flex-col items-center py-8 space-y-6 text-xl">
+              {navlinks.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    href={link.path}
+                    onClick={toggleNav}
+                    className="block transform hover:text-purple-600 dark:hover:text-white/50 transition-all duration-300 ease-in-out py-2 px-6 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </motion.div>
-        </motion.button>
-        <motion.div whileTap={{ scale: 0.9 }}>
-          {nav ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
-        </motion.div>
-      </div>
-
-      {/* Mobile Nav Menu */}
-      <div
-        className={`fixed left-0 top-0 w-full h-full bg-white dark:bg-black/95 transform transition-transform duration-300
-    ${nav ? 'translate-x-0' : '-translate-x-full'}`}>
-
-        <ul className="flex flex-col items-center justify-center space-y-8 h-full text-2xl">
-          {navlinks.map((link, index) => (
-            <li key={index}>
-              <Link
-                href={link.path}
-                onClick={toggleNav}
-                className="transform hover:text-purple-600 dark:hover:text-white/50 transition-all duration-300 ease-in-out"
-              >
-                {link.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div >
-
+        )}
+      </AnimatePresence>
     </div>
   )
 }
