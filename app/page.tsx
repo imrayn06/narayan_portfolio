@@ -34,6 +34,7 @@ export default function Home() {
       <MetricsSection />
       <SectionAnimation icon={<Mars size={44} />} direction="left" />
       <ExperienceSection />
+      <CertificationsSection />
       <MarketingFrameworkSection />
       <SectionAnimation icon={<Jupiter size={44} />} direction="right" />
       <ProjectsSection />
@@ -43,7 +44,6 @@ export default function Home() {
       <IndustriesSection />
       <CurrentlyExploringSection />
       <SectionAnimation icon={<Uranus size={44} />} direction="right" />
-      <CertificationsSection />
       <WhatIBringSection />
       <ContactSection />
       <SectionAnimation icon={<Neptune size={44} />} direction="left" />

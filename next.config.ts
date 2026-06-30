@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "drive.google.com",
       },
+      {
+        protocol: "https",
+        hostname: "hubspot-credentials-na1.s3.amazonaws.com",
+      },
     ],
   },
 };
