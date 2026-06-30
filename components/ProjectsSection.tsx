@@ -2,46 +2,58 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import Link from "next/link";
 
 const caseStudies = [
   {
     id: 1,
-    title: "Brand Revitalization & Engagement Growth",
-    category: "Social Media Strategy",
-    image: "https://drive.google.com/uc?export=view&id=1NZu1XFHiMNzE_opIjXwZPOYom5Y-_1CI",
-    summary: "A comprehensive social media strategy that improved reach, engagement, and brand consistency.",
-    challenge: "Low organic reach and inconsistent brand messaging across platforms.",
-    strategy: "Developed a cohesive content calendar focusing on storytelling and high-value educational posts.",
-    execution: "Designed fresh creatives using Canva and optimized hashtag strategies for target demographics.",
-    results: "15% increase in engagement and 120% growth in overall organic reach within 3 months.",
-    learning: "Consistency in visual language combined with data-driven posting schedules yields the highest ROI."
+    title: "MSP Steel",
+    subtitle: "B2B Social Media Execution Support",
+    category: "B2B Social Media",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+    summary: "MSP Steel required structured and consistent digital communication to strengthen its B2B presence and maintain visibility across social platforms.",
+    problem: "MSP Steel required structured and consistent digital communication to strengthen its B2B presence and maintain visibility across social platforms.",
+    insight: "Industrial brands often lack consistent content systems, leading to low engagement and weak digital positioning despite strong offline presence.",
+    role: "Assisted in execution and campaign coordination",
+    accent: "from-blue-500 to-cyan-400"
   },
   {
     id: 2,
-    title: "Performance Optimization & Search Visibility",
-    category: "SEO & Content",
-    image: "https://drive.google.com/uc?export=view&id=1cjD_wxk2Tq4A4ptDLuFBSWLqiz5yueie",
-    summary: "Implemented on-page SEO improvements and content restructuring to boost search rankings.",
-    challenge: "Poor organic discoverability and low website traffic from target keywords.",
-    strategy: "Conducted in-depth keyword research and competitor analysis to identify content gaps.",
-    execution: "Optimized meta tags, headings, and internal linking structures across key landing pages.",
-    results: "Significant improvement in SERP rankings for top 10 targeted keywords.",
-    learning: "Technical SEO must be perfectly aligned with user intent for sustainable traffic growth."
+    title: "Walplast",
+    subtitle: "Brand Social Media Support",
+    category: "Brand Support",
+    image: "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=800&q=80",
+    summary: "Needed structured content flow and improved consistency in digital communication for stronger brand visibility.",
+    problem: "Needed structured content flow and improved consistency in digital communication for stronger brand visibility.",
+    insight: "Consistency and structured messaging are critical for B2B construction brands to maintain relevance in digital spaces.",
+    role: "Supported campaign execution and content coordination",
+    accent: "from-purple-500 to-pink-500"
   },
   {
     id: 3,
-    title: "Community-Led Growth Initiative",
-    category: "Community Management",
-    image: "https://drive.google.com/uc?export=view&id=13p3-1mIY30ZzoLAuBSNVSA8P1kO3MrfG",
-    summary: "Built and nurtured a highly engaged online community through targeted Meta and LinkedIn campaigns.",
-    challenge: "Lack of brand loyalty and passive audience interaction.",
-    strategy: "Shifted focus from broadcasting to community-building via interactive content and direct engagement.",
-    execution: "Launched poll series, Q&A sessions, and targeted ad campaigns to acquire high-intent members.",
-    results: "Built a vibrant community of 2,000+ active members with a 5% improvement in CTR on community links.",
-    learning: "Authentic two-way communication builds stronger brand equity than polished, one-way advertising."
+    title: "Drychem",
+    subtitle: "Digital Presence & Campaign Assistance",
+    category: "Digital Presence",
+    image: "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?auto=format&fit=crop&w=800&q=80",
+    summary: "Required structured online visibility and improved communication of product offerings in a competitive B2B segment.",
+    problem: "Required structured online visibility and improved communication of product offerings in a competitive B2B segment.",
+    insight: "Clear digital presence and consistent messaging help industrial product brands improve discoverability and trust.",
+    role: "Assisted in execution and content planning support",
+    accent: "from-cyan-500 to-emerald-400"
+  },
+  {
+    id: 4,
+    title: "Zee Bangla Sonar",
+    subtitle: "Social Media Execution Support",
+    category: "Campaign Support",
+    image: "https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=800&q=80",
+    summary: "Required structured coordination for ongoing social media campaigns and content distribution.",
+    problem: "Required structured coordination for ongoing social media campaigns and content distribution.",
+    insight: "Media brands require fast-paced and consistent content execution to maintain engagement and relevance.",
+    role: "Assisted in campaign execution and coordination",
+    accent: "from-pink-500 to-purple-500"
   }
 ];
 
@@ -53,7 +65,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="portfolio" className="py-20 md:py-32 bg-slate-50 dark:bg-slate-900/30">
+    <section id="portfolio" className="py-20 md:py-32 bg-[#0B0F1A]/20 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,14 +75,14 @@ export default function ProjectsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans mb-6 text-slate-800 dark:text-gray-100">
-            Strategic <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Case Studies</span>
+            Strategic <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6]">Case Studies</span>
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-[#9CA3AF] max-w-2xl mx-auto">
             Deep dives into how I tackle challenges, formulate strategies, and deliver measurable results.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {caseStudies.map((study, index) => {
             const isExpanded = expandedId === study.id;
             return (
@@ -80,32 +92,35 @@ export default function ProjectsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col"
+                className="group relative bg-white/60 dark:bg-slate-900/60 backdrop-blur-md rounded-3xl overflow-hidden shadow-lg border border-slate-200/50 dark:border-slate-800/50 flex flex-col transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/10 hover:border-purple-500/20"
               >
                 {/* Thumbnail */}
-                <div className="relative h-64 md:h-56 w-full overflow-hidden bg-slate-200 dark:bg-slate-700">
+                <div className="relative h-64 md:h-60 w-full overflow-hidden bg-slate-200 dark:bg-slate-800">
                   <Image
                     src={study.image}
                     alt={study.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent opacity-90" />
                   <div className="absolute bottom-4 left-4 right-4">
-                    <span className="inline-block px-3 py-1 bg-purple-500 text-white text-xs font-bold rounded-full mb-2">
+                    <span className="inline-block px-3 py-1 bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white text-xs font-bold rounded-full mb-2 uppercase tracking-wide">
                       {study.category}
                     </span>
-                    <h3 className="text-xl font-bold text-white line-clamp-2">
+                    <h3 className="text-2xl font-bold text-white leading-tight">
                       {study.title}
                     </h3>
+                    <p className="text-sm text-slate-300 font-medium mt-1">
+                      {study.subtitle}
+                    </p>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6 flex-grow flex flex-col justify-between">
                   <div>
-                    <p className="text-slate-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
+                    <p className="text-slate-600 dark:text-[#9CA3AF] text-sm mb-4 leading-relaxed line-clamp-3">
                       {study.summary}
                     </p>
 
@@ -114,32 +129,32 @@ export default function ProjectsSection() {
                       onClick={() => toggleExpand(study.id)}
                       className="md:hidden text-xs text-purple-600 dark:text-purple-400 font-bold mb-4 underline block"
                     >
-                      {isExpanded ? "Hide Project Details" : "Reveal Project Details"}
+                      {isExpanded ? "Hide Details" : "Reveal Details"}
                     </button>
 
                     {/* Details Container - Collapsible on Mobile, always block on Desktop */}
                     <div className={`space-y-3 mb-6 text-sm md:block ${isExpanded ? 'block' : 'hidden'}`}>
-                      <div className="flex items-start">
-                        <span className="font-bold text-slate-800 dark:text-gray-200 w-24 shrink-0">Challenge:</span>
-                        <span className="text-slate-600 dark:text-gray-400">{study.challenge}</span>
+                      <div className="flex items-start gap-2">
+                        <span className="font-bold text-slate-800 dark:text-gray-200 w-20 shrink-0">Problem:</span>
+                        <span className="text-slate-600 dark:text-[#9CA3AF]">{study.problem}</span>
                       </div>
-                      <div className="flex items-start">
-                        <span className="font-bold text-slate-800 dark:text-gray-200 w-24 shrink-0">Strategy:</span>
-                        <span className="text-slate-600 dark:text-gray-400">{study.strategy}</span>
+                      <div className="flex items-start gap-2">
+                        <span className="font-bold text-slate-800 dark:text-gray-200 w-20 shrink-0">Insight:</span>
+                        <span className="text-slate-600 dark:text-[#9CA3AF]">{study.insight}</span>
                       </div>
-                      <div className="flex items-start">
-                        <span className="font-bold text-slate-800 dark:text-gray-200 w-24 shrink-0">Results:</span>
-                        <span className="text-green-600 dark:text-green-400 font-semibold">{study.results}</span>
+                      <div className="flex items-start gap-2">
+                        <span className="font-bold text-slate-800 dark:text-gray-200 w-20 shrink-0">Role:</span>
+                        <span className="text-[#3B82F6] dark:text-[#3B82F6] font-semibold">{study.role}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-slate-100 dark:border-slate-700">
+                  <div className="pt-4 border-t border-slate-100 dark:border-slate-800/80">
                     <Link href={`/case-studies?id=${study.id}`} className="flex items-center justify-between w-full group/btn">
-                      <span className="font-semibold text-purple-600 dark:text-purple-400 group-hover/btn:text-purple-700 dark:group-hover/btn:text-purple-300 transition-colors">
+                      <span className="font-semibold text-[#8B5CF6] dark:text-[#8B5CF6] group-hover/btn:text-purple-400 transition-colors">
                         View Case Study
                       </span>
-                      <span className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover/btn:bg-purple-600 group-hover/btn:text-white transition-all transform group-hover/btn:translate-x-1">
+                      <span className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-[#8B5CF6] group-hover/btn:bg-[#8B5CF6] group-hover/btn:text-white transition-all transform group-hover/btn:translate-x-1">
                         <FiArrowRight />
                       </span>
                     </Link>

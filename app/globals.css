@@ -9,15 +9,29 @@
   --bg-color-2: rgba(139, 92, 246, 0.18);
   --bg-color-3: rgba(59, 130, 246, 0.12);
   --bg-color-4: rgba(248, 113, 213, 0.10);
+  
+  --bg-primary: #fff8ff;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-dim: #64748b;
 }
 
 .dark {
-  --background-hex: #070b1c;
-  --foreground-hex: #eef2ff;
+  --background-hex: #0B0F1A;
+  --foreground-hex: #F9FAFB;
   --bg-color-1: rgba(88, 83, 208, 0.16);
   --bg-color-2: rgba(59, 130, 246, 0.12);
   --bg-color-3: rgba(168, 85, 247, 0.08);
   --bg-color-4: rgba(15, 23, 42, 0.08);
+  
+  --bg-primary: #0B0F1A;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1F2937;
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
+  --text-dim: #6B7280;
 }
 
 body {

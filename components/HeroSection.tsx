@@ -73,7 +73,7 @@ export const HeroSection = () => {
   return (
     <motion.section
       data-hover="true"
-      className="relative grid min-h-[85vh] md:min-h-screen place-content-center overflow-hidden px-4 py-16 md:py-24 text-slate-800 dark:text-gray-200 transition-colors duration-300"
+      className="relative grid min-h-[85vh] md:min-h-screen place-content-center overflow-hidden px-4 py-16 md:py-24 text-slate-800 dark:text-[#F9FAFB] bg-gradient-to-br from-white/60 to-slate-50/60 dark:from-[#0B0F1A]/70 dark:via-[#111827]/70 dark:to-[#1F2937]/70 transition-all duration-300"
       id="home"
     >
       <div className="z-10 flex flex-col items-center text-center space-y-4 md:space-y-5">
@@ -99,35 +99,26 @@ export const HeroSection = () => {
           Shenehashis Dutta
         </motion.h1>
 
-        {/* Subtitle */}
+        {/* Headline */}
         <motion.h2
           data-hover="true"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-1 md:mt-2 text-xl md:text-3xl font-bold text-slate-800 dark:text-gray-100"
+          className="mt-4 max-w-4xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-sans text-slate-900 dark:text-[#F9FAFB] leading-tight text-center"
         >
-          Digital Marketing Strategist
+          I help brands build <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899]">visibility</span>, engagement, and strong digital presence through social media strategy, content execution, and campaign support.
         </motion.h2>
 
-        <motion.h3
-          data-hover="true"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-sm sm:text-base md:text-xl font-medium text-slate-600 dark:text-gray-300 tracking-wide leading-relaxed"
-        >
-          Content Strategy | Community Engagement | Client & Media Coordination
-        </motion.h3>
-
+        {/* Subheadline */}
         <motion.p
           data-hover="true"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="text-sm sm:text-base md:text-lg text-slate-500 dark:text-gray-400 max-w-2xl mt-3 md:mt-4 mb-4 md:mb-8 leading-relaxed"
+          className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-[#9CA3AF] max-w-3xl mt-4 mb-4 md:mb-8 leading-relaxed text-center"
         >
-          Helping brands grow through strategic content, audience engagement, and data-driven marketing.
+          Worked with brands like Zee Bangla Sonar, MSP Steel, Walplast, and Drychem, contributing to social media handling, campaign coordination, and structured brand communication.
         </motion.p>
 
         {/* Profile picture with Skill Pills */}
@@ -204,9 +195,9 @@ export const HeroSection = () => {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full md:w-auto flex items-center justify-center gap-2 rounded-full px-6 py-4 md:py-3 text-base font-semibold min-h-[48px] bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-lg hover:shadow-xl transition-all"
+              className="w-full md:w-auto flex items-center justify-center gap-2 rounded-[12px] px-6 py-4 md:py-3 text-base font-semibold min-h-[48px] bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white shadow-lg hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-300"
             >
-              View My Work
+              View Case Studies
             </motion.button>
           </a>
           
@@ -220,7 +211,7 @@ export const HeroSection = () => {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full md:w-auto flex items-center justify-center gap-2 rounded-full px-6 py-4 md:py-3 text-base font-semibold min-h-[48px] bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500 text-white shadow-lg hover:shadow-xl transition-all"
+              className="w-full md:w-auto flex items-center justify-center gap-2 rounded-[12px] px-6 py-4 md:py-3 text-base font-semibold min-h-[48px] bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899] text-white shadow-lg hover:shadow-xl hover:shadow-pink-500/25 transition-all duration-300"
             >
               Download Resume
             </motion.button>
@@ -230,7 +221,7 @@ export const HeroSection = () => {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full md:w-auto flex items-center justify-center gap-2 rounded-full px-6 py-4 md:py-3 text-base font-semibold min-h-[48px] bg-white text-slate-900 dark:bg-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all"
+              className="w-full md:w-auto flex items-center justify-center gap-2 rounded-[12px] px-6 py-4 md:py-3 text-base font-semibold min-h-[48px] bg-transparent text-slate-900 dark:text-[#F9FAFB] border border-slate-200 dark:border-white/10 hover:bg-slate-100 dark:hover:bg-white/5 transition-all duration-300"
             >
               Contact Me
             </motion.button>
