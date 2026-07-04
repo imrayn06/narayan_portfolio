@@ -1,193 +1,144 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 const certifications = [
   {
     id: 1,
+    title: "Inbound Marketing Certified",
+    image: "https://hubspot-credentials-na1.s3.amazonaws.com/prod/badges/user/db663a23c1ac49639ecf4b5e36e97091.png",
+    link: "https://app-na2.hubspot.com/academy/achievements/1c6rkgft/en/1/sneh-dutta/inbound-marketing-certified",
+  },
+  {
+    id: 2,
     title: "HubSpot Academy - Social Media Certified",
     image: "https://hubspot-credentials-na1.s3.amazonaws.com/prod/badges/user/6b6c3e92bae54d2cb80e1d98a884010e.png",
     link: "https://app-na2.hubspot.com/academy/achievements/8d7gqtv7/en/1/sneh-dutta/social-media-certified",
   },
   {
-    id: 2,
+    id: 3,
     title: "Digital Marketing Certified",
     image: "https://hubspot-credentials-na1.s3.amazonaws.com/prod/badges/user/2289737151764252bffcb649cc0896fb.png",
     link: "https://app-na2.hubspot.com/academy/achievements/x09qss96/en/1/sneh-dutta/digital-marketing-certified",
   },
   {
-    id: 3,
+    id: 4,
     title: "KDMI Certificate",
     image: "/certifications/kdmi.jpg",
     link: null,
   },
   {
-    id: 4,
+    id: 5,
     title: "Masai Certificate",
     image: "/certifications/masai.png",
     link: null,
   },
 ];
 
+function CertCard({ cert }: { cert: typeof certifications[number] }) {
+  const card = (
+    <div
+      className="relative w-[280px] sm:w-[320px] md:w-[340px] aspect-[4/3] rounded-2xl shadow-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all duration-500 hover:scale-[1.06] hover:shadow-2xl hover:border-slate-300 dark:hover:border-slate-600 flex items-center justify-center flex-shrink-0"
+      onContextMenu={(e) => e.preventDefault()}
+      onDragStart={(e) => e.preventDefault()}
+      style={{ WebkitUserSelect: "none", userSelect: "none" }}
+    >
+      <Image
+        src={cert.image}
+        alt={cert.title}
+        fill
+        className="object-contain p-6 pointer-events-none"
+        sizes="340px"
+        draggable={false}
+      />
+    </div>
+  );
+
+  if (cert.link) {
+    return (
+      <a
+        href={cert.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={cert.title}
+        className="flex-shrink-0"
+      >
+        {card}
+      </a>
+    );
+  }
+  return <div className="flex-shrink-0">{card}</div>;
+}
+
 export default function CertificationsSection() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  const checkScroll = () => {
-    if (scrollContainerRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-      setCanScrollLeft(scrollLeft > 5);
-      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 5);
-
-      const scrollableWidth = scrollWidth - clientWidth;
-      const progress = scrollableWidth > 0 ? (scrollLeft / scrollableWidth) * 100 : 0;
-      setScrollProgress(progress);
-    }
-  };
-
-  useEffect(() => {
-    const el = scrollContainerRef.current;
-    if (el) {
-      el.addEventListener("scroll", checkScroll);
-      // Run once initially
-      checkScroll();
-      // Run on resize
-      window.addEventListener("resize", checkScroll);
-    }
-    return () => {
-      if (el) {
-        el.removeEventListener("scroll", checkScroll);
-      }
-      window.removeEventListener("resize", checkScroll);
-    };
-  }, []);
-
-  const scroll = (direction: "left" | "right") => {
-    if (scrollContainerRef.current) {
-      const { scrollLeft, clientWidth } = scrollContainerRef.current;
-      // Scroll by 1 card width + gap approximately
-      const cardWidth = 340;
-      scrollContainerRef.current.scrollTo({
-        left: direction === "left" ? scrollLeft - cardWidth : scrollLeft + cardWidth,
-        behavior: "smooth",
-      });
-    }
-  };
+  // Duplicate the list so the marquee loops seamlessly
+  const looped = [...certifications, ...certifications];
 
   return (
     <section className="py-20 md:py-32 text-slate-800 dark:text-white transition-colors duration-300 relative overflow-hidden">
-      {/* CSS style block for hiding scrollbar */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-        }
-      `}} />
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @keyframes marquee-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .marquee-track {
+            animation: marquee-scroll 28s linear infinite;
+            will-change: transform;
+          }
+          .marquee-track:hover {
+            animation-play-state: paused;
+          }
+        `
+      }} />
 
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
+        {/* Heading */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-sans">
             My Recent <span className="text-slate-500 dark:text-gray-400">Certifications</span>
           </h2>
           <p className="text-slate-500 dark:text-gray-400 mt-4 max-w-xl mx-auto text-sm md:text-base">
-            Scroll or drag to view credentials and badges
+            Hover to pause · Click a badge to verify
           </p>
+        </motion.div>
+      </div>
+
+      {/* Full-width marquee — outside max-w container so it bleeds edge-to-edge */}
+      <div className="relative w-full overflow-hidden">
+        {/* Left fade mask */}
+        <div
+          className="absolute left-0 top-0 h-full w-24 z-10 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to right, var(--tw-bg-opacity, 1) white, transparent)",
+          }}
+          aria-hidden="true"
+        >
+          <div className="h-full w-full bg-gradient-to-r from-white dark:from-slate-950 to-transparent" />
         </div>
 
-        <div className="relative group max-w-5xl mx-auto">
-          {/* Left Arrow Button */}
-          <button
-            onClick={() => scroll("left")}
-            className={`absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-slate-50 dark:hover:bg-slate-800 ${
-              canScrollLeft ? "opacity-100 cursor-pointer" : "opacity-0 pointer-events-none"
-            }`}
-            aria-label="Scroll left"
-          >
-            <FiChevronLeft size={24} />
-          </button>
+        {/* Right fade mask */}
+        <div
+          className="absolute right-0 top-0 h-full w-24 z-10 pointer-events-none"
+          aria-hidden="true"
+        >
+          <div className="h-full w-full bg-gradient-to-l from-white dark:from-slate-950 to-transparent" />
+        </div>
 
-          {/* Right Arrow Button */}
-          <button
-            onClick={() => scroll("right")}
-            className={`absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-slate-50 dark:hover:bg-slate-800 ${
-              canScrollRight ? "opacity-100 cursor-pointer" : "opacity-0 pointer-events-none"
-            }`}
-            aria-label="Scroll right"
-          >
-            <FiChevronRight size={24} />
-          </button>
-
-          {/* Scrollable Container */}
-          <div
-            ref={scrollContainerRef}
-            className="flex overflow-x-auto gap-6 md:gap-8 py-6 px-4 no-scrollbar snap-x snap-mandatory scroll-smooth justify-start"
-          >
-            {certifications.map((cert, index) => {
-              const CardContent = (
-                <div
-                  className="relative w-full aspect-[4/3] rounded-2xl shadow-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 z-10 transition-all duration-500 hover:scale-[1.05] active:scale-[1.05] hover:shadow-2xl hover:border-slate-300 dark:hover:border-slate-700 flex items-center justify-center p-4"
-                  onContextMenu={(e) => e.preventDefault()}
-                  onDragStart={(e) => e.preventDefault()}
-                  style={{
-                    WebkitUserSelect: "none",
-                    userSelect: "none",
-                  }}
-                >
-                  <Image
-                    src={cert.image}
-                    alt={cert.title}
-                    fill
-                    className="object-contain p-6 pointer-events-none"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    draggable={false}
-                  />
-                </div>
-              );
-
-              return (
-                <motion.div
-                  key={cert.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="w-[280px] sm:w-[320px] md:w-[340px] flex-shrink-0 snap-center"
-                >
-                  {cert.link ? (
-                    <a
-                      href={cert.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title={cert.title}
-                      className="block w-full"
-                    >
-                      {CardContent}
-                    </a>
-                  ) : (
-                    CardContent
-                  )}
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Scroll Progress Bar Indicator */}
-          <div className="w-32 h-1 bg-slate-200/50 dark:bg-slate-800/50 rounded-full mx-auto mt-8 overflow-hidden">
-            <div
-              className="h-full bg-slate-400 dark:bg-slate-600 rounded-full transition-all duration-150"
-              style={{
-                width: `${scrollProgress}%`,
-              }}
-            />
-          </div>
+        {/* Scrolling track (original + duplicate for seamless loop) */}
+        <div className="marquee-track flex gap-6 md:gap-8 py-6 w-max">
+          {looped.map((cert, index) => (
+            <CertCard key={`${cert.id}-${index}`} cert={cert} />
+          ))}
         </div>
       </div>
     </section>
