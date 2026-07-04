@@ -6,6 +6,12 @@ import { motion } from "framer-motion";
 
 const certifications = [
   {
+    id: 0,
+    title: "Social Media Marketing II Certified",
+    image: "https://hubspot-credentials-na1.s3.amazonaws.com/prod/badges/user/d386c8f9789d4c4c817ee4e2e27e8505.png",
+    link: "https://app-na2.hubspot.com/academy/achievements/xs73flx6/en/1/sneh-dutta/social-media-marketing-ii-certified",
+  },
+  {
     id: 1,
     title: "Inbound Marketing Certified",
     image: "https://hubspot-credentials-na1.s3.amazonaws.com/prod/badges/user/db663a23c1ac49639ecf4b5e36e97091.png",
