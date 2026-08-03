@@ -46,7 +46,7 @@ const certifications = [
 function CertCard({ cert }: { cert: typeof certifications[number] }) {
   const card = (
     <div
-      className="relative w-[280px] sm:w-[320px] md:w-[340px] aspect-[4/3] rounded-2xl shadow-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all duration-500 hover:scale-[1.06] hover:shadow-2xl hover:border-slate-300 dark:hover:border-slate-600 flex items-center justify-center flex-shrink-0"
+      className="relative w-[280px] sm:w-[320px] md:w-[340px] aspect-[4/3] rounded-2xl shadow-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all duration-500 md:hover:scale-[1.06] hover:shadow-2xl hover:border-slate-300 dark:hover:border-slate-600 flex items-center justify-center flex-shrink-0"
       onContextMenu={(e) => e.preventDefault()}
       onDragStart={(e) => e.preventDefault()}
       style={{ WebkitUserSelect: "none", userSelect: "none" }}

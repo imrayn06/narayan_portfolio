@@ -1,22 +1,24 @@
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+import dynamic from 'next/dynamic';
+import SectionSkeleton from '@/components/SectionSkeleton';
 import { HeroSection } from "@/components/HeroSection";
-import MetricsSection from "@/components/MetricsSection";
 import { Navbar } from "@/components/Navbar";
-import ProjectsSection from "@/components/ProjectsSection";
-import TechStackSection from "@/components/TechStackSection"
-import SectionAnimation from "@/components/SectionAnimation"
-import GameSection from "@/components/GameSection"
-import CertificationsSection from "@/components/CertificationsSection"
+import SectionAnimation from "@/components/SectionAnimation";
 
-import CoreExpertiseSection from "@/components/CoreExpertiseSection"
-import { AboutSection } from "@/components/AboutSection"
-import ExperienceSection from "@/components/ExperienceSection"
-import MarketingFrameworkSection from "@/components/MarketingFrameworkSection"
-import FeaturedCampaignsSection from "@/components/FeaturedCampaignsSection"
-import IndustriesSection from "@/components/IndustriesSection"
-import CurrentlyExploringSection from "@/components/CurrentlyExploringSection"
-import WhatIBringSection from "@/components/WhatIBringSection"
+const ContactSection = dynamic(() => import("@/components/ContactSection"), { loading: () => <SectionSkeleton /> });
+const Footer = dynamic(() => import("@/components/Footer"), { loading: () => <SectionSkeleton /> });
+const MetricsSection = dynamic(() => import("@/components/MetricsSection"), { loading: () => <SectionSkeleton /> });
+const ProjectsSection = dynamic(() => import("@/components/ProjectsSection"), { loading: () => <SectionSkeleton /> });
+const TechStackSection = dynamic(() => import("@/components/TechStackSection"), { loading: () => <SectionSkeleton /> });
+const GameSection = dynamic(() => import("@/components/GameSection"), { loading: () => <SectionSkeleton /> });
+const CertificationsSection = dynamic(() => import("@/components/CertificationsSection"), { loading: () => <SectionSkeleton /> });
+const CoreExpertiseSection = dynamic(() => import("@/components/CoreExpertiseSection"), { loading: () => <SectionSkeleton /> });
+const AboutSection = dynamic(() => import("@/components/AboutSection").then(mod => mod.AboutSection), { loading: () => <SectionSkeleton /> });
+const ExperienceSection = dynamic(() => import("@/components/ExperienceSection"), { loading: () => <SectionSkeleton /> });
+const MarketingFrameworkSection = dynamic(() => import("@/components/MarketingFrameworkSection"), { loading: () => <SectionSkeleton /> });
+const FeaturedCampaignsSection = dynamic(() => import("@/components/FeaturedCampaignsSection"), { loading: () => <SectionSkeleton /> });
+const IndustriesSection = dynamic(() => import("@/components/IndustriesSection"), { loading: () => <SectionSkeleton /> });
+const CurrentlyExploringSection = dynamic(() => import("@/components/CurrentlyExploringSection"), { loading: () => <SectionSkeleton /> });
+const WhatIBringSection = dynamic(() => import("@/components/WhatIBringSection"), { loading: () => <SectionSkeleton /> });
 
 import { Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune } from "@/components/Planets"
 

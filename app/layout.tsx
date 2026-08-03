@@ -33,7 +33,6 @@ export const metadata: Metadata = {
 
 import CustomCursor from "@/components/CustomCursor";
 import BackgroundAnimation from "@/components/BackgroundAnimation";
-import ScrollSocialHint from "@/components/ScrollSocialHint";
 import FloatingSocialBackground from "@/components/FloatingSocialBackground";
 
 export default function RootLayout({
@@ -42,16 +41,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" className="dark overflow-x-hidden" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
         suppressHydrationWarning
       >
         <ThemeProvider>
           <BackgroundAnimation />
           <FloatingSocialBackground />
           <CustomCursor />
-          <ScrollSocialHint />
           {children}
         </ThemeProvider>
       </body>

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
+import { FaInstagram, FaFacebook } from "react-icons/fa";
 import Link from "next/link";
 
 const caseStudies = [
@@ -17,7 +18,9 @@ const caseStudies = [
     problem: "MSP Steel required structured and consistent digital communication to strengthen its B2B presence and maintain visibility across social platforms.",
     insight: "Industrial brands often lack consistent content systems, leading to low engagement and weak digital positioning despite strong offline presence.",
     role: "Assisted in execution and campaign coordination",
-    accent: "from-blue-500 to-cyan-400"
+    accent: "from-blue-500 to-cyan-400",
+    instaLink: "https://www.instagram.com/mspsteelofficial/",
+    fbLink: "https://www.facebook.com/MSPSteelOfficial"
   },
   {
     id: 2,
@@ -29,7 +32,9 @@ const caseStudies = [
     problem: "Needed structured content flow and improved consistency in digital communication for stronger brand visibility.",
     insight: "Consistency and structured messaging are critical for B2B construction brands to maintain relevance in digital spaces.",
     role: "Supported campaign execution and content coordination",
-    accent: "from-purple-500 to-pink-500"
+    accent: "from-purple-500 to-pink-500",
+    instaLink: "https://www.instagram.com/walplast/",
+    fbLink: "https://www.facebook.com/Walplast"
   },
   {
     id: 3,
@@ -41,7 +46,9 @@ const caseStudies = [
     problem: "Required structured online visibility and improved communication of product offerings in a competitive B2B segment.",
     insight: "Clear digital presence and consistent messaging help industrial product brands improve discoverability and trust.",
     role: "Assisted in execution and content planning support",
-    accent: "from-cyan-500 to-emerald-400"
+    accent: "from-cyan-500 to-emerald-400",
+    instaLink: "https://www.instagram.com/drychemindia/",
+    fbLink: "https://www.facebook.com/DryChemIndiaPvtLtd"
   },
   {
     id: 4,
@@ -53,7 +60,9 @@ const caseStudies = [
     problem: "Required structured coordination for ongoing social media campaigns and content distribution.",
     insight: "Media brands require fast-paced and consistent content execution to maintain engagement and relevance.",
     role: "Assisted in campaign execution and coordination",
-    accent: "from-pink-500 to-purple-500"
+    accent: "from-pink-500 to-purple-500",
+    instaLink: "https://www.instagram.com/zeebanglasonar_official/",
+    fbLink: "https://www.facebook.com/ZeeBanglaSonar"
   }
 ];
 
@@ -100,6 +109,7 @@ export default function ProjectsSection() {
                     src={study.image}
                     alt={study.title}
                     fill
+                    priority={true}
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
@@ -149,15 +159,41 @@ export default function ProjectsSection() {
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-slate-100 dark:border-slate-800/80">
-                    <Link href={`/case-studies?id=${study.id}`} className="flex items-center justify-between w-full group/btn">
-                      <span className="font-semibold text-[#8B5CF6] dark:text-[#8B5CF6] group-hover/btn:text-purple-400 transition-colors">
-                        View Case Study
+                  <div className="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row flex-wrap gap-3">
+                    <Link href={`/case-studies?id=${study.id}`} className="flex-1 min-w-[140px] flex items-center justify-between group/btn bg-purple-50 dark:bg-purple-900/20 px-4 py-2.5 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/40 transition-colors">
+                      <span className="font-semibold text-[#8B5CF6] dark:text-[#8B5CF6] transition-colors text-sm">
+                        Read Case Study
                       </span>
-                      <span className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-[#8B5CF6] group-hover/btn:bg-[#8B5CF6] group-hover/btn:text-white transition-all transform group-hover/btn:translate-x-1">
+                      <span className="text-[#8B5CF6] transform group-hover/btn:translate-x-1 transition-transform">
                         <FiArrowRight />
                       </span>
                     </Link>
+                    {study.instaLink && (
+                      <a 
+                        href={study.instaLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 group/insta bg-pink-50 dark:bg-pink-900/20 px-4 py-2.5 rounded-xl hover:bg-pink-100 dark:hover:bg-pink-900/40 transition-colors shrink-0"
+                        title="Instagram"
+                      >
+                        <span className="text-pink-600 dark:text-pink-400 transform group-hover/insta:scale-110 transition-transform">
+                          <FaInstagram size={18} />
+                        </span>
+                      </a>
+                    )}
+                    {study.fbLink && (
+                      <a 
+                        href={study.fbLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 group/fb bg-blue-50 dark:bg-blue-900/20 px-4 py-2.5 rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors shrink-0"
+                        title="Facebook"
+                      >
+                        <span className="text-blue-600 dark:text-blue-400 transform group-hover/fb:scale-110 transition-transform">
+                          <FaFacebook size={18} />
+                        </span>
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
