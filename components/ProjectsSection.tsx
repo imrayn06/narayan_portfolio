@@ -38,6 +38,20 @@ const caseStudies = [
   },
   {
     id: 3,
+    title: "FIFA 2026 Campaign",
+    subtitle: "Community Engagement Campaign",
+    category: "Community Engagement",
+    image: "/Brand_Logo/walplast.png.png",
+    summary: "Developed and executed a high-engagement social media campaign around the FIFA 2026 knockout stages, leveraging interactive prediction contests.",
+    problem: "Drive consistent engagement during the FIFA World Cup while increasing organic reach, attracting new followers, and encouraging meaningful audience interactions.",
+    insight: "Interactive prediction contests tap into real-time sports excitement, driving massive organic engagement and friend-tagging behavior.",
+    role: "Campaign Planning & Community Management",
+    accent: "from-blue-600 to-indigo-600",
+    instaLink: "https://www.instagram.com/walplast/",
+    fbLink: "https://www.facebook.com/Walplast"
+  },
+  {
+    id: 4,
     title: "Drychem",
     subtitle: "Digital Presence & Campaign Assistance",
     category: "Digital Presence",
@@ -51,7 +65,7 @@ const caseStudies = [
     fbLink: "https://www.facebook.com/DryChemIndiaPvtLtd"
   },
   {
-    id: 4,
+    id: 5,
     title: "Zee Bangla Sonar",
     subtitle: "Social Media Execution Support",
     category: "Campaign Support",

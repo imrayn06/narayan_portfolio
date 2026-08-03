@@ -54,6 +54,30 @@ const caseStudies = [
   },
   {
     id: 3,
+    title: "FIFA 2026 Campaign",
+    category: "Community Engagement",
+    overview: "Developed and executed a high-engagement social media campaign around the FIFA 2026 knockout stages, leveraging interactive prediction contests to increase audience participation, strengthen brand awareness, and build an active online community.",
+    problem: "Drive consistent engagement during the FIFA World Cup while increasing organic reach, attracting new followers, and encouraging meaningful audience interactions through real-time match-based content.",
+    insight: "Interactive prediction contests tap into real-time sports excitement, driving massive organic engagement and friend-tagging behavior.",
+    execution: [
+      "Created a real-time content calendar aligned with FIFA knockout fixtures",
+      "Designed prediction-based interactive posts for every major match",
+      "Used compelling CTAs to encourage comments, shares, and friend tagging",
+      "Leveraged trending football conversations to maximize organic reach"
+    ],
+    growthModelTitle: "Key Results & Deliverables",
+    growthModel: [
+      "1.1M+ Total Views",
+      "30K+ Engagements",
+      "323+ New Followers",
+      "28 Campaign Creatives Published"
+    ],
+    role: "Campaign Planning, Content Strategy & Community Management",
+    instaLink: "https://www.instagram.com/walplast/",
+    fbLink: "https://www.facebook.com/Walplast"
+  },
+  {
+    id: 4,
     title: "Drychem",
     category: "Digital Presence & Campaign Assistance",
     overview: "Required structured online visibility and improved communication of product offerings in a competitive B2B segment.",
@@ -74,7 +98,7 @@ const caseStudies = [
     fbLink: "https://www.facebook.com/DryChemIndiaPvtLtd"
   },
   {
-    id: 4,
+    id: 5,
     title: "Zee Bangla Sonar",
     category: "Social Media Execution Support",
     overview: "Required structured coordination for ongoing social media campaigns and content distribution.",
@@ -206,7 +230,10 @@ export default function CaseStudiesPage() {
 
                     {/* Growth Model */}
                     <div className="bg-cyan-50 dark:bg-cyan-950/20 p-6 rounded-2xl border border-cyan-200 dark:border-cyan-900/30 transition-colors duration-300">
-                      <h3 className="text-lg font-bold text-cyan-700 dark:text-cyan-400 mb-3 transition-colors duration-300">Practical 6-Month Growth Model</h3>
+                      <h3 className="text-lg font-bold text-cyan-700 dark:text-cyan-400 mb-3 transition-colors duration-300">
+                        {/* @ts-ignore */}
+                        {study.growthModelTitle || "Practical 6-Month Growth Model"}
+                      </h3>
                       <ul className="list-disc pl-5 space-y-2 text-slate-600 dark:text-[#9CA3AF] text-sm transition-colors duration-300">
                         {study.growthModel.map((item, idx) => (
                           <li key={idx}>{item}</li>
