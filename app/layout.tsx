@@ -37,6 +37,8 @@ export const metadata: Metadata = {
 import CustomCursor from "@/components/CustomCursor";
 import BackgroundAnimation from "@/components/BackgroundAnimation";
 import FloatingSocialBackground from "@/components/FloatingSocialBackground";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({
   children,
@@ -50,10 +52,17 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider>
-          <BackgroundAnimation />
-          <FloatingSocialBackground />
-          <CustomCursor />
-          {children}
+          <div className="relative min-h-screen bg-white dark:bg-[#0B0F1A] transition-colors duration-300 overflow-hidden">
+            <BackgroundAnimation />
+            <FloatingSocialBackground />
+            
+            <div className="relative z-10">
+              <CustomCursor />
+              {children}
+              <SpeedInsights />
+              <Analytics />
+            </div>
+          </div>
         </ThemeProvider>
       </body>
     </html>
