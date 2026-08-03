@@ -6,9 +6,20 @@ import { FiChevronDown } from "react-icons/fi";
 
 const experiences = [
   {
+    role: "Digital Marketing Executive",
+    company: "Mind & Matter India",
+    date: "August 2026 – Present",
+    details: {
+      strategy: "Taking ownership of digital marketing activities across client accounts while contributing to campaign planning and brand growth initiatives.",
+      execution: "Managing social media calendars, coordinating campaign execution, monitoring performance, and supporting paid marketing initiatives across digital platforms.",
+      collaboration: "Working directly with directors, clients, designers, and content teams to ensure seamless project execution and consistent brand communication.",
+      results: "Recently transitioned to a full-time role and currently managing ongoing client projects."
+    }
+  },
+  {
     role: "Digital Marketing Intern",
     company: "Mind & Matter India",
-    date: "February 2026 – Present",
+    date: "February 2026 – July 2026",
     details: {
       strategy: "Develop content strategies and monthly content calendars aligned with client objectives, brand positioning, and audience behavior across digital platforms.",
       execution: "Support Meta Ads optimization, marketing automation initiatives, content planning, and the creation of engaging captions and short-form video concepts to maximize reach and engagement.",
@@ -112,7 +123,7 @@ export default function ExperienceSection() {
                       {exp.company}
                     </p>
                   </div>
-                  
+
                   <div className="flex items-center gap-4 shrink-0">
                     <span className="hidden sm:inline-block px-4 py-2 bg-slate-100 dark:bg-slate-700/50 text-slate-700 dark:text-slate-300 rounded-full text-xs md:text-sm font-medium">
                       {exp.date}

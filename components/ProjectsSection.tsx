@@ -41,7 +41,7 @@ const caseStudies = [
     title: "FIFA 2026 Campaign",
     subtitle: "Community Engagement Campaign",
     category: "Community Engagement",
-    image: "/Brand_Logo/walplast.png.png",
+    image: "/Brand_Logo/Walplast_Fifa_Campaign.png",
     summary: "Developed and executed a high-engagement social media campaign around the FIFA 2026 knockout stages, leveraging interactive prediction contests.",
     problem: "Drive consistent engagement during the FIFA World Cup while increasing organic reach, attracting new followers, and encouraging meaningful audience interactions.",
     insight: "Interactive prediction contests tap into real-time sports excitement, driving massive organic engagement and friend-tagging behavior.",
@@ -183,9 +183,9 @@ export default function ProjectsSection() {
                       </span>
                     </Link>
                     {study.instaLink && (
-                      <a 
-                        href={study.instaLink} 
-                        target="_blank" 
+                      <a
+                        href={study.instaLink}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 group/insta bg-pink-50 dark:bg-pink-900/20 px-4 py-2.5 rounded-xl hover:bg-pink-100 dark:hover:bg-pink-900/40 transition-colors shrink-0"
                         title="Instagram"
@@ -196,9 +196,9 @@ export default function ProjectsSection() {
                       </a>
                     )}
                     {study.fbLink && (
-                      <a 
-                        href={study.fbLink} 
-                        target="_blank" 
+                      <a
+                        href={study.fbLink}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 group/fb bg-blue-50 dark:bg-blue-900/20 px-4 py-2.5 rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors shrink-0"
                         title="Facebook"
