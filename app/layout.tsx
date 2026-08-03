@@ -15,9 +15,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shenehashis Dutta | Digital Marketing Strategist & Brand Strategist",
-  description: "Digital Marketing Strategist with 4+ years of experience in content strategy, community engagement, client coordination, media coordination, brand strategy, and marketing analytics. Open to Social Media Strategist, Community Manager, and Client Servicing roles.",
-  keywords: "Digital Marketing Strategist, Social Media Strategist, Community Manager, Brand Strategy, Content Strategy, Marketing Analytics, Campaign Management, Audience Growth, Client Servicing, Media Coordination",
+  title: "Shenehashis Dutta (Narayan) | Digital Marketing & Social Media Marketing | Mind & Matter",
+  description: "Shenehashis Dutta (Narayan) is a Digital Marketing Strategist and Social Media Marketing expert with 4+ years of experience. Explore insights on Mind & Matter, brand strategy, and content strategy.",
+  keywords: "Shenehashis Dutta, Narayan, Digital Marketing, Social Media Marketing, Mind & Matter, Mind and Matter, Digital Marketing Strategist, Brand Strategy, Content Strategy, Marketing Analytics",
+  openGraph: {
+    title: "Shenehashis Dutta (Narayan) | Digital Marketing & Social Media Marketing",
+    description: "Explore the portfolio of Shenehashis Dutta (Narayan), a Digital Marketing and Social Media Marketing expert focusing on Mind & Matter and strategic growth.",
+    url: "https://narayan-portfolio.vercel.app",
+    siteName: "Shenehashis Dutta (Narayan) Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
+  verification: {
+    google: "6x06xSK9bRi8XlKDYG_qT-iqt09Qfr14wG-XRoM484I",
+  },
 };
 
 import CustomCursor from "@/components/CustomCursor";
