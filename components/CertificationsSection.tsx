@@ -83,7 +83,7 @@ export default function CertificationsSection() {
   const looped = [...certifications, ...certifications];
 
   return (
-    <section className="py-20 md:py-32 text-slate-800 dark:text-white transition-colors duration-300 relative overflow-hidden">
+    <section aria-labelledby="certifications-heading" className="py-20 md:py-32 text-slate-800 dark:text-white transition-colors duration-300 relative overflow-hidden">
       <style dangerouslySetInnerHTML={{
         __html: `
           @keyframes marquee-scroll {
@@ -109,7 +109,7 @@ export default function CertificationsSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-sans">
+          <h2 id="certifications-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold font-sans">
             My Recent <span className="text-slate-500 dark:text-gray-400">Certifications</span>
           </h2>
           <p className="text-slate-500 dark:text-gray-400 mt-4 max-w-xl mx-auto text-sm md:text-base">

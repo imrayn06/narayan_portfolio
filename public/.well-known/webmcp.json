@@ -1,0 +1,42 @@
+{
+  "mcpServers": {
+    "narayan-portfolio": {
+      "command": "https://narayan-portfolio.vercel.app/api/contact",
+      "name": "Narayan Portfolio MCP",
+      "description": "Exposes the portfolio capabilities to AI agents.",
+      "tools": [
+        {
+          "name": "submit_contact",
+          "description": "Submit a contact message to Shenehashis Dutta (Narayan)",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The name of the person reaching out."
+              },
+              "email": {
+                "type": "string",
+                "description": "The email address of the person reaching out."
+              },
+              "message": {
+                "type": "string",
+                "description": "The message they wish to send."
+              }
+            },
+            "required": ["name", "email", "message"]
+          }
+        },
+        {
+          "name": "get_case_studies",
+          "description": "Retrieve the list of case studies from the portfolio.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        }
+      ]
+    }
+  }
+}

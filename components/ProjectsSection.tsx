@@ -109,7 +109,7 @@ export default function ProjectsSection() {
           {caseStudies.map((study, index) => {
             const isExpanded = expandedId === study.id;
             return (
-              <motion.div
+              <motion.article
                 key={study.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -151,13 +151,15 @@ export default function ProjectsSection() {
                     {/* Toggle Button for Mobile */}
                     <button
                       onClick={() => toggleExpand(study.id)}
-                      className="md:hidden text-xs text-purple-600 dark:text-purple-400 font-bold mb-4 underline block"
+                      aria-expanded={isExpanded}
+                      aria-controls={`study-details-${study.id}`}
+                      className="md:hidden text-xs text-purple-600 dark:text-purple-400 font-bold mb-4 underline block focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 rounded px-1 -mx-1"
                     >
                       {isExpanded ? "Hide Details" : "Reveal Details"}
                     </button>
 
                     {/* Details Container - Collapsible on Mobile, always block on Desktop */}
-                    <div className={`space-y-3 mb-6 text-sm md:block ${isExpanded ? 'block' : 'hidden'}`}>
+                    <div id={`study-details-${study.id}`} className={`space-y-3 mb-6 text-sm md:block ${isExpanded ? 'block' : 'hidden'}`}>
                       <div className="flex items-start gap-2">
                         <span className="font-bold text-slate-800 dark:text-gray-200 w-20 shrink-0">Problem:</span>
                         <span className="text-slate-600 dark:text-[#9CA3AF]">{study.problem}</span>
@@ -174,7 +176,7 @@ export default function ProjectsSection() {
                   </div>
 
                   <div className="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row flex-wrap gap-3">
-                    <Link href={`/case-studies?id=${study.id}`} className="flex-1 min-w-[140px] flex items-center justify-between group/btn bg-purple-50 dark:bg-purple-900/20 px-4 py-2.5 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/40 transition-colors">
+                    <Link href={`/case-studies?id=${study.id}`} className="flex-1 min-w-[140px] flex items-center justify-between group/btn bg-purple-50 dark:bg-purple-900/20 px-4 py-2.5 rounded-xl hover:bg-purple-100 dark:hover:bg-purple-900/40 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500">
                       <span className="font-semibold text-[#8B5CF6] dark:text-[#8B5CF6] transition-colors text-sm">
                         Read Case Study
                       </span>
@@ -187,7 +189,8 @@ export default function ProjectsSection() {
                         href={study.instaLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 group/insta bg-pink-50 dark:bg-pink-900/20 px-4 py-2.5 rounded-xl hover:bg-pink-100 dark:hover:bg-pink-900/40 transition-colors shrink-0"
+                        aria-label={`View ${study.title} on Instagram`}
+                        className="flex items-center justify-center gap-2 group/insta bg-pink-50 dark:bg-pink-900/20 px-4 py-2.5 rounded-xl hover:bg-pink-100 dark:hover:bg-pink-900/40 transition-colors shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-500"
                         title="Instagram"
                       >
                         <span className="text-pink-600 dark:text-pink-400 transform group-hover/insta:scale-110 transition-transform">
@@ -200,7 +203,8 @@ export default function ProjectsSection() {
                         href={study.fbLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 group/fb bg-blue-50 dark:bg-blue-900/20 px-4 py-2.5 rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors shrink-0"
+                        aria-label={`View ${study.title} on Facebook`}
+                        className="flex items-center justify-center gap-2 group/fb bg-blue-50 dark:bg-blue-900/20 px-4 py-2.5 rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                         title="Facebook"
                       >
                         <span className="text-blue-600 dark:text-blue-400 transform group-hover/fb:scale-110 transition-transform">
@@ -210,7 +214,7 @@ export default function ProjectsSection() {
                     )}
                   </div>
                 </div>
-              </motion.div>
+              </motion.article>
             );
           })}
         </div>

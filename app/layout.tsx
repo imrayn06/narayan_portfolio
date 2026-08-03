@@ -47,6 +47,35 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark overflow-x-hidden" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Shenehashis Dutta (Narayan)",
+              "jobTitle": "Digital Marketing Strategist",
+              "url": "https://narayan-portfolio.vercel.app",
+              "sameAs": [
+                "https://www.linkedin.com/in/shenehashisdutta"
+              ],
+              "knowsAbout": ["Digital Marketing", "Social Media Strategy", "Performance Marketing"]
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Shenehashis Dutta (Narayan) Portfolio",
+              "url": "https://narayan-portfolio.vercel.app"
+            })
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
         suppressHydrationWarning

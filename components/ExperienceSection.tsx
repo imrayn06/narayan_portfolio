@@ -102,7 +102,7 @@ export default function ExperienceSection() {
           {experiences.map((exp, index) => {
             const isExpanded = expandedIndex === index;
             return (
-              <motion.div
+              <motion.article
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -113,7 +113,18 @@ export default function ExperienceSection() {
                 {/* Accordion Header */}
                 <div
                   onClick={() => toggleExpand(index)}
-                  className="flex items-center justify-between cursor-pointer select-none group"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      toggleExpand(index);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  aria-expanded={isExpanded}
+                  aria-controls={`exp-content-${index}`}
+                  id={`exp-header-${index}`}
+                  className="flex items-center justify-between cursor-pointer select-none group focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-xl"
                 >
                   <div className="flex-grow pr-4">
                     <h3 className="text-xl md:text-2xl font-bold text-slate-800 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
@@ -149,6 +160,9 @@ export default function ExperienceSection() {
                 <AnimatePresence initial={false}>
                   {isExpanded && (
                     <motion.div
+                      id={`exp-content-${index}`}
+                      role="region"
+                      aria-labelledby={`exp-header-${index}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
@@ -199,7 +213,7 @@ export default function ExperienceSection() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </motion.div>
+              </motion.article>
             );
           })}
         </div>

@@ -27,29 +27,31 @@ export default function Home() {
     <>
       <link rel="icon" href="/logo.png" />
       <Navbar />
-      <SectionAnimation icon={<Mercury size={44} />} direction="right" />
-      <HeroSection />
-      <SectionAnimation icon={<Venus size={44} />} direction="left" />
-      <CoreExpertiseSection />
-      <SectionAnimation icon={<Earth size={44} />} direction="right" />
-      <AboutSection />
-      <MetricsSection />
-      <SectionAnimation icon={<Mars size={44} />} direction="left" />
-      <ExperienceSection />
-      <CertificationsSection />
-      <MarketingFrameworkSection />
-      <SectionAnimation icon={<Jupiter size={44} />} direction="right" />
-      <ProjectsSection />
-      <FeaturedCampaignsSection />
-      <SectionAnimation icon={<Saturn size={55} />} direction="left" />
-      <TechStackSection />
-      <IndustriesSection />
-      <CurrentlyExploringSection />
-      <SectionAnimation icon={<Uranus size={44} />} direction="right" />
-      <WhatIBringSection />
-      <ContactSection />
-      <SectionAnimation icon={<Neptune size={44} />} direction="left" />
-      <GameSection />
+      <main>
+        <SectionAnimation icon={<Mercury size={44} />} direction="right" />
+        <HeroSection />
+        <SectionAnimation icon={<Venus size={44} />} direction="left" />
+        <CoreExpertiseSection />
+        <SectionAnimation icon={<Earth size={44} />} direction="right" />
+        <AboutSection />
+        <MetricsSection />
+        <SectionAnimation icon={<Mars size={44} />} direction="left" />
+        <ExperienceSection />
+        <CertificationsSection />
+        <MarketingFrameworkSection />
+        <SectionAnimation icon={<Jupiter size={44} />} direction="right" />
+        <ProjectsSection />
+        <FeaturedCampaignsSection />
+        <SectionAnimation icon={<Saturn size={55} />} direction="left" />
+        <TechStackSection />
+        <IndustriesSection />
+        <CurrentlyExploringSection />
+        <SectionAnimation icon={<Uranus size={44} />} direction="right" />
+        <WhatIBringSection />
+        <ContactSection />
+        <SectionAnimation icon={<Neptune size={44} />} direction="left" />
+        <GameSection />
+      </main>
       <Footer />
     </>
   );
