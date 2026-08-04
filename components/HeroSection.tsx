@@ -164,6 +164,8 @@ export const HeroSection = () => {
           <Image
             src={profilepic}
             alt="profile picture"
+            priority
+            sizes="(max-width: 768px) 250px, 220px"
             className="w-[250px] md:w-[220px] rounded-[2rem] shadow-2xl relative z-10 border-4 border-white/50 dark:border-slate-800/50 object-cover"
           />
 
