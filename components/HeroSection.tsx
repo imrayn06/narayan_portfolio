@@ -78,7 +78,7 @@ export const HeroSection = () => {
     >
       <div className="z-10 flex flex-col items-center text-center space-y-4 md:space-y-5">
         {/* Intro */}
-        <motion.h1
+        <motion.h2
           data-hover="true"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ export const HeroSection = () => {
           className="text-slate-600 dark:text-gray-400 md:text-7xl text-2xl font-black mt-6 md:mt-10"
         >
           Hi, I am
-        </motion.h1>
+        </motion.h2>
 
         {/* Name */}
         <motion.h1
@@ -163,7 +163,7 @@ export const HeroSection = () => {
 
           <Image
             src={profilepic}
-            alt="profile picture"
+            alt="Shenehashis Dutta (Narayan) - Digital Marketing Strategist Profile Picture"
             priority
             fetchPriority="high"
             sizes="(max-width: 768px) 250px, 220px"
