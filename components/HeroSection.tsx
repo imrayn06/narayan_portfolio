@@ -136,7 +136,7 @@ export const HeroSection = () => {
           >
             Content Strategy
           </motion.div>
-          
+
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
@@ -144,7 +144,7 @@ export const HeroSection = () => {
           >
             Community Management
           </motion.div>
-          
+
           <motion.div
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
@@ -185,7 +185,7 @@ export const HeroSection = () => {
         </motion.div>
 
         {/* CTA Buttons */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
@@ -200,9 +200,9 @@ export const HeroSection = () => {
               View Case Studies
             </motion.button>
           </a>
-          
+
           <a
-            href="https://drive.google.com/file/d/1SIgneDnDqqFIYPjAzUY2wXyBdhGGrPp6/view?usp=sharing"
+            href="https://drive.google.com/file/d/1Uib7AWGPG6T_ybR9Txozb4--HXBMMTYV/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: "none" }}
@@ -216,7 +216,7 @@ export const HeroSection = () => {
               Download Resume
             </motion.button>
           </a>
-          
+
           <a href="#contact" style={{ textDecoration: "none" }} className="w-full md:w-auto block">
             <motion.button
               whileHover={{ scale: 1.02 }}
@@ -229,7 +229,7 @@ export const HeroSection = () => {
         </motion.div>
 
         {/* Badges */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}

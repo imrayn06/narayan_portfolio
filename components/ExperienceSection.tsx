@@ -6,20 +6,9 @@ import { FiChevronDown } from "react-icons/fi";
 
 const experiences = [
   {
-    role: "Digital Marketing Executive",
-    company: "Mind & Matter India",
-    date: "August 2026 – Present",
-    details: {
-      strategy: "Taking ownership of digital marketing activities across client accounts while contributing to campaign planning and brand growth initiatives.",
-      execution: "Managing social media calendars, coordinating campaign execution, monitoring performance, and supporting paid marketing initiatives across digital platforms.",
-      collaboration: "Working directly with directors, clients, designers, and content teams to ensure seamless project execution and consistent brand communication.",
-      results: "Recently transitioned to a full-time role and currently managing ongoing client projects."
-    }
-  },
-  {
     role: "Digital Marketing Intern",
     company: "Mind & Matter India",
-    date: "February 2026 – July 2026",
+    date: "February 2026 – August 2026",
     details: {
       strategy: "Develop content strategies and monthly content calendars aligned with client objectives, brand positioning, and audience behavior across digital platforms.",
       execution: "Support Meta Ads optimization, marketing automation initiatives, content planning, and the creation of engaging captions and short-form video concepts to maximize reach and engagement.",
@@ -112,6 +101,7 @@ export default function ExperienceSection() {
               >
                 {/* Accordion Header */}
                 <div
+                  suppressHydrationWarning
                   onClick={() => toggleExpand(index)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
