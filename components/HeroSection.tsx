@@ -83,7 +83,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-slate-800/40 dark:text-white/40 md:text-7xl text-2xl font-black mt-6 md:mt-10"
+          className="text-slate-600 dark:text-gray-400 md:text-7xl text-2xl font-black mt-6 md:mt-10"
         >
           Hi, I am
         </motion.h1>
@@ -132,7 +132,7 @@ export const HeroSection = () => {
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-0 left-0 md:-left-10 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-purple-100 dark:border-purple-900/50 text-sm font-semibold text-purple-700 dark:text-purple-300 hidden md:block"
+            className="absolute top-0 left-0 md:-left-10 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-purple-100 dark:border-purple-900/50 text-sm font-semibold text-purple-800 dark:text-purple-300 hidden md:block"
           >
             Content Strategy
           </motion.div>
@@ -140,7 +140,7 @@ export const HeroSection = () => {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute top-1/4 right-0 md:-right-12 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-sky-100 dark:border-sky-900/50 text-sm font-semibold text-sky-700 dark:text-sky-300 hidden md:block"
+            className="absolute top-1/4 right-0 md:-right-12 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-sky-100 dark:border-sky-900/50 text-sm font-semibold text-sky-800 dark:text-sky-300 hidden md:block"
           >
             Community Management
           </motion.div>
@@ -148,7 +148,7 @@ export const HeroSection = () => {
           <motion.div
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            className="absolute bottom-10 left-4 md:-left-4 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-pink-100 dark:border-pink-900/50 text-sm font-semibold text-pink-700 dark:text-pink-300 hidden md:block"
+            className="absolute bottom-10 left-4 md:-left-4 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-pink-100 dark:border-pink-900/50 text-sm font-semibold text-pink-800 dark:text-pink-300 hidden md:block"
           >
             Client Servicing
           </motion.div>
@@ -156,7 +156,7 @@ export const HeroSection = () => {
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute bottom-0 right-10 md:right-0 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-indigo-100 dark:border-indigo-900/50 text-sm font-semibold text-indigo-700 dark:text-indigo-300 hidden md:block"
+            className="absolute bottom-0 right-10 md:right-0 z-20 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow-lg border border-indigo-100 dark:border-indigo-900/50 text-sm font-semibold text-indigo-800 dark:text-indigo-300 hidden md:block"
           >
             Campaign Planning
           </motion.div>
@@ -165,22 +165,23 @@ export const HeroSection = () => {
             src={profilepic}
             alt="profile picture"
             priority
+            fetchPriority="high"
             sizes="(max-width: 768px) 250px, 220px"
             className="w-[250px] md:w-[220px] rounded-[2rem] shadow-2xl relative z-10 border-4 border-white/50 dark:border-slate-800/50 object-cover"
           />
 
           {/* Mobile-only wrapped skill pills */}
           <div className="flex md:hidden flex-wrap justify-center gap-2 mt-6 z-20">
-            <div className="px-3 py-1.5 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow border border-purple-100 dark:border-purple-900/30 text-xs font-semibold text-purple-700 dark:text-purple-300 min-h-[40px] flex items-center">
+            <div className="px-3 py-1.5 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow border border-purple-100 dark:border-purple-900/30 text-xs font-semibold text-purple-800 dark:text-purple-300 min-h-[40px] flex items-center">
               Content Strategy
             </div>
-            <div className="px-3 py-1.5 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow border border-sky-100 dark:border-sky-900/30 text-xs font-semibold text-sky-700 dark:text-sky-300 min-h-[40px] flex items-center">
+            <div className="px-3 py-1.5 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow border border-sky-100 dark:border-sky-900/30 text-xs font-semibold text-sky-800 dark:text-sky-300 min-h-[40px] flex items-center">
               Community Management
             </div>
-            <div className="px-3 py-1.5 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow border border-pink-100 dark:border-pink-900/30 text-xs font-semibold text-pink-700 dark:text-pink-300 min-h-[40px] flex items-center">
+            <div className="px-3 py-1.5 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow border border-pink-100 dark:border-pink-900/30 text-xs font-semibold text-pink-800 dark:text-pink-300 min-h-[40px] flex items-center">
               Client Servicing
             </div>
-            <div className="px-3 py-1.5 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow border border-indigo-100 dark:border-indigo-900/30 text-xs font-semibold text-indigo-700 dark:text-indigo-300 min-h-[40px] flex items-center">
+            <div className="px-3 py-1.5 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-md shadow border border-indigo-100 dark:border-indigo-900/30 text-xs font-semibold text-indigo-800 dark:text-indigo-300 min-h-[40px] flex items-center">
               Campaign Planning
             </div>
           </div>
@@ -237,16 +238,16 @@ export const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="flex flex-wrap justify-center gap-2 mt-6"
         >
-          <span className="px-3 py-1.5 text-xs font-medium bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full border border-green-200 dark:border-green-800/50 min-h-[36px] flex items-center">
+          <span className="px-3 py-1.5 text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 rounded-full border border-green-200 dark:border-green-800/50 min-h-[36px] flex items-center">
             • Open to Work
           </span>
-          <span className="px-3 py-1.5 text-xs font-medium bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 rounded-full border border-blue-200 dark:border-blue-800/50 min-h-[36px] flex items-center">
+          <span className="px-3 py-1.5 text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400 rounded-full border border-blue-200 dark:border-blue-800/50 min-h-[36px] flex items-center">
             • 4+ Years Experience
           </span>
-          <span className="px-3 py-1.5 text-xs font-medium bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400 rounded-full border border-orange-200 dark:border-orange-800/50 min-h-[36px] flex items-center">
+          <span className="px-3 py-1.5 text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400 rounded-full border border-orange-200 dark:border-orange-800/50 min-h-[36px] flex items-center">
             • Based in Kolkata
           </span>
-          <span className="px-3 py-1.5 text-xs font-medium bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400 rounded-full border border-purple-200 dark:border-purple-800/50 min-h-[36px] flex items-center">
+          <span className="px-3 py-1.5 text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400 rounded-full border border-purple-200 dark:border-purple-800/50 min-h-[36px] flex items-center">
             • Available for Freelance
           </span>
         </motion.div>

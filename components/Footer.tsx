@@ -7,7 +7,7 @@ function Footer() {
       <div className="container mx-auto px-4 text-center">
         {/* Open to Opportunities */}
         <div className="mb-4">
-          <span className="inline-block px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-semibold border border-green-200 dark:border-green-800/50">
+          <span className="inline-block px-3 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 text-xs font-semibold border border-green-200 dark:border-green-800/50">
             ✦ Open to Opportunities
           </span>
         </div>
@@ -43,7 +43,7 @@ function Footer() {
         </div>
 
         {/* Copyright */}
-        <p className="text-xs text-slate-500 dark:text-gray-500">
+        <p className="text-xs text-slate-600 dark:text-gray-400">
           © {new Date().getFullYear()} Shenehashis Dutta. All rights reserved.
         </p>
       </div>

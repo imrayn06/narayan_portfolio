@@ -120,7 +120,7 @@ function TechStackSection() {
                   className='flex flex-col items-center justify-center p-4 bg-white dark:bg-slate-800/80 rounded-2xl shadow-md border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-all group min-h-[96px]'
                 >
                   <div className='mb-2 text-3xl sm:text-4xl transition-transform group-hover:scale-110' style={{ color: tool.color }}>
-                    <tool.icon className={`dark:text-[${tool.darkColor || tool.color}] text-[${tool.color}]`} />
+                    <tool.icon className={`dark:text-[${tool.darkColor || tool.color}] text-[${tool.color}]`} aria-label={tool.name} title={tool.name} />
                   </div>
                   <p className='text-slate-700 dark:text-gray-300 font-semibold text-xs text-center'>{tool.name}</p>
                 </motion.div>
