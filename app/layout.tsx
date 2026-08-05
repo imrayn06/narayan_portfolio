@@ -56,7 +56,7 @@ import CustomCursor from "@/components/CustomCursor";
 import BackgroundAnimation from "@/components/BackgroundAnimation";
 import FloatingSocialBackground from "@/components/FloatingSocialBackground";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function RootLayout({
   children,
