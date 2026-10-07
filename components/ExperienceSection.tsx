@@ -6,20 +6,9 @@ import { FiChevronDown } from "react-icons/fi";
 
 const experiences = [
   {
-    role: "Digital Marketing Intern",
-    company: "Mind & Matter India",
-    date: "February 2026 – August 2026",
-    details: {
-      strategy: "Develop content strategies and monthly content calendars aligned with client objectives, brand positioning, and audience behavior across digital platforms.",
-      execution: "Support Meta Ads optimization, marketing automation initiatives, content planning, and the creation of engaging captions and short-form video concepts to maximize reach and engagement.",
-      collaboration: "Coordinate with clients, designers, and internal teams by briefing creative requirements, reviewing deliverables, collecting feedback, and ensuring timely campaign execution.",
-      results: "Contributed to streamlined marketing operations, improved campaign execution, and enhanced brand consistency through data-driven planning and cross-functional coordination.",
-    }
-  },
-  {
     role: "Founder & Digital Marketing Consultant",
     company: "Digitally Kolkata",
-    date: "December 2025 – Present",
+    date: "Dec 2025 – Present",
     details: {
       strategy: "Provide digital growth strategies tailored to small businesses, focusing on brand visibility, audience acquisition, and online presence.",
       execution: "Deliver Social Media Marketing (SMM), SEO, SEM, PPC, and paid advertising solutions while creating performance-oriented marketing campaigns.",
@@ -29,8 +18,19 @@ const experiences = [
   },
   {
     role: "Digital Marketing Intern",
-    company: "JRD",
-    date: "January 2026",
+    company: "Mind & Matter",
+    date: "Feb 2026 – Aug 2026",
+    details: {
+      strategy: "Develop content strategies and monthly content calendars aligned with client objectives, brand positioning, and audience behavior across digital platforms.",
+      execution: "Support Meta Ads optimization, marketing automation initiatives, content planning, and the creation of engaging captions and short-form video concepts to maximize reach and engagement.",
+      collaboration: "Coordinate with clients, designers, and internal teams by briefing creative requirements, reviewing deliverables, collecting feedback, and ensuring timely campaign execution.",
+      results: "Contributed to streamlined marketing operations, improved campaign execution, and enhanced brand consistency through data-driven planning and cross-functional coordination.",
+    }
+  },
+  {
+    role: "Digital Marketing Intern",
+    company: "JRD Ayurveda",
+    date: "Jan 2026 – Feb 2026",
     details: {
       strategy: "Analyzed business objectives and digital performance to identify opportunities for improving online visibility, SEO, and user experience.",
       execution: "Planned content aligned with brand goals, designed digital creatives, supported Google Ads and Meta Ads campaigns, and monitored campaign performance.",
@@ -39,9 +39,20 @@ const experiences = [
     }
   },
   {
+    role: "Digital Marketing Intern",
+    company: "KDMI",
+    date: "Nov 2025 – Jan 2026",
+    details: {
+      strategy: "Assisted in the development of comprehensive digital marketing strategies and social media planning.",
+      execution: "Executed content creation, scheduled posts across platforms, and participated in community engagement initiatives.",
+      collaboration: "Collaborated with the marketing team to brainstorm new campaign ideas and ensure brand consistency.",
+      results: "Gained hands-on experience in executing integrated digital marketing campaigns and analyzing basic performance metrics.",
+    }
+  },
+  {
     role: "Software Engineer",
     company: "Q3 Technologies",
-    date: "April 2025 – October 2025",
+    date: "Apr 2025 – Oct 2025",
     details: {
       strategy: "Applied analytical thinking and solution-oriented development practices to enhance CRM systems and improve internal processes.",
       execution: "Collaborated on multiple CRM enhancement projects and led the migration of the organization's time-tracking application to the latest .NET framework using Blazor and Bootstrap.",
@@ -52,7 +63,7 @@ const experiences = [
   {
     role: "Test Engineer",
     company: "Wipro",
-    date: "September 2021 – February 2024",
+    date: "Sep 2021 – Mar 2024",
     details: {
       strategy: "Implemented quality assurance methodologies to ensure software reliability and optimize testing efficiency.",
       execution: "Performed manual and automation testing with a focus on Salesforce CPQ, utilizing Jira for test planning, execution, and defect management.",
@@ -97,7 +108,7 @@ export default function ExperienceSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.05 }}
-                className="bg-white dark:bg-slate-800/60 rounded-3xl p-6 md:p-8 shadow-lg border border-slate-200 dark:border-slate-700/50"
+                className="bg-white dark:bg-slate-800/60 rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 shadow-lg border border-slate-200 dark:border-slate-700/50"
               >
                 {/* Accordion Header */}
                 <div
@@ -116,11 +127,11 @@ export default function ExperienceSection() {
                   id={`exp-header-${index}`}
                   className="flex items-center justify-between cursor-pointer select-none group focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-xl"
                 >
-                  <div className="flex-grow pr-4">
-                    <h3 className="text-xl md:text-2xl font-bold text-slate-800 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  <div className="flex-grow pr-3 sm:pr-4">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                       {exp.role}
                     </h3>
-                    <p className="text-lg font-semibold text-slate-500 dark:text-slate-400">
+                    <p className="text-sm sm:text-base md:text-lg font-semibold text-slate-500 dark:text-slate-400">
                       {exp.company}
                     </p>
                   </div>

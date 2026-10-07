@@ -34,11 +34,11 @@ export const AboutSection = () => {
           </div>
 
           <p>
-            Versatile professional with nearly four years of cross-functional experience spanning Digital Marketing, Social Media Management, Software Development, Testing, and Quality Assurance. In recent roles, I specialised in Digital and Social Media Marketing, driving content strategy, brand positioning, audience engagement, campaign execution, and online growth initiatives.
+            Versatile professional with cross-functional experience spanning Digital Marketing, Social Media Management, Software Development, Testing, and Quality Assurance. In recent roles, I specialised in Digital and Social Media Marketing, driving content strategy, brand positioning, audience engagement, campaign execution, and online growth initiatives.
           </p>
 
           <p>
-            Successfully contributed to digital marketing efforts at JRD Ayurveda and led social media and marketing activities at Mind and Matter, enhancing brand visibility, increasing audience engagement, and supporting business growth through data-driven marketing strategies.
+            Successfully contributed to digital marketing efforts as a Digital Marketing Intern at JRD Ayurveda, KDMI, and Mind and Matter, enhancing brand visibility, increasing audience engagement, and supporting business growth through data-driven marketing strategies.
           </p>
 
           <p>

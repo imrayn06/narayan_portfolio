@@ -10,6 +10,7 @@ import { FaFacebook, FaRobot, FaVideo, FaFileExcel } from 'react-icons/fa'
 const strategicSkills = [
   { name: 'Content Strategy', level: 90 },
   { name: 'Brand Strategy', level: 85 },
+  { name: 'SEO & Keyword Research', level: 85 },
   { name: 'Community Management', level: 95 },
   { name: 'Consumer Psychology', level: 80 },
   { name: 'Campaign Planning', level: 85 },
@@ -21,8 +22,11 @@ const strategicSkills = [
 ];
 
 const marketingTools = [
-  { name: 'Meta Business Suite', icon: FaFacebook, color: '#1877F2' },
+  { name: 'Meta Ads', icon: FaFacebook, color: '#1877F2' },
+  { name: 'Google Ads', icon: SiGoogle, color: '#4285F4' },
   { name: 'Google Analytics', icon: SiGoogleanalytics, color: '#F97316' },
+  { name: 'SEMrush', icon: SiGoogle, color: '#F26D21' },
+  { name: 'Ubersuggest', icon: SiGoogle, color: '#F24E1E' },
   { name: 'Canva', icon: SiCanva, color: '#00C4CC' },
   { name: 'CapCut', icon: FaVideo, color: '#000000', darkColor: '#FFFFFF' },
   { name: 'ChatGPT', icon: FaRobot, color: '#10A37F' },
@@ -30,7 +34,6 @@ const marketingTools = [
   { name: 'Notion', icon: SiNotion, color: '#000000', darkColor: '#FFFFFF' },
   { name: 'WordPress', icon: SiWordpress, color: '#21759B' },
   { name: 'Excel', icon: FaFileExcel, color: '#217346' },
-  { name: 'Looker Studio', icon: SiGoogle, color: '#4285F4' },
 ];
 
 function SkillBar({ name, level, index }: { name: string, level: number, index: number }) {

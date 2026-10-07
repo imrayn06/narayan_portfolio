@@ -3,11 +3,9 @@
 import { motion, useMotionValue, animate, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import profilepic from "../assets/profilepic.png"
-import object from "../assets/obj1.png";
+import profilepic from "../assets/profilepic.png";
 import { FiArrowRight } from "react-icons/fi";
 import { useTheme } from "./ThemeContext";
-import "../app/globals.css"
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
@@ -94,7 +92,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-sans max-w-3xl bg-gradient-to-br from-slate-900 to-slate-700 dark:from-white dark:to-gray-200 bg-clip-text font-black leading-tight text-transparent md:text-7xl text-4xl sm:text-5xl"
+          className="font-sans max-w-3xl bg-gradient-to-br from-slate-900 to-slate-700 dark:from-white dark:to-gray-200 bg-clip-text font-black leading-tight text-transparent text-3xl sm:text-5xl md:text-7xl"
         >
           Shenehashis Dutta
         </motion.h1>
@@ -105,9 +103,12 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-4 max-w-4xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-sans text-slate-900 dark:text-[#F9FAFB] leading-tight text-center"
+          className="mt-3 sm:mt-4 max-w-4xl text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-sans text-slate-900 dark:text-[#F9FAFB] leading-tight text-center px-1"
         >
-          I help brands build <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899]">visibility</span>, engagement, and strong digital presence through social media strategy, content execution, and campaign support.
+          <span>Digital marketer (Ex - SDE)</span>
+          <span className="block mt-1 sm:mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899]">
+            Open to entry-level roles
+          </span>
         </motion.h2>
 
         {/* Subheadline */}
@@ -116,7 +117,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-[#9CA3AF] max-w-3xl mt-4 mb-4 md:mb-8 leading-relaxed text-center"
+          className="text-xs sm:text-base md:text-lg text-slate-600 dark:text-[#9CA3AF] max-w-3xl mt-3 sm:mt-4 mb-4 md:mb-8 leading-relaxed text-center px-2 sm:px-0"
         >
           Worked with brands like Zee Bangla Sonar, MSP Steel, Walplast, and Drychem, contributing to social media handling, campaign coordination, and structured brand communication.
         </motion.p>
@@ -205,7 +206,7 @@ export const HeroSection = () => {
           </a>
 
           <a
-            href="https://drive.google.com/file/d/1Uib7AWGPG6T_ybR9Txozb4--HXBMMTYV/view?usp=sharing"
+            href="https://drive.google.com/file/d/1vhGt-nv2sl-yCfW5YDQWV9IJOC2qPUgw/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: "none" }}
@@ -240,9 +241,6 @@ export const HeroSection = () => {
         >
           <span className="px-3 py-1.5 text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 rounded-full border border-green-200 dark:border-green-800/50 min-h-[36px] flex items-center">
             • Open to Work
-          </span>
-          <span className="px-3 py-1.5 text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400 rounded-full border border-blue-200 dark:border-blue-800/50 min-h-[36px] flex items-center">
-            • 4+ Years Experience
           </span>
           <span className="px-3 py-1.5 text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400 rounded-full border border-orange-200 dark:border-orange-800/50 min-h-[36px] flex items-center">
             • Based in Kolkata

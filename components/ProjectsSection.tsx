@@ -123,7 +123,7 @@ export default function ProjectsSection() {
                     src={study.image}
                     alt={study.title}
                     fill
-                    priority={true}
+                    loading="lazy"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />

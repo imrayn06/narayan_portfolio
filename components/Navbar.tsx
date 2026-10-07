@@ -23,7 +23,7 @@ export const Navbar = () => {
   }
 
   return (
-    <div className="z-50 fixed top-0 left-0 w-full text-slate-800 dark:text-white font-bold">
+    <nav aria-label="Main Navigation" className="z-50 fixed top-0 left-0 w-full text-slate-800 dark:text-white font-bold">
       {/* Mobile Top Bar (Sticky with blur background) */}
       <div className="flex md:hidden items-center justify-between px-6 py-4 w-full bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-purple-200/20 dark:border-white/10 shadow-sm z-50 relative">
         <Link href="/#home" className="text-xl font-black bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
@@ -105,6 +105,6 @@ export const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </nav>
   )
 }
