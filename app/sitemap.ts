@@ -1,15 +1,26 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Replace this URL with your actual domain when you have a custom one
-  const baseUrl = 'https://narayan-portfolio-three.vercel.app/'
+  const baseUrl = "https://narayan-portfolio.vercel.app";
+  const now = new Date();
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-  ]
+  const routes = [
+    { path: "", priority: 1.0, changeFrequency: "weekly" as const },
+    { path: "/work", priority: 0.9, changeFrequency: "weekly" as const },
+    { path: "/work/fifa", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/work/bisleri", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/creative", priority: 0.85, changeFrequency: "weekly" as const },
+    { path: "/motion", priority: 0.85, changeFrequency: "monthly" as const },
+    { path: "/experience", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/about", priority: 0.75, changeFrequency: "monthly" as const },
+    { path: "/resume", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/contact", priority: 0.7, changeFrequency: "monthly" as const },
+  ];
+
+  return routes.map((route) => ({
+    url: `${baseUrl}${route.path}`,
+    lastModified: now,
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
+  }));
 }

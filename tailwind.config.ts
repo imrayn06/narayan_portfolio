@@ -10,8 +10,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        dark: {
+          bg: "var(--bg)",
+          surface: "var(--surface-1)",
+          surface2: "var(--surface-2)",
+          border: "var(--border-subtle)",
+          borderSubtle: "var(--border-line)",
+        },
+        warm: {
+          white: "var(--text-primary)",
+          offwhite: "var(--text-secondary)",
+          gray: "var(--text-secondary)",
+          muted: "var(--text-muted)",
+        },
+        accent: {
+          blue: "var(--accent-blue)",
+          blueMuted: "var(--accent-blue-muted)",
+          sand: "var(--accent-sand)",
+        }
+      },
+      fontFamily: {
+        sans: ["var(--font-geist-sans)", "system-ui", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "monospace"],
       },
     },
   },

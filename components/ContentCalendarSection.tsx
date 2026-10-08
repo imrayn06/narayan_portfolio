@@ -293,7 +293,7 @@ const CATEGORY_STYLES = {
 
 const LABEL_REGEX = /^(Visuals?|Design text|Design|Text overlay|Text pops|Flashing text|Text|Final frame|Final|Tagline|End card):\s*(.+)$/i;
 
-export default function ContentCalendarSection() {
+export default function ContentCalendarSection({ embedded = false }: { embedded?: boolean }) {
   const [view, setView] = useState<"list" | "calendar">("list");
   const [selectedCat, setSelectedCat] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -375,51 +375,8 @@ export default function ContentCalendarSection() {
   const firstDayOffset = 0; // Dec 1, 2025 is Monday
 
   return (
-    <section id="calendar" className="py-20 md:py-32 relative z-10 bg-slate-50/50 dark:bg-[#0B0F1A]/50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4">
-            <FiZap className="w-3.5 h-3.5" />
-            Social Media Execution &amp; Planning
-          </div>
-
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans mb-4 text-slate-800 dark:text-gray-100">
-            Content <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-500 to-cyan-400">Calendar</span>
-          </h2>
-          <p className="text-base md:text-lg text-slate-600 dark:text-gray-400 max-w-2xl mx-auto mb-6">
-            A comprehensive 360° social media campaign strategy developed for <span className="font-semibold text-slate-800 dark:text-gray-200">Bisleri (December 2025)</span>. Complete with structured content buckets, creative captions, and shot-by-shot visual directions.
-          </p>
-
-          {/* Key Campaign Highlights Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 max-w-2xl mx-auto">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-200/70 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700">
-              <FiCalendar className="w-3.5 h-3.5 text-blue-500" />
-              16 Scheduled Posts
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-200/70 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700">
-              <FiLayers className="w-3.5 h-3.5 text-purple-500" />
-              4 Strategic Content Pillars
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-200/70 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700">
-              <FiVideo className="w-3.5 h-3.5 text-amber-500" />
-              1 Reel &amp; Video Shot Breakdown
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-200/70 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-300/50 dark:border-slate-700">
-              <FiEye className="w-3.5 h-3.5 text-emerald-500" />
-              Winter Festive Campaign
-            </span>
-          </div>
-        </motion.div>
-
-        {/* Calendar Widget Container */}
-        <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 shadow-xl overflow-hidden backdrop-blur-sm">
+    <div className={embedded ? "w-full" : "py-12 max-w-6xl mx-auto px-4 sm:px-6"}>
+      <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 shadow-xl overflow-hidden backdrop-blur-sm">
           {/* Calendar Header Bar */}
           <div className="p-5 sm:p-6 md:p-8 bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 text-white flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
@@ -857,6 +814,5 @@ export default function ContentCalendarSection() {
           </div>
         </div>
       </div>
-    </section>
   );
 }
