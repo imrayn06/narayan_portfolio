@@ -40,7 +40,7 @@ const selectedWorks = [
     project: "Winter Hydration Content Plan",
     contribution: "31-Day Content Strategy · Visual Scripts · Copywriting",
     type: "SPEC / PERSONAL PROJECT",
-    image: "/portfolio/digital-age-brand.jpg",
+    image: "/portfolio/bisleri-ad-creative.jpg",
     aspect: "aspect-[16/9]",
     stat: "31 Editorial Plots & Scripts",
     href: "/work/bisleri",

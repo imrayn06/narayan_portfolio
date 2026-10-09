@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { FiArrowLeft, FiArrowRight, FiInfo } from "react-icons/fi";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -86,6 +87,36 @@ export default function BisleriSpecPage() {
               </div>
             </div>
           </header>
+
+          {/* Featured Visual Creative Asset */}
+          <div className="mb-16 rounded-3xl bg-dark-surface border border-white/[0.08] overflow-hidden p-6 sm:p-8 flex flex-col md:flex-row items-center gap-8">
+            <div className="relative w-full md:w-1/2 aspect-[3/4] max-h-[460px] bg-[#141414] rounded-2xl overflow-hidden border border-white/[0.06]">
+              <Image
+                src="/portfolio/bisleri-ad-creative.jpg"
+                alt="Bisleri - Party or Recovery, Piyo Bisleri"
+                fill
+                priority
+                className="object-contain p-2"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div className="md:w-1/2 space-y-4">
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-accent-blue font-semibold">
+                ORIGINAL CAMPAIGN ASSET
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold font-sans text-warm-white">
+                “Party or Recovery, Piyo Bisleri”
+              </h2>
+              <p className="text-sm font-light text-warm-gray leading-relaxed">
+                Key visual developed to contrast nightlife party hydration with morning wellness recovery, positioning packaged water as essential across winter routines.
+              </p>
+              <div className="pt-2 flex flex-wrap gap-2 font-mono text-[11px] text-warm-muted">
+                <span className="px-3 py-1 rounded bg-white/[0.04] border border-white/[0.08]">Dual Split Visual</span>
+                <span className="px-3 py-1 rounded bg-white/[0.04] border border-white/[0.08]">Visual Copywriting</span>
+                <span className="px-3 py-1 rounded bg-white/[0.04] border border-white/[0.08]">Spec FMCG Ad</span>
+              </div>
+            </div>
+          </div>
 
           {/* ─── 01 / THE CHALLENGE & HYPOTHESIS ─── */}
           <section className="py-12 border-b border-white/[0.08] space-y-6">

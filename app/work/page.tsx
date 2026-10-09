@@ -65,7 +65,7 @@ const workArchive: WorkItem[] = [
     ],
     summary: "A comprehensive 31-day content roadmap addressing the seasonal winter drop in water consumption.",
     insight: "Cold weather suppresses thirst sensation, creating an opportunity to shift messaging from thirst satisfaction to essential wellness and purity.",
-    image: "/portfolio/digital-age-brand.jpg",
+    image: "/portfolio/bisleri-ad-creative.jpg",
     aspect: "aspect-[16/9]",
     caseStudyUrl: "/work/bisleri",
   },

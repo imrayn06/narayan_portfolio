@@ -1,88 +1,141 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { FiPlay, FiX, FiFilm, FiArrowRight } from "react-icons/fi";
+import { motion } from "framer-motion";
+import { FiArrowRight } from "react-icons/fi";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import {
+  PortfolioVideoPreview,
+  VideoPlayerModal,
+  type VideoItem,
+} from "@/components/PortfolioVideoCard";
 
-interface VideoConcept {
-  id: string;
-  title: string;
-  brand: string;
-  format: "REEL (9:16)" | "CAMPAIGN CUT" | "MOTION TEASER";
-  duration: string;
-  tools: string[];
-  hook: string;
-  body: string;
-  cta: string;
-  audioDirection: string;
-  poster: string;
-  aspect: string;
-}
-
-const motionWork: VideoConcept[] = [
+const motionWork: VideoItem[] = [
   {
-    id: "winter-purity",
-    title: "“Cold Weather, Constant Purity” — Winter Reel",
-    brand: "Bisleri (Spec Project)",
+    id: "tiib-dubai-scholarship",
+    title: "“Finished 12th? Fully Funded Dubai Scholarships” — Ad Reel",
+    brand: "Edu Global x TIIB Dubai",
     format: "REEL (9:16)",
-    duration: "0:15",
-    tools: ["CapCut", "VN", "Audio Sync"],
-    hook: "Macro shot of frosty morning window pane; hand wipes steam away to reveal a chilled Bisleri bottle.",
-    body: "Subject takes a sip in cold winter ambience; quick rhythmic cut to glowing morning sun and pure water pour.",
-    cta: "Clean kinetic typography: “Purity that stays. Even in winters.”",
-    audioDirection: "Atmospheric ambient winter breeze transition into crisp acoustic beat drop at second 03.",
-    poster: "/portfolio/digital-age-brand.jpg",
-    aspect: "aspect-[9/16]",
+    duration: "0:28",
+    tools: ["CapCut", "Kinetic Typography", "Split-Cut Editing", "Voiceover Sync"],
+    hook: "POV stairs descent hook: “POV: Finished 12th. Now falling into the next chapter 🤔” transitioning directly into scholarship reveal.",
+    body: "Direct-to-camera value pitch breaking down 100% and 54% scholarships, IELTS waiver, globally recognized degree, and Kolkata local event details.",
+    cta: "Fill up the form below and join us on 22nd August in Kolkata.",
+    audioDirection: "High-energy voiceover delivery paired with an upbeat commercial background score.",
+    videoSrc: "/videos/tiib-dubai-scholarship-reel.mp4",
+    driveUrl: "https://drive.google.com/file/d/1GgNi5D0KTvh7ofb6AsjE6ePPpx6OE72o/view?usp=drive_link",
+    aspect: "aspect-[16/10]",
   },
   {
-    id: "fifa-prediction",
-    title: "Knockout Matchday Prediction Motion Graphic",
-    brand: "Walplast (FIFA Campaign)",
-    format: "MOTION TEASER",
-    duration: "0:20",
-    tools: ["CapCut", "Motion Edits", "Canva"],
-    hook: "Fast countdown clock ticking backwards with football stadium roar audio.",
-    body: "Split-screen dynamic team face-off with animated score brackets prompting viewers: “Who takes the trophy?”",
-    cta: "Comment your exact score + tag 2 friends before kickoff to win.",
-    audioDirection: "High-energy stadium whistle with heartbeat bass buildup.",
-    poster: "/Brand_Logo/Walplast_Fifa_Campaign.png",
-    aspect: "aspect-[16/9]",
-  },
-  {
-    id: "core-fit-intensity",
-    title: "“No Excuses” High-Intensity Workout Cut",
-    brand: "Core Fit (Fitness)",
+    id: "clean-up-kolkata-green-drive",
+    title: "Weekend Green Up Drive — Environmental Action & Community Vlog Reel",
+    brand: "Clean Up Kolkata Collective x Ashari",
     format: "REEL (9:16)",
-    duration: "0:15",
-    tools: ["VN Editor", "CapCut", "Speed Ramping"],
-    hook: "Extreme close-up of chalk clapping onto barbell with sudden speed-ramped drop.",
-    body: "Rapid 0.5s jump cuts matching high-BPM phonk/trap music during compound lifts.",
-    cta: "Kinetic text: “Start before you feel ready. Join Core Fit today.”",
-    audioDirection: "Aggressive bass hit on rep lockout with muffled gym ambiance.",
-    poster: "/portfolio/fitness-brand-be-fit.jpg",
-    aspect: "aspect-[9/16]",
+    duration: "0:56",
+    tools: ["VN Editor", "On-Ground Mobile Shoot", "Beat-Matched Jump Cuts", "Color Grade"],
+    hook: "Rainy day crew selfie vlog intro establishing camaraderie, transitioning into energetic rhythmic sapling planting cuts.",
+    body: "Youth volunteer mobilization planting saplings, digging spots, and feeding animals at Ashari sanctuary to celebrate a birthday with purpose.",
+    cta: "Join us for next spot — Plant More Trees. In collaboration with CUK, Ashari & CMI.",
+    audioDirection: "Drake hip-hop beat drop rhythmically aligned with physical shoveling and volunteer moments.",
+    videoSrc: "/videos/clean-up-kolkata-green-drive.mp4",
+    driveUrl: "https://drive.google.com/file/d/1mLxqOZVCPG7Jh6rXZ6Y7Bb9fBsSiuSi_/view?usp=drive_link",
+    aspect: "aspect-[16/10]",
   },
   {
-    id: "kolkata-growth",
-    title: "“Built for Local Businesses” Identity Motion",
-    brand: "Digitally Kolkata",
-    format: "CAMPAIGN CUT",
-    duration: "0:30",
-    tools: ["Motion Edits", "CapCut", "Graphic Overlays"],
-    hook: "Drone timelapse of Howrah Bridge transitioning seamlessly into digital analytics interface graph.",
-    body: "Showcasing local small business transformation through structured SEO, local discovery, and paid ads.",
-    cta: "Book your digital growth consultation. Link in bio.",
-    audioDirection: "Warm Lo-Fi chill beat with subtle acoustic tabla undertones.",
-    poster: "/portfolio/digitally-kolkata-banner.jpg",
-    aspect: "aspect-[16/9]",
+    id: "cube-3d-motion",
+    title: "3D Isometric Neon Cube — Rotation & Lighting Loop",
+    brand: "3D Motion Lab",
+    format: "3D LOOP",
+    duration: "0:05",
+    tools: ["3D Motion", "Keyframing", "Specular Lighting", "Seamless Looping"],
+    hook: "Smooth rotating isometric cube displaying vibrant neon edge illumination (cyan, yellow, purple, green).",
+    body: "Continuous dynamic 3D geometry loop with precise isometric perspective, specular highlights, and ambient drop shadows.",
+    cta: "Continuous dynamic motion loop designed for tech branding and digital displays.",
+    audioDirection: "Silent ambient background loop.",
+    videoSrc: "/videos/cube-3d-motion.mp4",
+    driveUrl: "https://drive.google.com/file/d/1sY-pbkHXolW6a-AYYLeGc3hbU-jE02nl/view?usp=drive_link",
+    aspect: "aspect-[16/10]",
+  },
+  {
+    id: "audio-spectrum-ripple",
+    title: "Concentric Dot-Matrix Pulse & Audio Wave Ripple",
+    brand: "UI & Visualizer Motion",
+    format: "MOTION GRAPHIC",
+    duration: "0:05",
+    tools: ["Procedural Grid", "After Effects", "Wave Mechanics", "Color Accents"],
+    hook: "Hypnotic concentric neon dot matrix rippling outward with glowing cyan and magenta accents.",
+    body: "Procedural dot grid animation simulating audio frequency resonance, radar pulse scans, and reactive UI motion.",
+    cta: "Seamless procedural texture for media interfaces and audio backdrops.",
+    audioDirection: "Silent rhythmic digital frequency loop.",
+    videoSrc: "/videos/audio-spectrum-ripple.mp4",
+    driveUrl: "https://drive.google.com/file/d/1MSIeI8SaqQPeubJm4myHOSUfPh7gjMiN/view?usp=drive_link",
+    aspect: "aspect-[16/10]",
+  },
+  {
+    id: "fluid-metaball-gradient",
+    title: "Organic Bioluminescent Fluid Metaball Morph",
+    brand: "Fluid Dynamics Lab",
+    format: "FLUID DYNAMICS",
+    duration: "0:05",
+    tools: ["Liquid Simulation", "Gradient Mapping", "Surface Tension", "Organic Morph"],
+    hook: "Warm sunset-gradient fluid blob dividing and smoothly fusing in suspension.",
+    body: "Organic liquid metaball physics showcasing viscous surface tension, soft diffusion, and continuous color-temperature shifts.",
+    cta: "Ambient organic fluid motion designed for premium UI and modern brand identities.",
+    audioDirection: "Silent fluid motion loop.",
+    videoSrc: "/videos/fluid-metaball-gradient.mp4",
+    driveUrl: "https://drive.google.com/file/d/1UJsko2_L3Dzffh6FNiGEgqyKDdOgLxMX/view?usp=drive_link",
+    aspect: "aspect-[16/10]",
+  },
+  {
+    id: "newtons-cradle-kinetic",
+    title: "Newton’s Cradle Kinetic Momentum & Collision Simulation",
+    brand: "Physics & Keyframing",
+    format: "3D SIMULATION",
+    duration: "0:05",
+    tools: ["Physics Engine", "Kinetic Timing", "Chrome Reflections", "Realistic Spacing"],
+    hook: "Classic conservation of momentum demonstration rendered in studio chrome.",
+    body: "Exact elastic collision timing showcasing momentum transfer across 5 suspended steel spheres with bounce decay.",
+    cta: "Satisfying seamless physics loop.",
+    audioDirection: "Crisp rhythmic collision impact timing.",
+    videoSrc: "/videos/newtons-cradle-kinetic.mp4",
+    driveUrl: "https://drive.google.com/file/d/17_xPM5eaHkNAGg2TtUVztzoR5QvO_8xu/view?usp=drive_link",
+    aspect: "aspect-[16/10]",
+  },
+  {
+    id: "bouncing-ball-physics",
+    title: "3D Bouncing Ball — Squash, Stretch & Momentum Timing",
+    brand: "Animation Principles",
+    format: "ANIMATION STUDY",
+    duration: "0:05",
+    tools: ["Keyframe Interpolation", "Squash & Stretch", "Floor Shadow", "Velocity Curves"],
+    hook: "Red-and-white striped 3D ball executing foundational 12 principles of animation.",
+    body: "Realistic gravitational acceleration, ground impact squash and stretch deformation, and apex deceleration.",
+    cta: "Foundational animation study loop demonstrating weight and elasticity.",
+    audioDirection: "Acoustic bounce timing.",
+    videoSrc: "/videos/bouncing-ball-physics.mp4",
+    driveUrl: "https://drive.google.com/file/d/1PzPCILm06Ss4z83FuLekSBmwMnyQxmPH/view?usp=drive_link",
+    aspect: "aspect-[16/10]",
+  },
+  {
+    id: "character-eye-blink",
+    title: "2D Character Eye Glance & Natural Blink Cycle",
+    brand: "Character Animation",
+    format: "2D CHARACTER RIG",
+    duration: "0:05",
+    tools: ["Vector Rigging", "2D Keyframing", "Pupil Tracking", "Natural Lid Arcs"],
+    hook: "Stylized emerald eye glancing smoothly across visual field before natural lid blink.",
+    body: "Vector facial rigging demonstrating realistic iris tracking, lash deformation, and expressive micro-movements.",
+    cta: "Character animation sample.",
+    audioDirection: "Subtle character expression timing.",
+    videoSrc: "/videos/character-eye-blink.mp4",
+    driveUrl: "https://drive.google.com/file/d/1_h7RYz7B58FAofMetG7sc4BBMCo_IlfP/view?usp=drive_link",
+    aspect: "aspect-[16/10]",
   },
 ];
 
 export default function MotionPage() {
-  const [activeConcept, setActiveConcept] = useState<VideoConcept | null>(null);
+  const [activeConcept, setActiveConcept] = useState<VideoItem | null>(null);
 
   return (
     <>
@@ -101,12 +154,12 @@ export default function MotionPage() {
                   Short-Form &amp; Motion
                 </h1>
                 <p className="text-warm-gray text-base sm:text-lg max-w-2xl mt-4 font-light">
-                  Storyboards, pacing outlines, reel concepts, and editing workflows designed for Instagram Reels, Meta Ads, and video engagement.
+                  Original video reels, kinetic typography, community campaign vlogs, and 3D motion graphics featuring inline silent autoplay and modal inspection.
                 </p>
               </div>
 
               <div className="font-mono text-xs text-warm-muted">
-                <span>TOOLS: CapCut · VN Editor · Meta Reels · YouTube Studio</span>
+                <span>TOOLS: CapCut · VN Editor · Meta Reels · After Effects · 3D Keyframing</span>
               </div>
             </div>
           </div>
@@ -118,48 +171,15 @@ export default function MotionPage() {
                 key={item.id}
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="group rounded-2xl bg-dark-surface border border-white/[0.08] hover:border-white/20 transition-all overflow-hidden flex flex-col justify-between"
               >
                 <div>
-                  {/* Cinematic Poster Container */}
-                  <div
+                  {/* Inline Video Player Preview Container */}
+                  <PortfolioVideoPreview
+                    item={item}
                     onClick={() => setActiveConcept(item)}
-                    className="relative w-full aspect-[16/10] bg-[#141414] overflow-hidden cursor-pointer"
-                  >
-                    <Image
-                      src={item.poster}
-                      alt={item.title}
-                      fill
-                      className="object-contain p-6 transition-transform duration-700 ease-out group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-
-                    {/* Dark gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-
-                    {/* Play Badge */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/30 text-white flex items-center justify-center group-hover:scale-110 group-hover:bg-white group-hover:text-black transition-all shadow-xl">
-                        <FiPlay size={22} className="ml-0.5" />
-                      </div>
-                    </div>
-
-                    {/* Top Badges */}
-                    <div className="absolute top-4 inset-x-4 flex items-center justify-between font-mono text-[10px]">
-                      <span className="px-2.5 py-1 rounded bg-black/80 backdrop-blur-md border border-white/[0.1] uppercase tracking-wider text-warm-white">
-                        {item.format}
-                      </span>
-                      <span className="px-2 py-0.5 rounded bg-black/80 text-warm-gray border border-white/[0.06]">
-                        {item.duration}
-                      </span>
-                    </div>
-
-                    {/* Bottom Tagline */}
-                    <div className="absolute bottom-4 inset-x-4 font-mono text-[11px] text-warm-muted truncate">
-                      <span>Brand: {item.brand}</span>
-                    </div>
-                  </div>
+                  />
 
                   {/* Body Info */}
                   <div className="p-6 md:p-8 space-y-4">
@@ -168,21 +188,36 @@ export default function MotionPage() {
                     </h2>
 
                     <div className="space-y-2 text-xs font-mono text-warm-gray">
-                      <p>
-                        <span className="text-warm-muted uppercase tracking-wider block text-[10px]">
-                          Hook (0–3s):
-                        </span>
-                        {item.hook}
-                      </p>
+                      {item.hook && (
+                        <p>
+                          <span className="text-warm-muted uppercase tracking-wider block text-[10px]">
+                            Hook / Visual:
+                          </span>
+                          {item.hook}
+                        </p>
+                      )}
+                      {item.body && (
+                        <p>
+                          <span className="text-warm-muted uppercase tracking-wider block text-[10px]">
+                            Breakdown:
+                          </span>
+                          {item.body}
+                        </p>
+                      )}
                     </div>
 
-                    <div className="pt-2 flex flex-wrap gap-1.5 font-mono text-[10px] text-warm-muted">
-                      {item.tools.map((t, i) => (
-                        <span key={i} className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]">
-                          {t}
-                        </span>
-                      ))}
-                    </div>
+                    {item.tools && item.tools.length > 0 && (
+                      <div className="pt-2 flex flex-wrap gap-1.5 font-mono text-[10px] text-warm-muted">
+                        {item.tools.map((t, i) => (
+                          <span
+                            key={i}
+                            className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.06]"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -192,7 +227,7 @@ export default function MotionPage() {
                     onClick={() => setActiveConcept(item)}
                     className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-warm-white hover:text-accent-blue transition-colors"
                   >
-                    <span>Inspect Concept Breakdown</span>
+                    <span>Play &amp; Inspect Breakdown</span>
                     <FiArrowRight />
                   </button>
                 </div>
@@ -203,89 +238,10 @@ export default function MotionPage() {
       </main>
 
       {/* Cinematic Modal Player / Breakdown */}
-      <AnimatePresence>
-        {activeConcept && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setActiveConcept(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md p-4 sm:p-6 flex items-center justify-center"
-          >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative max-w-3xl w-full bg-[#111111] border border-white/[0.12] rounded-3xl p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto"
-            >
-              <div className="flex items-start justify-between">
-                <div>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-warm-muted">
-                    {activeConcept.format} · {activeConcept.duration}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-sans font-bold text-warm-white mt-1">
-                    {activeConcept.title}
-                  </h3>
-                </div>
-                <button
-                  onClick={() => setActiveConcept(null)}
-                  className="p-2 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-warm-white transition-colors min-h-[40px] min-w-[40px] flex items-center justify-center"
-                  aria-label="Close"
-                >
-                  <FiX size={18} />
-                </button>
-              </div>
-
-              {/* Poster frame in modal */}
-              <div className="relative w-full aspect-[16/9] bg-[#161616] rounded-2xl overflow-hidden border border-white/[0.08]">
-                <Image
-                  src={activeConcept.poster}
-                  alt={activeConcept.title}
-                  fill
-                  className="object-contain p-4"
-                />
-              </div>
-
-              {/* Storyboard script details */}
-              <div className="space-y-4 text-sm font-light leading-relaxed">
-                <div className="p-4 rounded-xl bg-dark-surface border border-white/[0.06] space-y-1">
-                  <span className="font-mono text-xs uppercase tracking-wider text-warm-white font-semibold">
-                    01 / 3-Second Visual Hook
-                  </span>
-                  <p className="text-warm-gray text-xs font-mono">{activeConcept.hook}</p>
-                </div>
-
-                <div className="p-4 rounded-xl bg-dark-surface border border-white/[0.06] space-y-1">
-                  <span className="font-mono text-xs uppercase tracking-wider text-warm-white font-semibold">
-                    02 / Content Body &amp; Retention
-                  </span>
-                  <p className="text-warm-gray text-xs font-mono">{activeConcept.body}</p>
-                </div>
-
-                <div className="p-4 rounded-xl bg-dark-surface border border-white/[0.06] space-y-1">
-                  <span className="font-mono text-xs uppercase tracking-wider text-warm-white font-semibold">
-                    03 / Final Call to Action
-                  </span>
-                  <p className="text-warm-gray text-xs font-mono">{activeConcept.cta}</p>
-                </div>
-
-                <div className="p-4 rounded-xl bg-dark-surface border border-white/[0.06] space-y-1">
-                  <span className="font-mono text-xs uppercase tracking-wider text-warm-white font-semibold">
-                    04 / Audio &amp; Music Treatment
-                  </span>
-                  <p className="text-warm-gray text-xs font-mono">{activeConcept.audioDirection}</p>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs font-mono text-warm-muted">
-                <span>Brand: {activeConcept.brand}</span>
-                <span>Production Tools: {activeConcept.tools.join(" · ")}</span>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <VideoPlayerModal
+        item={activeConcept}
+        onClose={() => setActiveConcept(null)}
+      />
 
       <Footer />
     </>
