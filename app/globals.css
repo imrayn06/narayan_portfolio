@@ -48,6 +48,10 @@ body {
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
+.font-bengali {
+  font-family: var(--font-bengali, "Noto Sans Bengali"), "Hind Siliguri", "Nirmala UI", system-ui, -apple-system, sans-serif;
+}
+
 ::selection {
   background: var(--text-primary);
   color: var(--bg);

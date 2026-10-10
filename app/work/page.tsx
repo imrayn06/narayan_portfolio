@@ -13,7 +13,7 @@ interface WorkItem {
   id: string;
   client: string;
   title: string;
-  category: "BRAND & SOCIAL" | "CAMPAIGN" | "SPEC";
+  category: "BRAND & SOCIAL" | "CAMPAIGN" | "SPEC" | "PERSONAL";
   contribution: string;
   roleDescription: string;
   scope: string[];
@@ -25,9 +25,72 @@ interface WorkItem {
   instaLink?: string;
   fbLink?: string;
   isSpec?: boolean;
+  isPersonal?: boolean;
+  highlightMetric?: string;
 }
 
 const workArchive: WorkItem[] = [
+  {
+    id: "bisleri",
+    client: "Bisleri (Spec Project)",
+    title: "31-Day Winter Hydration Plan",
+    category: "SPEC",
+    isSpec: true,
+    contribution: "Content Strategy · Visual Camera Hooks · Copywriting",
+    roleDescription: "Self-initiated speculative content campaign designed to demonstrate end-to-end editorial planning and copywriting for FMCG packaged water.",
+    scope: [
+      "31 unique daily content scripts with camera plots",
+      "Balanced across 4 pillars: Branding, Promotional, Social, Educational",
+      "Copywriting scripts tailored for Meta / Instagram Reels",
+      "Complete visual hook and plot breakdown"
+    ],
+    summary: "A comprehensive 31-day content roadmap addressing the seasonal winter drop in water consumption.",
+    insight: "Cold weather suppresses thirst sensation, creating an opportunity to shift messaging from thirst satisfaction to essential wellness and purity.",
+    image: "/portfolio/bisleri-cover-og-1200x630.png",
+    aspect: "aspect-[16/9]",
+    caseStudyUrl: "/work/bisleri",
+  },
+  {
+    id: "zee-bangla",
+    client: "Zee Bangla Sonar",
+    title: "Social Media Execution Support",
+    category: "BRAND & SOCIAL",
+    contribution: "Content Planning Support · Campaign Coordination Flow",
+    roleDescription: "Assisted in high-cadence content planning, scheduling coordination, and post distribution for regional entertainment programming.",
+    scope: [
+      "Assisted in high-volume entertainment content scheduling",
+      "Helped coordinate campaign execution workflows",
+      "Supported engagement-focused posting cadences"
+    ],
+    summary: "Fast-paced content coordination and campaign distribution for television and entertainment media.",
+    insight: "Media entertainment requires rapid turnaround and high posting frequency aligned directly with broadcast schedules.",
+    image: "/Brand_Logo/z_bangla.png.png",
+    aspect: "aspect-[4/3]",
+    caseStudyUrl: "/work/zee-banglasonar",
+    instaLink: "https://www.instagram.com/zeebanglasonar_official/",
+    fbLink: "https://www.facebook.com/ZeeBanglaSonar",
+  },
+  {
+    id: "marketing-notebook",
+    client: "Personal Project",
+    title: "Marketing Notebook",
+    category: "PERSONAL",
+    isPersonal: true,
+    highlightMetric: "4 Ads Analysed · 3 Original Concepts",
+    contribution: "Ad Teardowns · Concept Ideation · Topical Marketing",
+    roleDescription: "Personal exercises analysing brand advertising mechanics and creating original concepts across video, reels, and print.",
+    scope: [
+      "4 Ads Analysed · 3 Original Concepts",
+      "9-lens teardown checklist applied to national FMCG & retail brands",
+      "Sequential 6-step narrative video storyboard and visual direction",
+      "Topical 30-second reel timeline and split-environment poster"
+    ],
+    summary: "Ad teardowns and original concepts from digital marketing training, and what each exercise taught me about planning content.",
+    insight: "Breaking down high-performing ads into consistent strategic lenses makes creative ideation objective and purpose-driven.",
+    image: "/work/marketing-notebook/poster-bisleri-party-or-recovery.webp",
+    aspect: "aspect-[16/9]",
+    caseStudyUrl: "/work/marketing-notebook",
+  },
   {
     id: "fifa",
     client: "Walplast",
@@ -48,26 +111,6 @@ const workArchive: WorkItem[] = [
     caseStudyUrl: "/work/fifa",
     instaLink: "https://www.instagram.com/walplast/",
     fbLink: "https://www.facebook.com/Walplast",
-  },
-  {
-    id: "bisleri",
-    client: "Bisleri (Spec Project)",
-    title: "31-Day Winter Hydration Plan",
-    category: "SPEC",
-    isSpec: true,
-    contribution: "Content Strategy · Visual Camera Hooks · Copywriting",
-    roleDescription: "Self-initiated speculative content campaign designed to demonstrate end-to-end editorial planning and copywriting for FMCG packaged water.",
-    scope: [
-      "31 unique daily content scripts with camera plots",
-      "Balanced across 4 pillars: Branding, Promotional, Social, Educational",
-      "Copywriting scripts tailored for Meta / Instagram Reels",
-      "Complete visual hook and plot breakdown"
-    ],
-    summary: "A comprehensive 31-day content roadmap addressing the seasonal winter drop in water consumption.",
-    insight: "Cold weather suppresses thirst sensation, creating an opportunity to shift messaging from thirst satisfaction to essential wellness and purity.",
-    image: "/portfolio/bisleri-ad-creative.jpg",
-    aspect: "aspect-[16/9]",
-    caseStudyUrl: "/work/bisleri",
   },
   {
     id: "msp-steel",
@@ -127,25 +170,6 @@ const workArchive: WorkItem[] = [
     instaLink: "https://www.instagram.com/drychemindia/",
     fbLink: "https://www.facebook.com/DryChemIndiaPvtLtd",
   },
-  {
-    id: "zee-bangla",
-    client: "Zee Bangla Sonar",
-    title: "Social Media Execution Support",
-    category: "BRAND & SOCIAL",
-    contribution: "Content Planning Support · Campaign Coordination Flow",
-    roleDescription: "Assisted in high-cadence content planning, scheduling coordination, and post distribution for regional entertainment programming.",
-    scope: [
-      "Assisted in high-volume entertainment content scheduling",
-      "Helped coordinate campaign execution workflows",
-      "Supported engagement-focused posting cadences"
-    ],
-    summary: "Fast-paced content coordination and campaign distribution for television and entertainment media.",
-    insight: "Media entertainment requires rapid turnaround and high posting frequency aligned directly with broadcast schedules.",
-    image: "/Brand_Logo/z_bangla.png.png",
-    aspect: "aspect-[4/3]",
-    instaLink: "https://www.instagram.com/zeebanglasonar_official/",
-    fbLink: "https://www.facebook.com/ZeeBanglaSonar",
-  },
 ];
 
 export default function WorkPage() {
@@ -155,7 +179,7 @@ export default function WorkPage() {
   const filteredItems = workArchive.filter((item) => {
     if (filter === "ALL") return true;
     if (filter === "BRAND & SOCIAL") return item.category === "BRAND & SOCIAL";
-    if (filter === "CAMPAIGNS") return item.category === "CAMPAIGN" || item.category === "SPEC";
+    if (filter === "CAMPAIGNS") return item.category === "CAMPAIGN" || item.category === "SPEC" || item.category === "PERSONAL";
     return true;
   });
 
@@ -219,12 +243,18 @@ export default function WorkPage() {
               >
                 <div>
                   {/* Visual Card Banner */}
-                  <div className="relative w-full aspect-[16/10] bg-[#141414] border-b border-white/[0.06] flex items-center justify-center p-6 overflow-hidden">
+                  <div className="relative w-full aspect-[16/10] bg-[#141414] border-b border-white/[0.06] flex items-center justify-center overflow-hidden">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
-                      className="object-contain p-6 transition-transform duration-500 group-hover:scale-105"
+                      className={`${
+                        item.id === "bisleri"
+                          ? "object-cover"
+                          : item.id === "fifa"
+                          ? "object-cover"
+                          : "object-contain p-8"
+                      } transition-transform duration-500 group-hover:scale-105`}
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
 
@@ -233,11 +263,19 @@ export default function WorkPage() {
                       <span className="px-2.5 py-1 rounded bg-black/80 backdrop-blur-md border border-white/[0.1] font-mono text-[9px] uppercase tracking-wider text-warm-white">
                         {item.category}
                       </span>
-                      {item.isSpec && (
+                      {item.isPersonal ? (
+                        <span className="px-2.5 py-1 rounded bg-white text-black font-mono text-[9px] uppercase tracking-wider font-bold">
+                          PERSONAL
+                        </span>
+                      ) : item.isSpec ? (
                         <span className="px-2.5 py-1 rounded bg-white text-black font-mono text-[9px] uppercase tracking-wider font-bold">
                           SPEC PROJECT
                         </span>
-                      )}
+                      ) : item.id === "zee-bangla" ? (
+                        <span className="px-2.5 py-1 rounded bg-cyan-400 text-black font-mono text-[9px] uppercase tracking-wider font-bold">
+                          SUPPORT ROLE
+                        </span>
+                      ) : null}
                     </div>
                   </div>
 
@@ -245,7 +283,9 @@ export default function WorkPage() {
                   <div className="p-6 md:p-8 space-y-4">
                     <div className="flex items-center justify-between font-mono text-xs text-warm-muted">
                       <span>{item.client}</span>
-                      <span className="text-[10px] tracking-wider uppercase">SUPPORT ROLE</span>
+                      <span className="text-[10px] tracking-wider uppercase">
+                        {item.isPersonal ? "PERSONAL PROJECT" : item.isSpec ? "CONCEPT DESIGN" : "SUPPORT ROLE"}
+                      </span>
                     </div>
 
                     <h2 className="text-2xl font-sans font-bold text-warm-white group-hover:text-accent-blue transition-colors">
@@ -258,12 +298,23 @@ export default function WorkPage() {
 
                     <div className="pt-2 border-t border-white/[0.06] space-y-1">
                       <span className="font-mono text-[10px] uppercase tracking-wider text-warm-muted block">
-                        Contribution Level:
+                        {item.isPersonal ? "Tags:" : "Contribution Level:"}
                       </span>
                       <p className="font-mono text-xs text-warm-offwhite">
                         {item.contribution}
                       </p>
                     </div>
+
+                    {item.highlightMetric && (
+                      <div className="pt-2 border-t border-white/[0.06] space-y-1">
+                        <span className="font-mono text-[10px] uppercase tracking-wider text-accent-blue font-bold block">
+                          Highlight:
+                        </span>
+                        <p className="font-mono text-xs text-warm-white font-semibold">
+                          {item.highlightMetric}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
 

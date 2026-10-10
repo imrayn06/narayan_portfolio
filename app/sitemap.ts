@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/work", priority: 0.9, changeFrequency: "weekly" as const },
     { path: "/work/fifa", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/work/bisleri", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/work/zee-banglasonar", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/work/marketing-notebook", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/creative", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/motion", priority: 0.85, changeFrequency: "monthly" as const },
     { path: "/experience", priority: 0.8, changeFrequency: "monthly" as const },

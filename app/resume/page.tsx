@@ -2,10 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
-import { FiDownload, FiPrinter, FiMail, FiPhone, FiLinkedin, FiMapPin, FiArrowLeft } from "react-icons/fi";
+import { FiDownload, FiPrinter, FiMail, FiPhone, FiLinkedin, FiMapPin, FiArrowLeft, FiFileText } from "react-icons/fi";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { RobotMascot } from "@/components/RobotMascot";
+import ExperienceCertificates from "@/components/ExperienceCertificates";
 
 export default function ResumePage() {
   const handlePrint = () => {
@@ -37,6 +38,14 @@ export default function ResumePage() {
             </div>
 
             <div className="flex items-center gap-3">
+              <a
+                href="#certificates"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-white/[0.12] hover:border-accent-blue/50 text-xs font-mono uppercase tracking-wider text-warm-muted hover:text-warm-white transition-colors"
+              >
+                <FiFileText size={12} className="text-accent-blue" />
+                <span>Certificates (4)</span>
+              </a>
+
               <button
                 onClick={handlePrint}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/[0.12] hover:border-white/30 text-xs font-mono uppercase tracking-wider text-warm-white transition-colors"
@@ -282,6 +291,9 @@ export default function ResumePage() {
                 </div>
               </div>
             </section>
+
+            {/* ─── 05 / EXPERIENCE CERTIFICATES ─── */}
+            <ExperienceCertificates />
           </div>
         </div>
       </main>

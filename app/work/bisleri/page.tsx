@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FiArrowLeft, FiArrowRight, FiInfo } from "react-icons/fi";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import ContentCalendarSection from "@/components/ContentCalendarSection";
@@ -24,19 +24,6 @@ export default function BisleriSpecPage() {
               <FiArrowLeft />
               <span>Back to Archive</span>
             </Link>
-          </div>
-
-          {/* Spec Project Notice Banner */}
-          <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-300 font-mono text-xs flex items-start gap-3">
-            <FiInfo size={18} className="shrink-0 mt-0.5 text-amber-400" />
-            <div className="space-y-1">
-              <span className="font-bold tracking-wider uppercase block">
-                CLASSIFICATION: SPECULATIVE / PERSONAL PROJECT
-              </span>
-              <p className="text-amber-200/80 font-light leading-relaxed">
-                This project is an independent creative exercise developed to demonstrate strategic campaign architecture, content pillar formulation, visual direction, and 31 days of continuous reel &amp; social copywriting for a national FMCG brand. It is not an official client engagement with Bisleri International.
-              </p>
-            </div>
           </div>
 
           {/* Header */}
@@ -88,6 +75,18 @@ export default function BisleriSpecPage() {
             </div>
           </header>
 
+          {/* Campaign Cover Hero Banner */}
+          <div className="mb-16 rounded-3xl overflow-hidden border border-white/[0.08] relative aspect-[1200/630] w-full bg-[#092223] shadow-2xl">
+            <Image
+              src="/portfolio/bisleri-cover-og-1200x630.png"
+              alt="Bisleri Winter Campaign Strategy - 31-Day Content Strategy"
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 1200px) 100vw, 1200px"
+            />
+          </div>
+
           {/* Featured Visual Creative Asset */}
           <div className="mb-16 rounded-3xl bg-dark-surface border border-white/[0.08] overflow-hidden p-6 sm:p-8 flex flex-col md:flex-row items-center gap-8">
             <div className="relative w-full md:w-1/2 aspect-[3/4] max-h-[460px] bg-[#141414] rounded-2xl overflow-hidden border border-white/[0.06]">
@@ -114,6 +113,14 @@ export default function BisleriSpecPage() {
                 <span className="px-3 py-1 rounded bg-white/[0.04] border border-white/[0.08]">Dual Split Visual</span>
                 <span className="px-3 py-1 rounded bg-white/[0.04] border border-white/[0.08]">Visual Copywriting</span>
                 <span className="px-3 py-1 rounded bg-white/[0.04] border border-white/[0.08]">Spec FMCG Ad</span>
+              </div>
+              <div className="pt-1">
+                <Link
+                  href="/work/marketing-notebook"
+                  className="inline-flex items-center gap-1 font-mono text-xs text-warm-muted hover:text-accent-blue transition-colors group"
+                >
+                  <span>See the ideation exercises behind this poster →</span>
+                </Link>
               </div>
             </div>
           </div>

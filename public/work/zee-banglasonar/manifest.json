@@ -1,0 +1,65 @@
+[
+  {
+    "file": "zee-01-recap-summary.webp",
+    "fallback": "zee-01-recap-summary.png",
+    "small": "zee-01-recap-summary-800.webp",
+    "width": 1200,
+    "height": 1588,
+    "alt": "Instagram Monthly Recap for July: 1.5M views, 81% of views from non-followers, 60K followers (+741 from June).",
+    "caption": "Instagram Monthly Recap, July 2026"
+  },
+  {
+    "file": "zee-02-recap-views-steady.webp",
+    "fallback": "zee-02-recap-views-steady.png",
+    "small": "zee-02-recap-views-steady-800.webp",
+    "width": 1200,
+    "height": 1415,
+    "alt": "Instagram recap chart comparing cumulative views last month with the previous month, with the note that views are holding steady.",
+    "caption": "Views held steady versus the previous month"
+  },
+  {
+    "file": "zee-03-insights-views-chart.webp",
+    "fallback": "zee-03-insights-views-chart.png",
+    "small": "zee-03-insights-views-chart-800.webp",
+    "width": 1200,
+    "height": 1061,
+    "alt": "Instagram Insights overview for a custom date range ending 31 July: 1,188,982 views, +380 net followers, with a daily views chart peaking near 66K.",
+    "caption": "Insights overview, custom date range (not the full month)"
+  },
+  {
+    "file": "zee-04-insights-views-by-type.webp",
+    "fallback": "zee-04-insights-views-by-type.png",
+    "small": "zee-04-insights-views-by-type-800.webp",
+    "width": 1200,
+    "height": 904,
+    "alt": "Views by content type with 221,973 viewers: Reels about 1M views, Posts 85.6K, Stories 9.4K, Live videos 0.",
+    "caption": "Views by content type"
+  },
+  {
+    "file": "zee-05-insights-top-content.webp",
+    "fallback": "zee-05-insights-top-content.png",
+    "small": "zee-05-insights-top-content-800.webp",
+    "width": 1200,
+    "height": 461,
+    "alt": "Top content by views: leading posts at 33K, 33K, 19K and 18K views.",
+    "caption": "Top content by views"
+  },
+  {
+    "file": "zee-06-insights-interactions.webp",
+    "fallback": "zee-06-insights-interactions.png",
+    "small": "zee-06-insights-interactions-800.webp",
+    "width": 1200,
+    "height": 921,
+    "alt": "Interactions by content type: Reels 38.4K, Posts 941, Stories 749, Live videos 0.",
+    "caption": "Interactions by content type"
+  },
+  {
+    "file": "zee-07-insights-profile-activity.webp",
+    "fallback": "zee-07-insights-profile-activity.png",
+    "small": "zee-07-insights-profile-activity-800.webp",
+    "width": 1200,
+    "height": 694,
+    "alt": "Profile activity: 3,329 profile visits, 9 bio link taps, 0 business address taps.",
+    "caption": "Profile activity"
+  }
+]

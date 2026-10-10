@@ -12,6 +12,42 @@ import { RobotMascot } from "@/components/RobotMascot";
 const selectedWorks = [
   {
     num: "01",
+    client: "Bisleri (Spec)",
+    project: "31-Day Winter Hydration Plan",
+    contribution: "31-Day Content Strategy · Visual Scripts · Copywriting",
+    type: "SPEC / PERSONAL PROJECT",
+    image: "/portfolio/bisleri-cover-og-1200x630.png",
+    aspect: "aspect-[16/9]",
+    stat: "31 Editorial Plots & Scripts",
+    href: "/work/bisleri",
+    isCaseStudy: true,
+  },
+  {
+    num: "02",
+    client: "Zee Bangla Sonar",
+    project: "Social Media Execution Support",
+    contribution: "Content Planning Support · Campaign Coordination Flow",
+    type: "SUPPORT ROLE",
+    image: "/Brand_Logo/z_bangla.png.png",
+    aspect: "aspect-[16/10]",
+    stat: "16-Post Framework · Media Flow",
+    href: "/work/zee-banglasonar",
+    isCaseStudy: true,
+  },
+  {
+    num: "03",
+    client: "Marketing Notebook",
+    project: "Ad Teardowns & Original Concepts",
+    contribution: "Ad teardowns and original concepts from digital marketing training, and what each exercise taught me about planning content.",
+    type: "PERSONAL PROJECT",
+    image: "/work/marketing-notebook/poster-bisleri-party-or-recovery.webp",
+    aspect: "aspect-[16/9]",
+    stat: "4 Ads Analysed · 3 Concepts",
+    href: "/work/marketing-notebook",
+    isCaseStudy: true,
+  },
+  {
+    num: "04",
     client: "Walplast",
     project: "FIFA 2026 Knockout Campaign",
     contribution: "Campaign Planning · Content Strategy · Community Support",
@@ -23,7 +59,7 @@ const selectedWorks = [
     isCaseStudy: true,
   },
   {
-    num: "02",
+    num: "05",
     client: "MSP Steel",
     project: "B2B Social Media Support",
     contribution: "Social Media Handling · Scheduling · Consistency",
@@ -35,19 +71,7 @@ const selectedWorks = [
     isCaseStudy: false,
   },
   {
-    num: "03",
-    client: "Bisleri (Spec)",
-    project: "Winter Hydration Content Plan",
-    contribution: "31-Day Content Strategy · Visual Scripts · Copywriting",
-    type: "SPEC / PERSONAL PROJECT",
-    image: "/portfolio/bisleri-ad-creative.jpg",
-    aspect: "aspect-[16/9]",
-    stat: "31 Editorial Plots & Scripts",
-    href: "/work/bisleri",
-    isCaseStudy: true,
-  },
-  {
-    num: "04",
+    num: "06",
     client: "Core Fit",
     project: "High-Impact Social Creative",
     contribution: "Visual Concept · Copywriting · Creative Direction",
@@ -215,7 +239,7 @@ export default function Home() {
               href="/work"
               className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.2em] uppercase text-warm-gray hover:text-warm-white transition-colors group"
             >
-              <span>Explore All Projects (6)</span>
+              <span>Explore All Projects (7)</span>
               <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
