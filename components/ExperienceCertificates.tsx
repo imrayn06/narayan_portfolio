@@ -41,7 +41,7 @@ export const EXPERIENCE_CERTIFICATES: ExperienceCertificate[] = [
     dateRange: "04 Feb 2026 – 18 Aug 2026",
     documentType: "Internship Completion Certificate",
     location: "Kolkata, IN",
-    description: "Official internship completion certificate verifying full-time contributions across client content strategies, social scheduling, and Meta ad campaign support.",
+    description: "Internship completion certificate verifying full-time contributions across client content strategies, social scheduling, and Meta ad campaign support.",
     thumbSrc: "/certs/mind-and-matter-internship-certificate-thumb.webp",
     fullSrc: "/certs/mind-and-matter-internship-certificate.webp",
     downloadSrc: "/certs/full/mind-and-matter-internship-certificate.jpg",
@@ -184,7 +184,7 @@ export default function ExperienceCertificates() {
   }, [activeIndex, closeModal, showPrev, showNext]);
 
   return (
-    <section id="certificates" className="space-y-8 pt-8 border-t border-white/[0.06] scroll-mt-28">
+    <section id="certificates" className="no-print print:hidden space-y-8 pt-8 border-t border-white/[0.06] scroll-mt-28">
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>

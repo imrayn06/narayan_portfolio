@@ -14,7 +14,7 @@ import {
 const motionWork: VideoItem[] = [
   {
     id: "tiib-dubai-scholarship",
-    title: "“Finished 12th? Fully Funded Dubai Scholarships” — Ad Reel",
+    title: "“Finished 12th? Fully Funded Dubai Scholarships” — Ad Reel (Original Cut)",
     brand: "Edu Global x TIIB Dubai",
     format: "REEL (9:16)",
     duration: "0:28",
@@ -25,6 +25,21 @@ const motionWork: VideoItem[] = [
     audioDirection: "High-energy voiceover delivery paired with an upbeat commercial background score.",
     videoSrc: "/videos/tiib-dubai-scholarship-reel.mp4",
     driveUrl: "https://drive.google.com/file/d/1GgNi5D0KTvh7ofb6AsjE6ePPpx6OE72o/view?usp=drive_link",
+    aspect: "aspect-[16/10]",
+  },
+  {
+    id: "tiib-dubai-scholarship-claude",
+    title: "“Finished 12th? Fully Funded Dubai Scholarships” — Ad Reel (Claude AI Edition)",
+    brand: "Edu Global x TIIB Dubai",
+    format: "REEL (9:16)",
+    duration: "0:30",
+    tools: ["Claude AI", "CapCut", "Script & Pacing Ideation", "Kinetic Typography", "Hook Optimization"],
+    hook: "Alternate creative iteration co-developed with Claude AI: enhanced pacing, refined typography beats, and sharper narrative tension.",
+    body: "Collaborative cut produced with Claude AI assistance to test alternate script cadence, tighter visual storytelling, and high-retention value hooks for the Dubai scholarship drive.",
+    cta: "Fill up the form below and join us on 22nd August in Kolkata.",
+    audioDirection: "High-energy commercial voiceover matched with upbeat background music and tight editorial cuts.",
+    videoSrc: "/videos/tiib-dubai-scholarship-claude-reel.mp4",
+    driveUrl: "https://drive.google.com/file/d/1aq1n-Sm8kHV2DH7_l8EuqLHWk0Jc8S54/view?usp=drivesdk",
     aspect: "aspect-[16/10]",
   },
   {
@@ -159,7 +174,7 @@ export default function MotionPage() {
               </div>
 
               <div className="font-mono text-xs text-warm-muted">
-                <span>TOOLS: CapCut · VN Editor · Meta Reels · After Effects · 3D Keyframing</span>
+                <span>TOOLS: CapCut · VN Editor · Claude AI · Meta Reels · After Effects · 3D Keyframing</span>
               </div>
             </div>
           </div>

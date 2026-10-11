@@ -68,8 +68,8 @@ export default function ResumePage() {
             </div>
           </div>
 
-          {/* Printable Resume Container */}
-          <div className="print-container bg-dark-surface border border-white/[0.08] p-8 sm:p-12 rounded-3xl space-y-12">
+          {/* Interactive Screen View */}
+          <div className="screen-only print-container bg-dark-surface border border-white/[0.08] p-8 sm:p-12 rounded-3xl space-y-12">
             {/* Header / Identity */}
             <header className="border-b border-white/[0.08] pb-8 space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
@@ -294,6 +294,191 @@ export default function ResumePage() {
 
             {/* ─── 05 / EXPERIENCE CERTIFICATES ─── */}
             <ExperienceCertificates />
+          </div>
+
+          {/* ══════════════════════════════════════════════════════════════════
+              EXACT PORTFOLIO RESUME REPLICA (PRINT VIEW)
+              ══════════════════════════════════════════════════════════════════ */}
+          <div className="ats-print-cv hidden print:block text-black bg-white w-full leading-tight font-sans">
+            {/* Header with Photo & Details */}
+            <div className="ats-header flex items-start justify-between gap-4 pb-2 mb-2 border-b border-black">
+              <div className="flex-1">
+                <h1 className="text-[19pt] font-black tracking-tight text-[#0f172a] leading-none mb-1">
+                  Narayan Shenehashis Dutta
+                </h1>
+                <div className="text-[9pt] font-bold text-[#1e40af] tracking-tight leading-tight mb-1.5">
+                  Digital Marketing Executive | SEO | Social Media Marketing | Performance Marketing
+                </div>
+                <div className="text-[7.5pt] text-neutral-800 leading-[1.3] space-y-0.5 font-medium">
+                  <div>Kolkata, West Bengal 700032, India | +91 9073277478 | duttarayan3@gmail.com</div>
+                  <div>
+                    LinkedIn: linkedin.com/in/im-rayn | GitHub: github.com/imrayn06
+                  </div>
+                  <div>
+                    Portfolio: narayan-portfolio-three.vercel.app
+                  </div>
+                </div>
+              </div>
+
+              {/* Profile Photo */}
+              <div className="w-[68px] h-[68px] rounded-full overflow-hidden border-2 border-amber-400 shrink-0 relative bg-amber-400">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/resume-photo.png"
+                  alt="Narayan Shenehashis Dutta"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            {/* PROFESSIONAL SUMMARY */}
+            <section className="ats-section mb-2">
+              <h2 className="ats-section-title">Professional Summary</h2>
+              <p className="text-[7.5pt] text-neutral-900 leading-[1.3] text-justify">
+                Digital Marketing Professional with agency experience in social media marketing, content strategy, SEO, and campaign execution. Worked with brands including Zee Bangla Sonar, MSP Steel, Walplast, and Drychem, contributing to content planning, community engagement, campaign coordination, and brand communication. Brings nearly four years of combined experience across digital marketing, software development, and testing (Wipro, Q3 Technologies), with hands-on Google Ads, Meta Ads, and on-page SEO skills. Passionate about creating data-driven marketing strategies that improve visibility, audience engagement, and lead generation.
+              </p>
+            </section>
+
+            {/* CORE SKILLS */}
+            <section className="ats-section mb-2">
+              <h2 className="ats-section-title">Core Skills</h2>
+              <div className="text-[7.5pt] text-neutral-900 leading-[1.25] space-y-0.5">
+                <p>
+                  <strong className="font-bold text-black">Social Media Marketing:</strong> Social Media Marketing, Content Strategy, Content Calendar Planning, Community Management, Campaign Planning, Client Coordination, Hashtag Research, Brand Communication, Brand Strategy, Media Coordination, Social Listening, Marketing Analytics
+                </p>
+                <p>
+                  <strong className="font-bold text-black">Content &amp; Design:</strong> Content Writing, Copywriting, Caption Writing, Canva, CapCut, VN
+                </p>
+                <p>
+                  <strong className="font-bold text-black">SEO:</strong> Keyword Research, On-Page SEO, Website Optimization, Competitor Analysis, Google Search Console
+                </p>
+                <p>
+                  <strong className="font-bold text-black">Performance Marketing:</strong> Google Ads, Meta Ads Manager, Audience Targeting, Campaign Optimization, Ad Copy Creation, Keyword Campaigns, Bidding Strategies, Campaign Monitoring and Performance Analysis
+                </p>
+                <p>
+                  <strong className="font-bold text-black">Technical Background:</strong> Full Stack Development, Software Testing
+                </p>
+              </div>
+            </section>
+
+            {/* WORK EXPERIENCE */}
+            <section className="ats-section mb-2">
+              <h2 className="ats-section-title">Work Experience</h2>
+
+              <div className="space-y-1.5 text-[7.5pt] leading-[1.25]">
+                {/* Role 1 */}
+                <div className="ats-item">
+                  <div className="flex items-baseline justify-between font-bold text-black">
+                    <span>Founder &amp; Digital Marketing Consultant | Digitally Kolkata, Kolkata</span>
+                    <span className="font-normal text-neutral-800">Dec 2025 – Present</span>
+                  </div>
+                  <ul className="list-disc ml-3.5 space-y-0.5 text-neutral-900 mt-0.5">
+                    <li>Offer freelance digital marketing consulting covering social media strategy, content creation, and campaign support for businesses.</li>
+                  </ul>
+                </div>
+
+                {/* Role 2 */}
+                <div className="ats-item">
+                  <div className="flex items-baseline justify-between font-bold text-black">
+                    <span>Digital Marketing Intern | Mind &amp; Matter, Kolkata</span>
+                    <span className="font-normal text-neutral-800">Feb 2026 – Aug 2026</span>
+                  </div>
+                  <ul className="list-disc ml-3.5 space-y-0.5 text-neutral-900 mt-0.5">
+                    <li>Planned, scheduled, and published social media content for multiple client brands, including Zee Bangla Sonar, MSP Steel, Walplast, and Drychem, using Meta Business Suite.</li>
+                    <li>Built content calendars aligned with brand tone, campaign goals, and seasonal events; designed creatives in Canva and edited short-form videos in CapCut and VN.</li>
+                    <li>Wrote captions and ad copy; researched hashtags and trends to improve reach and engagement; supported Google Ads and Meta Ads targeting, monitoring, and reporting.</li>
+                    <li>Reviewed engagement data (Meta Business Suite, Google Analytics) to refine content, and coordinated with clients and the team on briefs, approvals, and timelines.</li>
+                  </ul>
+                </div>
+
+                {/* Role 3 */}
+                <div className="ats-item">
+                  <div className="flex items-baseline justify-between font-bold text-black">
+                    <span>Digital Marketing Intern | JRD Ayurveda, Kolkata</span>
+                    <span className="font-normal text-neutral-800">Jan 2026 – Feb 2026</span>
+                  </div>
+                  <ul className="list-disc ml-3.5 space-y-0.5 text-neutral-900 mt-0.5">
+                    <li>Supported social media content planning and designed Canva creatives for a wellness and Ayurveda brand.</li>
+                    <li>Conducted keyword and competitor research to identify content and SEO opportunities; drafted captions and hashtags.</li>
+                  </ul>
+                </div>
+
+                {/* Role 4 */}
+                <div className="ats-item">
+                  <div className="flex items-baseline justify-between font-bold text-black">
+                    <span>Digital Marketing Intern | KDMI (Kolkata Digital Marketing Institute), Kolkata</span>
+                    <span className="font-normal text-neutral-800">Nov 2025 – Jan 2026</span>
+                  </div>
+                  <ul className="list-disc ml-3.5 space-y-0.5 text-neutral-900 mt-0.5">
+                    <li>Completed hands-on training and live assignments in SEO, social media, Google Ads, Meta Ads, and analytics, including keyword research, on-page SEO audits, and campaign planning.</li>
+                  </ul>
+                </div>
+
+                {/* Tech roles */}
+                <div className="ats-item flex items-baseline justify-between font-bold text-black pt-0.5">
+                  <span>Software Engineer | Q3 Technologies, Gurgaon</span>
+                  <span className="font-normal text-neutral-800">Apr 2025 – Oct 2025</span>
+                </div>
+                <div className="ats-item flex items-baseline justify-between font-bold text-black">
+                  <span>Test Engineer | Wipro, Bengaluru</span>
+                  <span className="font-normal text-neutral-800">Sep 2021 – Mar 2024</span>
+                </div>
+              </div>
+            </section>
+
+            {/* DIGITAL MARKETING PROJECTS */}
+            <section className="ats-section mb-2">
+              <h2 className="ats-section-title">Digital Marketing Projects</h2>
+              <ul className="list-disc ml-3.5 space-y-0.5 text-[7.5pt] leading-[1.25] text-neutral-900">
+                <li>
+                  <strong className="font-bold text-black">FIFA 2026 Campaign (Walplast):</strong> Planned and ran an interactive prediction-contest campaign around the FIFA 2026 knockout stages to grow organic reach, attract followers, and drive community interaction.
+                </li>
+                <li>
+                  <strong className="font-bold text-black">SEO &amp; Website Optimization:</strong> Keyword research with Google Keyword Planner, Ubersuggest, and Google Trends; on-page SEO recommendations to improve website visibility.
+                </li>
+                <li>
+                  <strong className="font-bold text-black">Campaign Support:</strong> Google Ads and Meta Ads planning, audience targeting, ad copy, monitoring, and performance analysis.
+                </li>
+              </ul>
+            </section>
+
+            {/* EDUCATION & CERTIFICATIONS */}
+            <section className="ats-section mb-2">
+              <h2 className="ats-section-title">Education &amp; Certifications</h2>
+              <div className="text-[7.5pt] leading-[1.25] text-neutral-900 space-y-0.5">
+                <div className="flex items-baseline justify-between">
+                  <span><strong className="font-bold text-black">Digital Marketing</strong> – Kolkata Digital Marketing Institute, Kolkata</span>
+                  <span>Oct 2025 – Jan 2026</span>
+                </div>
+                <div className="flex items-baseline justify-between">
+                  <span><strong className="font-bold text-black">Full Stack Development</strong> – MASAI (Remote)</span>
+                  <span>Mar 2024 – Apr 2025</span>
+                </div>
+                <div className="flex items-baseline justify-between">
+                  <span><strong className="font-bold text-black">Bachelor of Computer Applications (B.C.A)</strong> – Dinabandhu Andrews Institute of Technology and Management, Kolkata | CGPA: 8.96 / 10</span>
+                  <span>2018 – 2021</span>
+                </div>
+                <p className="pt-0.5">
+                  <strong className="font-bold text-black">Certifications:</strong> HubSpot Academy – Digital Marketing Certified; Social Media Marketing II Certified; Inbound Marketing Certified; Social Media Certified
+                </p>
+              </div>
+            </section>
+
+            {/* TOOLS & PLATFORMS */}
+            <section className="ats-section">
+              <h2 className="ats-section-title">Tools &amp; Platforms</h2>
+              <div className="text-[7.5pt] leading-[1.25] text-neutral-900 space-y-0.5">
+                <p>
+                  <strong className="font-bold text-black">Marketing:</strong> Meta Business Suite, Google Analytics, Google Ads, Mailchimp, Looker Studio, Microsoft Excel
+                </p>
+                <p>
+                  <strong className="font-bold text-black">SEO:</strong> Google Keyword Planner, Google Trends, Ubersuggest, SEMrush, Ahrefs Webmaster Tools, Moz
+                </p>
+                <p>
+                  <strong className="font-bold text-black">Creative &amp; AI:</strong> Canva, CapCut, Figma, Notion, WordPress, ChatGPT, Gemini
+                </p>
+              </div>
+            </section>
           </div>
         </div>
       </main>
