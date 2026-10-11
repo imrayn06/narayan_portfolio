@@ -75,20 +75,20 @@ body {
   background: var(--text-muted);
 }
 
-/* Light Mode Overrides for Hardcoded Dark Utilities (excluding header which uses mix-blend-difference) */
-html:not(.dark) :not(header):not(header *) [class*="border-white/"] {
+/* Light Mode Overrides for Hardcoded Dark Utilities (excluding header, dialogs, and lightboxes) */
+html:not(.dark) :not(header):not(header *):not([role="dialog"]):not([role="dialog"] *):not([aria-modal="true"]):not([aria-modal="true"] *):not(.modal-isolated):not(.modal-isolated *) [class*="border-white/"] {
   border-color: rgba(0, 0, 0, 0.09) !important;
 }
 
-html:not(.dark) :not(header):not(header *) [class*="bg-white/[0.0"] {
+html:not(.dark) :not(header):not(header *):not([role="dialog"]):not([role="dialog"] *):not([aria-modal="true"]):not([aria-modal="true"] *):not(.modal-isolated):not(.modal-isolated *) [class*="bg-white/[0.0"] {
   background-color: rgba(0, 0, 0, 0.04) !important;
 }
 
-html:not(.dark) :not(header):not(header *) [class*="bg-white/[0.1"] {
+html:not(.dark) :not(header):not(header *):not([role="dialog"]):not([role="dialog"] *):not([aria-modal="true"]):not([aria-modal="true"] *):not(.modal-isolated):not(.modal-isolated *) [class*="bg-white/[0.1"] {
   background-color: rgba(0, 0, 0, 0.06) !important;
 }
 
-html:not(.dark) :not(header):not(header *) [class*="bg-black/"] {
+html:not(.dark) :not(header):not(header *):not([role="dialog"]):not([role="dialog"] *):not([aria-modal="true"]):not([aria-modal="true"] *):not(.modal-isolated):not(.modal-isolated *) [class*="bg-black/"] {
   background-color: rgba(0, 0, 0, 0.06) !important;
   color: var(--text-primary) !important;
 }
@@ -98,12 +98,36 @@ header .blend-border {
   border-color: rgba(255, 255, 255, 0.45) !important;
 }
 
-html:not(.dark) .bg-\[\#141414\],
-html:not(.dark) .bg-\[\#161616\],
-html:not(.dark) .bg-\[\#111111\],
-html:not(.dark) .bg-\[\#090909\],
-html:not(.dark) .bg-\[\#0E0E0E\] {
+html:not(.dark) :not([role="dialog"]):not([role="dialog"] *):not([aria-modal="true"]):not([aria-modal="true"] *):not(.modal-isolated):not(.modal-isolated *).bg-\[\#141414\],
+html:not(.dark) :not([role="dialog"]):not([role="dialog"] *):not([aria-modal="true"]):not([aria-modal="true"] *):not(.modal-isolated):not(.modal-isolated *).bg-\[\#161616\],
+html:not(.dark) :not([role="dialog"]):not([role="dialog"] *):not([aria-modal="true"]):not([aria-modal="true"] *):not(.modal-isolated):not(.modal-isolated *).bg-\[\#111111\],
+html:not(.dark) :not([role="dialog"]):not([role="dialog"] *):not([aria-modal="true"]):not([aria-modal="true"] *):not(.modal-isolated):not(.modal-isolated *).bg-\[\#090909\],
+html:not(.dark) :not([role="dialog"]):not([role="dialog"] *):not([aria-modal="true"]):not([aria-modal="true"] *):not(.modal-isolated):not(.modal-isolated *).bg-\[\#0E0E0E\] {
   background-color: var(--surface-1) !important;
+}
+
+/* Media Modal Theater Isolation — Guarantees perfect contrast in both dark and light modes */
+.modal-theater-backdrop {
+  background-color: rgba(5, 5, 8, 0.94) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+.modal-theater-surface {
+  background-color: #121214 !important;
+  color: #F5F5F3 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.modal-theater-header,
+.modal-theater-footer {
+  background-color: #18181B !important;
+  color: #F5F5F3 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.modal-theater-canvas {
+  background-color: #09090B !important;
 }
 
 /* Primary CTA Button (adapts to light/dark) */

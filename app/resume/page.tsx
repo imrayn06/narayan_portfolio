@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { FiDownload, FiPrinter, FiMail, FiPhone, FiLinkedin, FiMapPin, FiArrowLeft, FiFileText } from "react-icons/fi";
 import { Navbar } from "@/components/Navbar";
@@ -9,6 +9,68 @@ import { RobotMascot } from "@/components/RobotMascot";
 import ExperienceCertificates from "@/components/ExperienceCertificates";
 
 export default function ResumePage() {
+  // Prevent right-click, drag, and inspection shortcuts across the resume tab
+  useEffect(() => {
+    // 1. Disable right-click context menu (blocks native inspect and save image)
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+      return false;
+    };
+
+    // 2. Disable dragging images or elements
+    const handleDragStart = (e: DragEvent) => {
+      e.preventDefault();
+      return false;
+    };
+
+    // 3. Block Developer Tools & Inspection keyboard shortcuts
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // F12 (DevTools)
+      if (e.key === "F12") {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+
+      // Ctrl+Shift+I / Cmd+Option+I (Inspect DevTools)
+      // Ctrl+Shift+J / Cmd+Option+J (Console)
+      // Ctrl+Shift+C / Cmd+Option+C (Inspect Element)
+      if (
+        (e.ctrlKey || e.metaKey) &&
+        e.shiftKey &&
+        ["I", "i", "J", "j", "C", "c"].includes(e.key)
+      ) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+
+      // Ctrl+U / Cmd+U (View Page Source)
+      if ((e.ctrlKey || e.metaKey) && (e.key === "u" || e.key === "U")) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+
+      // Ctrl+S / Cmd+S (Save Page / Save Document)
+      if ((e.ctrlKey || e.metaKey) && (e.key === "s" || e.key === "S")) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    };
+
+    document.addEventListener("contextmenu", handleContextMenu);
+    document.addEventListener("dragstart", handleDragStart);
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("contextmenu", handleContextMenu);
+      document.removeEventListener("dragstart", handleDragStart);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   const handlePrint = () => {
     window.print();
   };

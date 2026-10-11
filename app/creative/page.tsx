@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiZoomIn, FiX, FiPlay } from "react-icons/fi";
+import { FiZoomIn, FiX, FiPlay, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import {
@@ -290,6 +290,42 @@ export default function CreativeGalleryPage() {
     return item.category === selectedCategory;
   });
 
+  const currentFilteredImages = filteredItems.filter((i) => !i.videoItem);
+  const activeIndex = activeItem
+    ? currentFilteredImages.findIndex((i) => i.id === activeItem.id)
+    : -1;
+
+  const showPrev = useCallback(() => {
+    if (activeIndex > 0) {
+      setActiveItem(currentFilteredImages[activeIndex - 1]);
+    } else if (currentFilteredImages.length > 0) {
+      setActiveItem(currentFilteredImages[currentFilteredImages.length - 1]);
+    }
+  }, [activeIndex, currentFilteredImages]);
+
+  const showNext = useCallback(() => {
+    if (activeIndex < currentFilteredImages.length - 1) {
+      setActiveItem(currentFilteredImages[activeIndex + 1]);
+    } else if (currentFilteredImages.length > 0) {
+      setActiveItem(currentFilteredImages[0]);
+    }
+  }, [activeIndex, currentFilteredImages]);
+
+  useEffect(() => {
+    if (!activeItem) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActiveItem(null);
+      } else if (e.key === "ArrowLeft") {
+        showPrev();
+      } else if (e.key === "ArrowRight") {
+        showNext();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeItem, showPrev, showNext]);
+
   return (
     <>
       <Navbar />
@@ -426,54 +462,113 @@ export default function CreativeGalleryPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="lightbox-creative-title"
             onClick={() => setActiveItem(null)}
-            className="fixed inset-0 z-50 bg-black/92 backdrop-blur-md p-4 sm:p-8 flex flex-col justify-between cursor-zoom-out"
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 modal-theater-backdrop overflow-y-auto cursor-zoom-out"
           >
-            {/* Top Bar with Minimal Metadata */}
-            <div
-              className="max-w-7xl w-full mx-auto flex items-center justify-between font-mono text-xs text-warm-gray pt-2"
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-4xl max-h-[92vh] flex flex-col modal-theater-surface border rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl cursor-default my-auto"
             >
-              <div className="space-y-0.5">
-                <span className="text-warm-white font-bold uppercase tracking-wider">
-                  {activeItem.brand}
-                </span>
-                <span className="text-warm-muted block text-[10px]">
-                  {activeItem.category} · {activeItem.contribution}
-                </span>
+              {/* Modal Top Bar */}
+              <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b modal-theater-header">
+                <div className="min-w-0 pr-4">
+                  <div className="flex items-center gap-2 mb-1 flex-wrap">
+                    <span className="px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 font-mono text-[10px] font-bold uppercase tracking-wider">
+                      {activeItem.category}
+                    </span>
+                    <span className="font-mono text-xs text-white/80 font-bold uppercase tracking-wider">
+                      {activeItem.brand}
+                    </span>
+                    {currentFilteredImages.length > 1 && activeIndex !== -1 && (
+                      <span className="font-mono text-[10px] text-white/50 px-2 py-0.5 rounded bg-white/[0.08]">
+                        {activeIndex + 1} / {currentFilteredImages.length}
+                      </span>
+                    )}
+                  </div>
+                  <h3 id="lightbox-creative-title" className="text-base sm:text-lg font-sans font-bold text-white truncate">
+                    {activeItem.title}
+                  </h3>
+                  <p className="font-mono text-[11px] text-white/70 truncate mt-0.5">
+                    <span className="text-white/40 uppercase tracking-wider">Role:</span> {activeItem.contribution}
+                  </p>
+                </div>
+
+                {/* Close Button */}
+                <button
+                  onClick={() => setActiveItem(null)}
+                  className="p-2.5 rounded-full bg-white/[0.08] hover:bg-white/[0.18] text-white transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center shrink-0 border border-white/10"
+                  aria-label="Close lightbox"
+                >
+                  <FiX size={20} />
+                </button>
               </div>
 
-              <button
-                onClick={() => setActiveItem(null)}
-                className="p-2.5 rounded-full bg-white/[0.1] hover:bg-white/[0.2] text-warm-white transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
-                aria-label="Close"
-              >
-                <FiX size={20} />
-              </button>
-            </div>
+              {/* Central Canvas Viewport with Prev / Next Controls */}
+              <div className="relative flex-1 overflow-auto modal-theater-canvas flex items-center justify-center p-4 sm:p-6 min-h-[340px] max-h-[calc(90vh-210px)] select-none">
+                <div
+                  className="relative w-full h-full max-h-[60vh] flex items-center justify-center"
+                  style={{ minHeight: "300px" }}
+                >
+                  <Image
+                    src={activeItem.image}
+                    alt={activeItem.title}
+                    fill
+                    className="object-contain drop-shadow-2xl rounded-sm"
+                    sizes="(max-width: 1024px) 100vw, 1000px"
+                    priority
+                  />
+                </div>
 
-            {/* Central Canvas */}
-            <div
-              className="relative max-w-5xl max-h-[75vh] w-full h-full mx-auto flex items-center justify-center my-4"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image
-                src={activeItem.image}
-                alt={activeItem.title}
-                fill
-                className="object-contain"
-                sizes="100vw"
-                priority
-              />
-            </div>
+                {/* Prev Navigation Button */}
+                {currentFilteredImages.length > 1 && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      showPrev();
+                    }}
+                    className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/80 hover:bg-black border border-white/20 text-white transition-all shadow-xl hover:scale-105 z-10"
+                    aria-label="Previous creative"
+                    title="Previous (Left Arrow)"
+                  >
+                    <FiChevronLeft size={20} />
+                  </button>
+                )}
 
-            {/* Bottom Caption */}
-            <div
-              className="max-w-2xl mx-auto text-center font-mono text-xs text-warm-gray pb-2 px-4"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <p className="leading-relaxed font-light">{activeItem.context}</p>
-            </div>
+                {/* Next Navigation Button */}
+                {currentFilteredImages.length > 1 && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      showNext();
+                    }}
+                    className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/80 hover:bg-black border border-white/20 text-white transition-all shadow-xl hover:scale-105 z-10"
+                    aria-label="Next creative"
+                    title="Next (Right Arrow)"
+                  >
+                    <FiChevronRight size={20} />
+                  </button>
+                )}
+              </div>
+
+              {/* Bottom Caption & Context Bar */}
+              <div className="px-5 sm:px-6 py-4 border-t modal-theater-footer">
+                <div className="space-y-1">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-blue-400 font-bold block">
+                    Context &amp; Campaign Strategy
+                  </span>
+                  <p className="text-xs sm:text-sm text-white/95 leading-relaxed font-sans font-normal">
+                    {activeItem.context}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

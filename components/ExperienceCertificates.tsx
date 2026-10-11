@@ -8,13 +8,15 @@ import {
   FiX,
   FiChevronLeft,
   FiChevronRight,
-  FiDownload,
   FiZoomIn,
   FiZoomOut,
   FiCheckCircle,
   FiCalendar,
   FiMapPin,
   FiFileText,
+  FiShield,
+  FiLock,
+  FiEye,
 } from "react-icons/fi";
 
 export interface ExperienceCertificate {
@@ -141,6 +143,19 @@ export default function ExperienceCertificates() {
     }, 50);
 
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Prevent inspection shortcuts inside modal
+      if (
+        e.key === "F12" ||
+        ((e.ctrlKey || e.metaKey) &&
+          e.shiftKey &&
+          ["I", "i", "J", "j", "C", "c"].includes(e.key)) ||
+        ((e.ctrlKey || e.metaKey) && ["u", "U", "s", "S"].includes(e.key))
+      ) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
+
       if (e.key === "Escape") {
         e.preventDefault();
         closeModal();
@@ -228,21 +243,31 @@ export default function ExperienceCertificates() {
                   setActiveIndex(index);
                   setIsZoomed(false);
                 }}
-                className="relative w-full aspect-[4/3] bg-[#0c0c0d] dark:bg-[#0c0c0d] border-b border-white/[0.06] flex items-center justify-center p-4 cursor-pointer overflow-hidden group/thumb"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+                style={{ WebkitUserSelect: "none", userSelect: "none" }}
+                className="relative w-full aspect-[4/3] bg-[#0c0c0d] dark:bg-[#0c0c0d] border-b border-white/[0.06] flex items-center justify-center p-4 cursor-pointer overflow-hidden group/thumb select-none"
               >
-                <div className="relative w-full h-full flex items-center justify-center">
+                <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
                   <Image
                     src={cert.thumbSrc}
                     alt={cert.alt}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-                    className="object-contain drop-shadow-md transition-transform duration-500 group-hover/thumb:scale-105"
+                    className="object-contain drop-shadow-md transition-transform duration-500 group-hover/thumb:scale-105 pointer-events-none select-none"
                     loading="lazy"
+                    draggable={false}
                   />
                 </div>
 
+                {/* Protective Shield against Right-Click & Drag */}
+                <div
+                  className="absolute inset-0 z-10"
+                  onContextMenu={(e) => e.preventDefault()}
+                />
+
                 {/* Subtle Hover Action Pill */}
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/thumb:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                <div className="absolute inset-0 z-20 bg-black/50 opacity-0 group-hover/thumb:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
                   <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-black font-mono text-xs uppercase tracking-wider font-semibold shadow-lg transform translate-y-2 group-hover/thumb:translate-y-0 transition-transform duration-300">
                     <FiMaximize2 size={12} />
                     <span>View Document</span>
@@ -368,16 +393,11 @@ export default function ExperienceCertificates() {
                     {isZoomed ? <FiZoomOut size={16} /> : <FiZoomIn size={16} />}
                   </button>
 
-                  {/* Direct Download Button */}
-                  <a
-                    href={activeCert.downloadSrc}
-                    download={`${activeCert.id}.jpg`}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.08] hover:bg-white/[0.14] border border-white/[0.12] text-xs font-mono uppercase tracking-wider text-warm-white transition-colors"
-                    title="Download high-resolution certificate"
-                  >
-                    <FiDownload size={13} />
-                    <span className="hidden sm:inline">Download</span>
-                  </a>
+                  {/* Protected View Indicator */}
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono uppercase tracking-wider text-emerald-400 select-none">
+                    <FiShield size={13} />
+                    <span className="hidden sm:inline font-semibold">Protected View</span>
+                  </div>
 
                   {/* Close Button */}
                   <button
@@ -394,19 +414,24 @@ export default function ExperienceCertificates() {
 
               {/* Modal Viewport Area */}
               <div
-                className={`relative flex-1 overflow-auto bg-[#0a0a0b] flex items-center justify-center p-4 sm:p-8 min-h-[380px] max-h-[calc(92vh-130px)] ${
+                className={`relative flex-1 overflow-auto bg-[#0a0a0b] flex items-center justify-center p-4 sm:p-8 min-h-[380px] max-h-[calc(92vh-130px)] select-none ${
                   isZoomed ? "cursor-zoom-out" : "cursor-zoom-in"
                 }`}
                 onClick={() => setIsZoomed((prev) => !prev)}
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+                style={{ WebkitUserSelect: "none", userSelect: "none" }}
               >
                 <div
-                  className={`relative transition-all duration-300 flex items-center justify-center ${
+                  className={`relative transition-all duration-300 flex items-center justify-center select-none ${
                     isZoomed
                       ? "w-full max-w-none scale-125 my-8"
                       : "w-full h-full max-h-[72vh] max-w-3xl"
                   }`}
                   style={{
                     aspectRatio: `${activeCert.width} / ${activeCert.height}`,
+                    WebkitUserSelect: "none",
+                    userSelect: "none",
                   }}
                 >
                   <Image
@@ -414,8 +439,15 @@ export default function ExperienceCertificates() {
                     alt={activeCert.alt}
                     fill
                     sizes="(max-width: 1200px) 100vw, 1200px"
-                    className="object-contain drop-shadow-2xl rounded-sm"
+                    className="object-contain drop-shadow-2xl rounded-sm pointer-events-none select-none"
                     priority
+                    draggable={false}
+                  />
+
+                  {/* Invisible Protective Shield over Certificate Image */}
+                  <div
+                    className="absolute inset-0 z-10"
+                    onContextMenu={(e) => e.preventDefault()}
                   />
                 </div>
 
@@ -425,7 +457,7 @@ export default function ExperienceCertificates() {
                     e.stopPropagation();
                     showPrev();
                   }}
-                  className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/75 hover:bg-black border border-white/[0.15] text-warm-white transition-all hover:scale-105 shadow-xl backdrop-blur-md"
+                  className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full bg-black/75 hover:bg-black border border-white/[0.15] text-warm-white transition-all hover:scale-105 shadow-xl backdrop-blur-md"
                   aria-label="Previous certificate"
                   title="Previous (Left Arrow)"
                 >
@@ -438,7 +470,7 @@ export default function ExperienceCertificates() {
                     e.stopPropagation();
                     showNext();
                   }}
-                  className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-black/75 hover:bg-black border border-white/[0.15] text-warm-white transition-all hover:scale-105 shadow-xl backdrop-blur-md"
+                  className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full bg-black/75 hover:bg-black border border-white/[0.15] text-warm-white transition-all hover:scale-105 shadow-xl backdrop-blur-md"
                   aria-label="Next certificate"
                   title="Next (Right Arrow)"
                 >
@@ -447,7 +479,7 @@ export default function ExperienceCertificates() {
               </div>
 
               {/* Modal Bottom Metadata Bar */}
-              <div className="px-5 py-3 border-t border-white/[0.08] bg-[#161618] flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-mono text-xs text-warm-muted">
+              <div className="px-5 py-3 border-t border-white/[0.08] bg-[#161618] flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-mono text-xs text-warm-muted select-none">
                 <div className="flex items-center gap-3">
                   <span className="text-warm-white font-medium">
                     {activeCert.role} · {activeCert.location}
@@ -460,15 +492,10 @@ export default function ExperienceCertificates() {
                   <span className="hidden md:inline text-warm-muted">
                     Tip: Use Left/Right arrows to navigate, Esc to close
                   </span>
-                  <a
-                    href={activeCert.fullSrc}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent-blue hover:underline inline-flex items-center gap-1"
-                  >
-                    <span>Open in new tab</span>
-                    <FiMaximize2 size={11} />
-                  </a>
+                  <span className="text-warm-muted inline-flex items-center gap-1.5">
+                    <FiLock size={12} className="text-emerald-400" />
+                    <span>Protected Document · View Only</span>
+                  </span>
                 </div>
               </div>
             </div>
