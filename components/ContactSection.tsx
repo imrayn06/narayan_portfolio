@@ -65,7 +65,7 @@ function ContactSection() {
           </a>
 
           <a
-            href="https://drive.google.com/file/d/1vhGt-nv2sl-yCfW5YDQWV9IJOC2qPUgw/view?usp=sharing"
+            href="https://drive.google.com/file/d/1X_G8QEqNvXD9L2pKJyUtxjafG1xzIGo8/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto block"

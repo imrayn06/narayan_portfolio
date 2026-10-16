@@ -12,6 +12,18 @@ import { RobotMascot } from "@/components/RobotMascot";
 const selectedWorks = [
   {
     num: "01",
+    client: "Shimontini (Spec)",
+    project: "43-Reel Festive Reels Strategy",
+    contribution: "43-Reel Content Strategy · Visual Hooks · Scriptwriting",
+    type: "SPEC / CONTENT STRATEGY",
+    image: "/portfolio/shimontini-cover.jpg",
+    aspect: "aspect-[16/9]",
+    stat: "43 Reel Scripts · Oct–Nov 2026",
+    href: "/work/shimontini",
+    isCaseStudy: true,
+  },
+  {
+    num: "02",
     client: "Bisleri (Spec)",
     project: "31-Day Winter Hydration Plan",
     contribution: "31-Day Content Strategy · Visual Scripts · Copywriting",
@@ -23,7 +35,7 @@ const selectedWorks = [
     isCaseStudy: true,
   },
   {
-    num: "02",
+    num: "03",
     client: "Zee Bangla Sonar",
     project: "Social Media Execution Support",
     contribution: "Content Planning Support · Campaign Coordination Flow",
@@ -35,7 +47,7 @@ const selectedWorks = [
     isCaseStudy: true,
   },
   {
-    num: "03",
+    num: "04",
     client: "Marketing Notebook",
     project: "Ad Teardowns & Original Concepts",
     contribution: "Ad teardowns and original concepts from digital marketing training, and what each exercise taught me about planning content.",
@@ -47,7 +59,7 @@ const selectedWorks = [
     isCaseStudy: true,
   },
   {
-    num: "04",
+    num: "05",
     client: "Walplast",
     project: "FIFA 2026 Knockout Campaign",
     contribution: "Campaign Planning · Content Strategy · Community Support",
@@ -59,7 +71,7 @@ const selectedWorks = [
     isCaseStudy: true,
   },
   {
-    num: "05",
+    num: "06",
     client: "MSP Steel",
     project: "B2B Social Media Support",
     contribution: "Social Media Handling · Scheduling · Consistency",
@@ -71,7 +83,7 @@ const selectedWorks = [
     isCaseStudy: false,
   },
   {
-    num: "06",
+    num: "07",
     client: "Core Fit",
     project: "High-Impact Social Creative",
     contribution: "Visual Concept · Copywriting · Creative Direction",
@@ -121,7 +133,7 @@ export default function Home() {
                   transition={{ duration: 0.6 }}
                   className="text-4xl sm:text-6xl md:text-7xl font-sans font-black tracking-tight text-warm-white uppercase"
                 >
-                  SHENEHASHIS DUTTA
+                  NARAYAN SHENEHASHIS DUTTA
                 </motion.h1>
 
                 <motion.p
@@ -130,7 +142,7 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className="font-mono text-sm sm:text-base md:text-lg tracking-[0.12em] uppercase text-warm-gray"
                 >
-                  DIGITAL MARKETING · SOCIAL MEDIA · CONTENT
+                  DIGITAL MARKETING ASSOCIATE · EX-SOFTWARE ENGINEER
                 </motion.p>
               </div>
 
@@ -141,9 +153,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-base sm:text-lg md:text-xl text-warm-gray leading-relaxed max-w-2xl font-light"
               >
-                Former Software Engineer transitioning into digital marketing, with
-                hands-on experience supporting social media, content planning, SEO research,
-                and campaign execution.
+                Early-career digital marketer with hands-on agency experience on Zee Bangla Sonar, Walplast, Drychem, and MSP Steel, where I planned content calendars, designed creatives, wrote captions, and supported Google Ads and Meta Ads campaigns. Backed by three years in software development and testing at Wipro and Q3 Technologies, combining methodical discipline with social media, content, SEO, and paid campaigns.
               </motion.p>
 
               {/* Action Buttons */}
@@ -196,7 +206,7 @@ export default function Home() {
                     </p>
                   </div>
                   <p className="text-xs text-warm-gray leading-relaxed">
-                    Entry-level digital marketing, content coordinator, and social media specialist roles.
+                    Seeking an entry-level role to work on real campaigns, test ideas, take ownership, and build across social media, content, SEO, and paid campaigns.
                   </p>
                 </div>
                 <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-warm-muted">
@@ -239,7 +249,7 @@ export default function Home() {
               href="/work"
               className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.2em] uppercase text-warm-gray hover:text-warm-white transition-colors group"
             >
-              <span>Explore All Projects (7)</span>
+              <span>Explore All Projects (8)</span>
               <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

@@ -88,29 +88,29 @@ export default function AboutPage() {
                 />
               </div>
               <div className="font-mono text-xs text-warm-muted space-y-1">
-                <p className="text-warm-white font-semibold">Shenehashis Dutta (Narayan)</p>
-                <p>Digital Marketing Professional · Ex-Software Engineer</p>
+                <p className="text-warm-white font-semibold">Narayan Shenehashis Dutta</p>
+                <p>Digital Marketing Associate · Ex-Software Engineer</p>
                 <p>Based in Kolkata, West Bengal, India</p>
               </div>
             </div>
 
             <div className="md:col-span-7 space-y-6 text-warm-gray text-base sm:text-lg font-light leading-relaxed">
               <p>
-                I began my professional career in software engineering, where I developed a structured and analytical approach to solving problems and working with technology.
+                I am an early-career digital marketer with hands-on agency experience across client accounts including <strong className="text-warm-white font-medium">Zee Bangla Sonar</strong>, <strong className="text-warm-white font-medium">Walplast</strong>, <strong className="text-warm-white font-medium">Drychem</strong>, and <strong className="text-warm-white font-medium">MSP Steel</strong> — planning content calendars, designing creatives, writing captions, and supporting Google Ads and Meta Ads campaigns.
               </p>
               <p>
-                Over time, my interests naturally shifted toward the creative and communication side of digital work — how brands express their identity, how communities engage with content, and how search engines connect user intent with solutions.
+                Before transitioning into marketing, I spent about three years in software development and quality testing at <strong className="text-warm-white font-medium">Wipro</strong> and <strong className="text-warm-white font-medium">Q3 Technologies</strong>. That engineering background taught me to work methodically, pay close attention to detail, and pick up new tools quickly.
               </p>
               <p>
-                Since then, I have gained hands-on experience through digital marketing internships at <strong className="text-warm-white font-medium">Mind &amp; Matter</strong>, <strong className="text-warm-white font-medium">JRD Ayurveda</strong>, and <strong className="text-warm-white font-medium">KDMI</strong>, working across social media execution, monthly content planning, SEO research, creative coordination, and campaign-related work for brands like Walplast, MSP Steel, and Drychem.
+                I am deeply curious about social media, content, SEO, paid campaigns, and understanding what makes audiences respond.
               </p>
               <p>
-                Today, I am actively looking for roles where I can combine analytical thinking with creativity, content, and digital marketing execution.
+                Today, I am looking for an entry-level role where I can work on real campaigns, test ideas, take ownership, and keep building my skills across these areas.
               </p>
 
               <div className="pt-2">
                 <a
-                  href="https://drive.google.com/file/d/1vhGt-nv2sl-yCfW5YDQWV9IJOC2qPUgw/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1X_G8QEqNvXD9L2pKJyUtxjafG1xzIGo8/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full btn-primary font-mono text-xs uppercase tracking-[0.2em] font-semibold transition-all"

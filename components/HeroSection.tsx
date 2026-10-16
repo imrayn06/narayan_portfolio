@@ -94,7 +94,7 @@ export const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-sans max-w-3xl bg-gradient-to-br from-slate-900 to-slate-700 dark:from-white dark:to-gray-200 bg-clip-text font-black leading-tight text-transparent text-3xl sm:text-5xl md:text-7xl"
         >
-          Shenehashis Dutta
+          Narayan Shenehashis Dutta
         </motion.h1>
 
         {/* Headline */}
@@ -105,7 +105,7 @@ export const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="mt-3 sm:mt-4 max-w-4xl text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-sans text-slate-900 dark:text-[#F9FAFB] leading-tight text-center px-1"
         >
-          <span>Digital marketer (Ex - SDE)</span>
+          <span>Digital Marketing Associate (Ex - SDE)</span>
           <span className="block mt-1 sm:mt-2 text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899]">
             Open to entry-level roles
           </span>
@@ -119,7 +119,7 @@ export const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.35 }}
           className="text-xs sm:text-base md:text-lg text-slate-600 dark:text-[#9CA3AF] max-w-3xl mt-3 sm:mt-4 mb-4 md:mb-8 leading-relaxed text-center px-2 sm:px-0"
         >
-          Worked with brands like Zee Bangla Sonar, MSP Steel, Walplast, and Drychem, contributing to social media handling, campaign coordination, and structured brand communication.
+          Early-career digital marketer with hands-on agency experience on Zee Bangla Sonar, Walplast, Drychem, and MSP Steel, supported by three years in software development and testing at Wipro and Q3 Technologies.
         </motion.p>
 
         {/* Profile picture with Skill Pills */}
@@ -206,7 +206,7 @@ export const HeroSection = () => {
           </a>
 
           <a
-            href="https://drive.google.com/file/d/1vhGt-nv2sl-yCfW5YDQWV9IJOC2qPUgw/view?usp=sharing"
+            href="https://drive.google.com/file/d/1X_G8QEqNvXD9L2pKJyUtxjafG1xzIGo8/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: "none" }}

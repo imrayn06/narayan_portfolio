@@ -29,16 +29,16 @@ export const AboutSection = () => {
           
           <div className="p-4 mb-6 rounded-2xl bg-gradient-to-r from-purple-100/50 to-pink-100/50 dark:from-purple-900/20 dark:to-pink-900/20 border border-purple-200/50 dark:border-purple-800/30">
             <p className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
-              "Combining technical expertise with strategic marketing to create measurable business impact."
+              "Early-career digital marketer with agency experience, combining technical rigor with creative campaign execution."
             </p>
           </div>
 
           <p>
-            Versatile professional with cross-functional experience spanning Digital Marketing, Social Media Management, Software Development, Testing, and Quality Assurance. In recent roles, I specialised in Digital and Social Media Marketing, driving content strategy, brand positioning, audience engagement, campaign execution, and online growth initiatives.
+            Early-career digital marketer with hands-on agency experience on Zee Bangla Sonar, Walplast, Drychem, and MSP Steel, where I planned content calendars, designed creatives, wrote captions, and supported Google Ads and Meta Ads campaigns.
           </p>
 
           <p>
-            Successfully contributed to digital marketing efforts as a Digital Marketing Intern at JRD Ayurveda, KDMI, and Mind and Matter, enhancing brand visibility, increasing audience engagement, and supporting business growth through data-driven marketing strategies.
+            Before moving into marketing, I spent about three years in software development and testing at Wipro and Q3 Technologies, which taught me to work methodically, pay attention to detail, and pick up new tools quickly.
           </p>
 
           <p>

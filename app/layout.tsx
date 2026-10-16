@@ -25,15 +25,18 @@ export const metadata: Metadata = {
     icon: "/logo.png",
     apple: "/logo.png",
   },
-  title: "Shenehashis Dutta | Digital Marketing & Social Media (Ex-Software Engineer)",
+  title: "Narayan Shenehashis Dutta | Digital Marketing Associate",
   description:
-    "Portfolio of Shenehashis Dutta — Hands-on digital marketing experience supporting social media, content planning, SEO research, and campaign execution with a disciplined software engineering background.",
+    "Portfolio of Narayan Shenehashis Dutta — Early-career digital marketer with hands-on agency experience on Zee Bangla Sonar, Walplast, Drychem, and MSP Steel, backed by 3 years in software development and testing.",
   keywords: [
+    "Narayan Shenehashis Dutta",
     "Shenehashis Dutta",
+    "Digital Marketing Associate",
     "Digital Marketing",
-    "Social Media",
+    "Social Media Marketing",
     "Content Planning",
     "SEO",
+    "Paid Ads",
     "Software Engineer transitioning to marketing",
     "Kolkata",
     "MSP Steel",
@@ -43,11 +46,11 @@ export const metadata: Metadata = {
     "Zee Bangla Sonar",
   ],
   openGraph: {
-    title: "Shenehashis Dutta | Digital Marketing & Social Media",
+    title: "Narayan Shenehashis Dutta | Digital Marketing Associate",
     description:
-      "Hands-on digital marketing experience supporting social media, content planning, and campaign execution, backed by a software engineering foundation.",
+      "Early-career digital marketer with hands-on agency experience on Zee Bangla Sonar, Walplast, Drychem, and MSP Steel, backed by 3 years in software development and testing.",
     url: "https://narayan-portfolio.vercel.app",
-    siteName: "Shenehashis Dutta Portfolio",
+    siteName: "Narayan Shenehashis Dutta Portfolio",
     locale: "en_US",
     type: "website",
     images: [
@@ -55,15 +58,15 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Shenehashis Dutta - Digital Marketing & Social Media Portfolio",
+        alt: "Narayan Shenehashis Dutta - Digital Marketing Associate Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shenehashis Dutta | Digital Marketing & Social Media",
+    title: "Narayan Shenehashis Dutta | Digital Marketing Associate",
     description:
-      "Hands-on digital marketing experience supporting social media, content planning, and campaign execution with a software engineering foundation.",
+      "Early-career digital marketer with hands-on agency experience on Zee Bangla Sonar, Walplast, Drychem, and MSP Steel, backed by 3 years in software development and testing.",
     images: ["/og-image.png"],
   },
   verification: {
@@ -95,8 +98,8 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Shenehashis Dutta",
-              jobTitle: "Digital Marketing Professional",
+              name: "Narayan Shenehashis Dutta",
+              jobTitle: "Digital Marketing Associate",
               url: "https://narayan-portfolio.vercel.app",
               sameAs: [
                 "https://www.linkedin.com/in/im-rayn/",
@@ -105,10 +108,11 @@ export default function RootLayout({
               ],
               knowsAbout: [
                 "Social Media Marketing",
-                "Content Planning",
-                "Campaign Coordination",
-                "SEO Research",
-                "Software Engineering",
+                "Content Calendar Planning",
+                "SEO",
+                "Paid Ads",
+                "Software Development",
+                "Quality Assurance",
               ],
             }),
           }}

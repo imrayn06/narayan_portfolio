@@ -31,6 +31,27 @@ interface WorkItem {
 
 const workArchive: WorkItem[] = [
   {
+    id: "shimontini",
+    client: "Shimontini FashionStudio (Spec)",
+    title: "43-Reel Festive Reels Strategy",
+    category: "SPEC",
+    isSpec: true,
+    highlightMetric: "43 Reel Scripts · Oct–Nov 2026",
+    contribution: "Festive Content Strategy · Visual Hooks · Scriptwriting",
+    roleDescription: "End-to-end 43-reel content roadmap keeping a boutique saree brand visible and bookable across Durga Puja, Diwali, Kali Puja, Bhai Phota, and winter wedding season.",
+    scope: [
+      "43 complete short-form reel scripts with camera plots and 2-sec visual hooks",
+      "Balanced across 4 pillars: Branding, Promotional, Social Event, Informational",
+      "5-phase campaign timeline from Pujo run through winter wedding prep",
+      "Direct conversion funnel tailored for Instagram DMs and WhatsApp inquiries"
+    ],
+    summary: "A festive content strategy ensuring a DM-booked saree boutique stays active and visible beyond the Durga Puja peak.",
+    insight: "Saree engagement drops sharply after Pujo; strategic bridges to Diwali, Bhai Phota, and wedding season sustain DM inquiries and revenue.",
+    image: "/portfolio/shimontini-cover.jpg",
+    aspect: "aspect-[16/9]",
+    caseStudyUrl: "/work/shimontini",
+  },
+  {
     id: "bisleri",
     client: "Bisleri (Spec Project)",
     title: "31-Day Winter Hydration Plan",

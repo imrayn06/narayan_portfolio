@@ -18,29 +18,37 @@ interface ExperienceItem {
 
 const marketingRoles: ExperienceItem[] = [
   {
+    period: "Dec 2025 – Present",
+    role: "Founder & Digital Marketing Consultant",
+    company: "Digitally Kolkata",
+    location: "Kolkata, India",
+    focus: "Freelance Digital Marketing, Social Media Strategy & Campaigns",
+    responsibilities: [
+      "Take on freelance digital marketing work, including social media strategy, content creation, and campaign support for businesses."
+    ],
+  },
+  {
     period: "Feb 2026 – Aug 2026",
     role: "Digital Marketing Intern",
     company: "Mind & Matter",
     location: "Kolkata, India",
-    focus: "Content Strategy & Campaign Execution Support",
+    focus: "Social Media Execution, Content Calendars & Multi-Brand Campaigns",
     responsibilities: [
-      "Supported monthly content calendar planning aligned with brand positioning and audience behavior across digital platforms.",
-      "Assisted in Meta Ads optimization workflows, marketing automation setups, and campaign coordination.",
-      "Contributed to caption copywriting and conceptualizing engaging short-form video hooks to maximize organic reach.",
-      "Coordinated with designers and account leads by communicating creative requirements and reviewing deliverable formatting."
+      "Planned, scheduled, and published social media content in Meta Business Suite for client brands including Zee Bangla Sonar, MSP Steel, Walplast, and Drychem.",
+      "Built content calendars around brand tone, campaign goals, and seasonal events; designed creatives in Canva and edited short-form videos in CapCut and VN.",
+      "Wrote captions and ad copy, researched hashtags and trends, and supported Google Ads and Meta Ads targeting, monitoring, and reporting.",
+      "Reviewed engagement data in Meta Business Suite and Google Analytics to refine content, and worked with clients and the team on briefs, approvals, and timelines."
     ],
   },
   {
     period: "Jan 2026 – Feb 2026",
     role: "Digital Marketing Intern",
     company: "JRD Ayurveda",
-    location: "Remote",
-    focus: "SEO, Performance & Organic Visibility Support",
+    location: "Kolkata, India",
+    focus: "Wellness Brand Social Planning, Creative Design & SEO",
     responsibilities: [
-      "Assisted in analyzing search intent and SEO keyword opportunities to improve organic discoverability.",
-      "Supported content planning, digital creative drafting, and basic Meta & Google Ads performance tracking.",
-      "Collaborated with creative leads to format and schedule wellness-focused social media updates.",
-      "Contributed to basic KPI reporting and tracking campaign traffic trends."
+      "Supported social media content planning and designed Canva creatives for a wellness and Ayurveda brand.",
+      "Researched keywords and competitors to find content and SEO opportunities; drafted captions and hashtags."
     ],
   },
   {
@@ -48,23 +56,9 @@ const marketingRoles: ExperienceItem[] = [
     role: "Digital Marketing Intern",
     company: "KDMI (Kolkata Digital Marketing Institute)",
     location: "Kolkata, India",
-    focus: "Integrated Digital Marketing Training & Hands-On Support",
+    focus: "Hands-on Practical Training & Live Campaigns",
     responsibilities: [
-      "Assisted in multi-channel social media scheduling and community engagement workflows.",
-      "Supported keyword research, on-page SEO audits, and content ideation across practice campaigns.",
-      "Collaborated with marketing peers to execute integrated campaign schedules and analyze performance metrics."
-    ],
-  },
-  {
-    period: "Dec 2025 – Present",
-    role: "Digital Marketing Consultant",
-    company: "Digitally Kolkata",
-    location: "Kolkata, India",
-    focus: "Local Business Growth & Performance Solutions",
-    responsibilities: [
-      "Provide localized digital marketing support tailored to small businesses, focusing on discoverability and brand presence.",
-      "Support social media handling, basic paid ads setup, and search engine optimization.",
-      "Work directly with local owners to understand business goals and execute digital initiatives."
+      "Completed hands-on training and live assignments in SEO, social media, Google Ads, Meta Ads, and analytics, including keyword research, on-page SEO audits, and campaign planning."
     ],
   },
 ];
@@ -74,8 +68,8 @@ const technicalRoles: ExperienceItem[] = [
     period: "Apr 2025 – Oct 2025",
     role: "Software Engineer",
     company: "Q3 Technologies",
-    location: "Gurgaon / Remote, India",
-    focus: "CRM Systems & Application Modernization",
+    location: "Gurgaon, India",
+    focus: "Enterprise CRM Systems & Application Modernization",
     responsibilities: [
       "Collaborated on enterprise CRM enhancement projects and application migration initiatives using .NET, Blazor, and Bootstrap.",
       "Participated in cross-functional development workflows, translating business requirements into structured technical solutions.",
@@ -86,13 +80,13 @@ const technicalRoles: ExperienceItem[] = [
     period: "Sep 2021 – Mar 2024",
     role: "Test Engineer",
     company: "Wipro",
-    location: "Kolkata, India",
+    location: "Bengaluru, India",
     focus: "Quality Assurance & Systems Validation",
     responsibilities: [
-      "Performed manual and automation testing with a focus on Salesforce CPQ systems and enterprise workflows.",
+      "Performed manual and automated regression testing on Salesforce CPQ systems with Jira defect management.",
       "Utilized Jira for structured test planning, defect tracking, and regression analysis across release lifecycles.",
       "Partnered with developers, business analysts, and QA leads to validate requirements and maintain software reliability.",
-      "Built a strong foundation in analytical thinking, quality management, and data discipline that now directly informs marketing execution."
+      "Built a strong foundation in analytical thinking, quality management, and methodical data discipline that now informs marketing execution."
     ],
   },
 ];
@@ -159,7 +153,7 @@ export default function ExperiencePage() {
               </div>
 
               <a
-                href="https://drive.google.com/file/d/1vhGt-nv2sl-yCfW5YDQWV9IJOC2qPUgw/view?usp=sharing"
+                href="https://drive.google.com/file/d/1X_G8QEqNvXD9L2pKJyUtxjafG1xzIGo8/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-dark-surface border border-white/[0.12] hover:border-white/30 text-xs font-mono uppercase tracking-[0.18em] text-warm-white transition-all shrink-0"
