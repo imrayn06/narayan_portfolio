@@ -191,6 +191,27 @@ const workArchive: WorkItem[] = [
     instaLink: "https://www.instagram.com/drychemindia/",
     fbLink: "https://www.facebook.com/DryChemIndiaPvtLtd",
   },
+  {
+    id: "nivaas-living",
+    client: "Nivaas Living (Spec)",
+    title: "“I’m Choosing a Life” 4-Part Carousel",
+    category: "SPEC",
+    isSpec: true,
+    highlightMetric: "4-Slide Narrative Carousel",
+    contribution: "Strategic Copywriting · Emotional Reframe · Carousel Art Direction",
+    roleDescription: "A self-initiated 4-part Instagram carousel campaign demonstrating consumer psychology in real estate — shifting buyers from transactional floorplans to authentic everyday living moments.",
+    scope: [
+      "Contrast hook: 'Buying a house' vs 'Choosing a life'",
+      "Hyper-relatable micro-moments: 8:40 cab, school bus at gate, sunset walks at Eco Park",
+      "Emotional community payoff: Terrace adda with neighbours who wave back",
+      "High-conversion lifestyle CTA: 'Before you buy, ask what your life will look like inside it'"
+    ],
+    summary: "Reframing real estate marketing by highlighting what traditional brochures leave out: lived daily routines and genuine community.",
+    insight: "Property decisions are emotional before they are financial. Buyers don't fall in love with square footage; they fall in love with the life they envision having inside it.",
+    image: "/portfolio/nivaas-living-slide-1.jpg",
+    aspect: "aspect-[4/3]",
+    caseStudyUrl: "/creative",
+  },
 ];
 
 export default function WorkPage() {
@@ -265,19 +286,33 @@ export default function WorkPage() {
                 <div>
                   {/* Visual Card Banner */}
                   <div className="relative w-full aspect-[16/10] bg-[#141414] border-b border-white/[0.06] flex items-center justify-center overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className={`${
-                        item.id === "bisleri"
-                          ? "object-cover"
-                          : item.id === "fifa"
-                          ? "object-cover"
-                          : "object-contain p-8"
-                      } transition-transform duration-500 group-hover:scale-105`}
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
+                    {item.image.includes("/Brand_Logo/z_bangla") || item.image.includes("/Brand_Logo/msp") || item.image.includes("/Brand_Logo/walplast") || item.image.includes("/Brand_Logo/drychem") ? (
+                      <div className="relative w-full h-full flex items-center justify-center p-8 sm:p-10">
+                        <div className="relative w-full h-full max-w-[200px] max-h-[110px] sm:max-w-[240px] sm:max-h-[130px]">
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            fill
+                            className="object-contain transition-transform duration-500 group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, 300px"
+                          />
+                        </div>
+                      </div>
+                    ) : (
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className={`${
+                          item.id === "bisleri"
+                            ? "object-cover"
+                            : item.id === "fifa"
+                            ? "object-cover"
+                            : "object-contain p-8"
+                        } transition-transform duration-500 group-hover:scale-105`}
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    )}
 
                     {/* Badge */}
                     <div className="absolute top-4 left-4 flex items-center gap-2">

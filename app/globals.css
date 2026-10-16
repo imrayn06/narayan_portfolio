@@ -106,28 +106,69 @@ html:not(.dark) :not([role="dialog"]):not([role="dialog"] *):not([aria-modal="tr
   background-color: var(--surface-1) !important;
 }
 
-/* Media Modal Theater Isolation — Guarantees perfect contrast in both dark and light modes */
+/* Media Modal Theater Isolation — Adapts perfectly to both dark and light modes */
 .modal-theater-backdrop {
-  background-color: rgba(5, 5, 8, 0.94) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
+  background-color: rgba(6, 6, 9, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .modal-theater-surface {
-  background-color: #121214 !important;
-  color: #F5F5F3 !important;
-  border-color: rgba(255, 255, 255, 0.12) !important;
+  background-color: var(--surface-1);
+  color: var(--text-primary);
+  border-color: var(--border-line);
 }
 
 .modal-theater-header,
 .modal-theater-footer {
-  background-color: #18181B !important;
-  color: #F5F5F3 !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
+  background-color: var(--surface-2);
+  color: var(--text-primary);
+  border-color: var(--border-line);
 }
 
 .modal-theater-canvas {
-  background-color: #09090B !important;
+  background-color: var(--card-media-bg);
+}
+
+/* Dark Theme Modal */
+.dark .modal-theater-backdrop {
+  background-color: rgba(6, 6, 9, 0.92) !important;
+}
+.dark .modal-theater-surface {
+  background-color: #121215 !important;
+  color: #F5F5F3 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+.dark .modal-theater-header,
+.dark .modal-theater-footer {
+  background-color: #17171C !important;
+  color: #F5F5F3 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+.dark .modal-theater-canvas {
+  background-color: #0A0A0D !important;
+}
+
+/* Light / White Theme Modal */
+html:not(.dark) .modal-theater-backdrop {
+  background-color: rgba(245, 245, 247, 0.92) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+html:not(.dark) .modal-theater-surface {
+  background-color: #FFFFFF !important;
+  color: #111113 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.18) !important;
+}
+html:not(.dark) .modal-theater-header,
+html:not(.dark) .modal-theater-footer {
+  background-color: #F8F8F7 !important;
+  color: #111113 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+html:not(.dark) .modal-theater-canvas {
+  background-color: #EEEEEC !important;
 }
 
 /* Primary CTA Button (adapts to light/dark) */
