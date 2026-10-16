@@ -265,13 +265,6 @@ export default function WorkPage() {
             </div>
           </div>
 
-          {/* Quick Notice regarding contribution */}
-          <div className="mb-12 p-4 rounded-xl bg-dark-surface border border-white/[0.06] flex items-start gap-3 text-xs font-mono text-warm-muted">
-            <span className="text-accent-blue font-bold">INFO:</span>
-            <span>
-              Work completed during internships at Mind &amp; Matter, KDMI, and JRD Ayurveda. For each brand, the level of execution contribution is explicitly noted.
-            </span>
-          </div>
 
           {/* Work Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
