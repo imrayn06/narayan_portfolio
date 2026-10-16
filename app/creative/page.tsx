@@ -140,6 +140,30 @@ const creativeWorks: CreativeItem[] = [
     size: "medium",
   },
   {
+    id: "denim-style-every-day",
+    title: "Denim Co. — “Style Every Day” Fashion Creative",
+    brand: "Denim Co. (Casual Wear Spec)",
+    category: "SOCIAL",
+    contribution: "Editorial Fashion Layout, Polaroid Cutout Concept & Social Copywriting",
+    context:
+      "Street-fashion social creative combining layered distressed denim styling, torn fabric badge branding, and an overlaid Polaroid photo cutout celebrating everyday comfort with durability.",
+    image: "/portfolio/denim-style-every-day-creative.jpg",
+    aspect: "aspect-square",
+    size: "medium",
+  },
+  {
+    id: "alphapro-running-shoes",
+    title: "AlphaPro — “Unleash Your Potential Today!” Running Shoes Banner",
+    brand: "AlphaPro Athletic Footwear",
+    category: "GRAPHICS",
+    contribution: "Promotional Banner Layout & Sports E-Commerce Copywriting",
+    context:
+      "Dual-tone promotional ad banner for athletic footwear, pairing refreshing mint and peach color blocking with high-impact value-prop messaging: 'Where Comfort Meets Performance'.",
+    image: "/portfolio/alphapro-running-shoes-banner.png",
+    aspect: "aspect-[851/315]",
+    size: "medium",
+  },
+  {
     id: "colosseum-creative",
     title: "Colosseum Fitness — “What The Mind Believes”",
     brand: "Colosseum Fitness",

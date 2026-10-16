@@ -29,16 +29,24 @@ export const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 py-5 sm:py-6 transition-all duration-300 pointer-events-none ${
-        isOpen ? "mix-blend-normal bg-dark-bg/95 md:bg-transparent" : "mix-blend-difference"
+        isOpen
+          ? "mix-blend-normal bg-dark-surface/95 backdrop-blur-md border-b border-dark-borderSubtle md:bg-transparent md:border-b-0"
+          : "mix-blend-difference"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between pointer-events-auto text-white">
-        {/* Brand Logotype (Inverts dynamically against background) */}
+      <div
+        className={`max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between pointer-events-auto transition-colors ${
+          isOpen ? "text-warm-white" : "text-white"
+        }`}
+      >
+        {/* Brand Logotype (Inverts dynamically against background when closed, theme-adaptive when open) */}
         <Link
           href="/"
-          className="group flex items-center gap-3 font-mono text-xs tracking-[0.25em] uppercase text-white hover:opacity-75 transition-opacity"
+          className={`group flex items-center gap-3 font-mono text-xs tracking-[0.25em] uppercase hover:opacity-75 transition-opacity ${
+            isOpen ? "text-warm-white" : "text-white"
+          }`}
         >
-          <span className="w-2 h-2 rounded-full bg-white" />
+          <span className={`w-2 h-2 rounded-full ${isOpen ? "bg-warm-white" : "bg-white"}`} />
           <span className="font-bold">SHENEHASHIS</span>
         </Link>
 
@@ -109,7 +117,11 @@ export const Navbar = () => {
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg border border-white/60 text-white"
+            className={`p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg transition-colors ${
+              isOpen
+                ? "border border-dark-borderSubtle text-warm-white hover:bg-dark-surface2"
+                : "border border-white/60 text-white"
+            }`}
           >
             {theme === "dark" ? (
               <FiSun size={18} />
@@ -122,7 +134,11 @@ export const Navbar = () => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close Menu" : "Open Menu"}
-            className="text-white p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg border border-white/60 hover:bg-white/20 transition-colors"
+            className={`p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg transition-colors ${
+              isOpen
+                ? "border border-dark-borderSubtle text-warm-white hover:bg-dark-surface2"
+                : "text-white border border-white/60 hover:bg-white/20"
+            }`}
           >
             {isOpen ? <FiX size={20} /> : <FiMenu size={20} />}
           </button>
