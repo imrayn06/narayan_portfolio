@@ -585,9 +585,9 @@ export default function CreativeGalleryPage() {
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-dark-surface2 hover:bg-dark-border text-warm-white border border-dark-borderSubtle font-mono text-[11px] font-semibold transition-all shadow-sm"
                           title="Open original Canva template"
                         >
-                          <SiCanva size={12} className="text-[#00C4CC]" />
+                          <SiCanva size={12} className="text-[#00C4CC]" aria-label="Canva" title="Canva" />
                           <span>Canva</span>
-                          <FiExternalLink size={10} className="text-warm-muted" />
+                          <FiExternalLink size={10} className="text-warm-muted" aria-hidden="true" />
                         </a>
                       )}
                       {item.pdfUrl && (
@@ -598,9 +598,9 @@ export default function CreativeGalleryPage() {
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-dark-surface2 hover:bg-dark-border text-warm-white border border-dark-borderSubtle font-mono text-[11px] font-semibold transition-all shadow-sm"
                           title="View PDF archive"
                         >
-                          <FiFileText size={12} className="text-accent-blue" />
+                          <FiFileText size={12} className="text-accent-blue" aria-hidden="true" />
                           <span>PDF</span>
-                          <FiExternalLink size={10} className="text-warm-muted" />
+                          <FiExternalLink size={10} className="text-warm-muted" aria-hidden="true" />
                         </a>
                       )}
                       {item.driveUrl && (
@@ -611,9 +611,9 @@ export default function CreativeGalleryPage() {
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-dark-surface2 hover:bg-dark-border text-warm-white border border-dark-borderSubtle font-mono text-[11px] font-semibold transition-all shadow-sm"
                           title="Google Drive link"
                         >
-                          <FaGoogleDrive size={11} className="text-emerald-500" />
+                          <FaGoogleDrive size={11} className="text-emerald-500" aria-label="Google Drive" title="Google Drive" />
                           <span>Drive</span>
-                          <FiExternalLink size={10} className="text-warm-muted" />
+                          <FiExternalLink size={10} className="text-warm-muted" aria-hidden="true" />
                         </a>
                       )}
                     </div>
@@ -853,9 +853,9 @@ export default function CreativeGalleryPage() {
                       className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-dark-surface2 hover:bg-dark-border text-warm-white border border-dark-borderSubtle font-mono text-[11px] font-semibold tracking-wider transition-colors shadow-sm"
                       title="Open Canva Template"
                     >
-                      <SiCanva size={12} className="text-[#00C4CC]" />
+                      <SiCanva size={12} className="text-[#00C4CC]" aria-label="Canva" title="Canva" />
                       <span>Canva</span>
-                      <FiExternalLink size={10} className="text-warm-muted" />
+                      <FiExternalLink size={10} className="text-warm-muted" aria-hidden="true" />
                     </a>
                   )}
 
@@ -867,9 +867,9 @@ export default function CreativeGalleryPage() {
                       className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-dark-surface2 hover:bg-dark-border text-warm-white border border-dark-borderSubtle font-mono text-[11px] font-semibold tracking-wider transition-colors shadow-sm"
                       title="Open full PDF document"
                     >
-                      <FiFileText size={12} className="text-accent-blue" />
+                      <FiFileText size={12} className="text-accent-blue" aria-hidden="true" />
                       <span>PDF</span>
-                      <FiExternalLink size={10} className="text-warm-muted" />
+                      <FiExternalLink size={10} className="text-warm-muted" aria-hidden="true" />
                     </a>
                   )}
 
@@ -881,9 +881,9 @@ export default function CreativeGalleryPage() {
                       className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-dark-surface2 hover:bg-dark-border text-warm-white border border-dark-borderSubtle font-mono text-[11px] font-semibold tracking-wider transition-colors shadow-sm"
                       title="Open Google Drive file"
                     >
-                      <FaGoogleDrive size={11} className="text-emerald-500" />
+                      <FaGoogleDrive size={11} className="text-emerald-500" aria-label="Google Drive" title="Google Drive" />
                       <span>Drive</span>
-                      <FiExternalLink size={10} className="text-warm-muted" />
+                      <FiExternalLink size={10} className="text-warm-muted" aria-hidden="true" />
                     </a>
                   )}
 
@@ -1014,7 +1014,7 @@ export default function CreativeGalleryPage() {
                           rel="noopener noreferrer"
                           className="font-mono text-[10px] text-accent-blue hover:underline flex items-center gap-1"
                         >
-                          <SiCanva size={10} className="text-[#00C4CC]" /> Canva
+                          <SiCanva size={10} className="text-[#00C4CC]" aria-label="Canva" title="Canva" /> Canva
                         </a>
                       )}
                       {activeItem.pdfUrl && (
@@ -1024,7 +1024,7 @@ export default function CreativeGalleryPage() {
                           rel="noopener noreferrer"
                           className="font-mono text-[10px] text-accent-blue hover:underline flex items-center gap-1"
                         >
-                          <FiFileText size={10} /> PDF
+                          <FiFileText size={10} aria-hidden="true" /> PDF
                         </a>
                       )}
                       {activeItem.driveUrl && (
@@ -1034,7 +1034,7 @@ export default function CreativeGalleryPage() {
                           rel="noopener noreferrer"
                           className="font-mono text-[10px] text-emerald-500 hover:underline flex items-center gap-1"
                         >
-                          <FaGoogleDrive size={10} /> Drive
+                          <FaGoogleDrive size={10} aria-label="Google Drive" title="Google Drive" /> Drive
                         </a>
                       )}
                     </div>

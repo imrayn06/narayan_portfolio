@@ -465,9 +465,9 @@ export default function Home() {
                             className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-dark-surface hover:bg-dark-surface2 text-warm-white border border-dark-borderSubtle font-mono text-xs font-semibold transition-all shadow-sm"
                             title="Open Canva original template"
                           >
-                            <SiCanva size={12} className="text-[#00C4CC]" />
+                            <SiCanva size={12} className="text-[#00C4CC]" aria-label="Canva" title="Canva" />
                             <span>Canva</span>
-                            <FiArrowUpRight size={12} className="text-warm-muted" />
+                            <FiArrowUpRight size={12} className="text-warm-muted" aria-hidden="true" />
                           </a>
                         )}
                         {work.pdfUrl && (
@@ -478,9 +478,9 @@ export default function Home() {
                             className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-dark-surface hover:bg-dark-surface2 text-warm-white border border-dark-borderSubtle font-mono text-xs font-semibold transition-all shadow-sm"
                             title="Open PDF"
                           >
-                            <FiFileText size={12} className="text-accent-blue" />
+                            <FiFileText size={12} className="text-accent-blue" aria-hidden="true" />
                             <span>PDF</span>
-                            <FiArrowUpRight size={12} className="text-warm-muted" />
+                            <FiArrowUpRight size={12} className="text-warm-muted" aria-hidden="true" />
                           </a>
                         )}
                         <button
@@ -815,9 +815,9 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-dark-surface2 hover:bg-dark-border text-warm-white border border-dark-borderSubtle font-mono text-[11px] font-semibold transition-all shadow-sm"
                     >
-                      <SiCanva size={12} className="text-[#00C4CC]" />
+                      <SiCanva size={12} className="text-[#00C4CC]" aria-label="Canva" title="Canva" />
                       <span>Canva</span>
-                      <FiExternalLink size={10} className="text-warm-muted" />
+                      <FiExternalLink size={10} className="text-warm-muted" aria-hidden="true" />
                     </a>
                   )}
                   {activeSlideModal.work.pdfUrl && (
@@ -826,10 +826,11 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-dark-surface2 hover:bg-dark-border text-warm-white border border-dark-borderSubtle font-mono text-[11px] font-semibold transition-all shadow-sm"
+                      title="Open PDF"
                     >
-                      <FiFileText size={12} className="text-accent-blue" />
+                      <FiFileText size={12} className="text-accent-blue" aria-hidden="true" />
                       <span>PDF</span>
-                      <FiExternalLink size={10} className="text-warm-muted" />
+                      <FiExternalLink size={10} className="text-warm-muted" aria-hidden="true" />
                     </a>
                   )}
                   <button

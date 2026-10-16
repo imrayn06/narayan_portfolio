@@ -60,6 +60,7 @@ export default function BackgroundAnimation() {
       <svg
         className="absolute inset-0 w-full h-full"
         xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
       >
         <defs>
           {/* Nebula gradients – dark */}
@@ -273,7 +274,7 @@ export default function BackgroundAnimation() {
               animate={{ x: [0, 30, 0], opacity: [0.2, 0.35, 0.2] }}
               transition={{ duration: 14, delay: c.delay, repeat: Infinity, ease: "easeInOut" }}
             >
-              <svg width={c.w} height={70} viewBox="0 0 220 70" fill="none">
+              <svg width={c.w} height={70} viewBox="0 0 220 70" fill="none" aria-hidden="true">
                 <ellipse cx="110" cy="45" rx="110" ry="25" fill="white" fillOpacity="0.6" />
                 <ellipse cx="75" cy="35" rx="65" ry="30" fill="white" fillOpacity="0.7" />
                 <ellipse cx="145" cy="38" rx="55" ry="26" fill="white" fillOpacity="0.65" />
