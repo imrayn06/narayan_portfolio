@@ -127,7 +127,7 @@ export default function ContactPage() {
                   </a>
 
                   <a
-                    href="https://github.com/imrayn06"
+                    href="https://github.com/imsneh06"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-between py-2 border-b border-white/[0.04] text-warm-white hover:text-accent-blue transition-colors group"

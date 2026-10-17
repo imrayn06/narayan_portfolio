@@ -444,7 +444,7 @@ export default function ResumePage() {
               <div className="text-[7.5pt] text-neutral-800 leading-[1.3] font-medium space-y-0.5">
                 <div>Kolkata, West Bengal 700032, India | +91 9073277478 | duttarayan3@gmail.com</div>
                 <div>
-                  LinkedIn: linkedin.com/in/im-rayn | GitHub: github.com/imrayn06 | Portfolio: narayan-portfolio-three.vercel.app
+                  LinkedIn: linkedin.com/in/im-rayn | GitHub: github.com/imsneh06 | Portfolio: narayan-portfolio-three.vercel.app
                 </div>
               </div>
             </div>

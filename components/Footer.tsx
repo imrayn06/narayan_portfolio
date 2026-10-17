@@ -88,7 +88,7 @@ export const Footer = () => {
                 <FiArrowUpRight />
               </a>
               <a
-                href="https://github.com/imrayn06"
+                href="https://github.com/imsneh06"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 hover:text-warm-white transition-colors"

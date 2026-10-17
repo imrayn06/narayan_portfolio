@@ -103,7 +103,7 @@ export default function RootLayout({
               url: "https://narayan-portfolio.vercel.app",
               sameAs: [
                 "https://www.linkedin.com/in/im-rayn/",
-                "https://github.com/imrayn06",
+                "https://github.com/imsneh06",
                 "https://x.com/imsneh06?s=09",
               ],
               knowsAbout: [
